@@ -1,0 +1,15 @@
+---
+// src/components/PageBanner.astro
+interface Props {
+  title: string;
+  subtitle: string;
+  badge: string;
+}
+const { title, subtitle, badge } = Astro.props;
+---
+<section class="page_banner_section text-center" style="background-image: url('/assets/images/shapes/bg_pattern_4.svg'); margin-top: 134px;">
+  <div class="container">
+    <div class="heading_focus_text text-white">{subtitle} <span class="badge bg-secondary">{badge}</span></div>
+    <h1 class="page_title mb-0 text-white">{title}</h1>
+  </div>
+</section>

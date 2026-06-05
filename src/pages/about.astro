@@ -1,0 +1,45 @@
+---
+// src/pages/about.astro
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Preloader from '../components/Preloader.astro';
+import BackToTop from '../components/BackToTop.astro';
+import PageBanner from '../components/PageBanner.astro';
+import AboutIntro from '../components/AboutIntro.astro';
+import AboutPolicy from '../components/AboutPolicy.astro';
+import AboutStats from '../components/AboutStats.astro';
+import AboutTeam from '../components/AboutTeam.astro';
+import CTA from '../components/CTA.astro';
+---
+
+<BaseLayout
+  title="Tentang Kami — JalaninWeb.com"
+  description="Kenali JalaninWeb lebih dalam — misi, visi, tim, dan perjalanan kami membantu ratusan bisnis hadir secara digital dengan website profesional."
+>
+  <Preloader />
+  <BackToTop />
+
+  <main class="page_content">
+
+    <PageBanner
+      title="Tentang JalaninWeb"
+      subtitle="Tentang Kami"
+      badge="Our Story 🙂"
+    />
+
+    <!-- 1. Intro: gambar + deskripsi perusahaan -->
+    <AboutIntro />
+
+    <!-- 2. History, Mission, Vision -->
+    <AboutPolicy />
+
+    <!-- 3. Client logos + counter stats -->
+    <AboutStats />
+
+    <!-- 4. Team carousel -->
+    <AboutTeam />
+
+    <!-- 5. CTA -->
+    <CTA />
+
+  </main>
+</BaseLayout>

@@ -1,0 +1,16 @@
+---
+// src/components/ContactMap.astro
+// Ganti src iframe dengan embed Google Maps lokasi kamu:
+// maps.google.com → Share → Embed a map → salin URL iframe-nya
+const mapSrc = "https://maps.google.com/maps?q=-7.2819835,112.786044&t=&z=17&ie=UTF8&iwloc=&output=embed";
+---
+
+<div class="gmap_canvas ps-lg-5 h-100">
+  <iframe
+    src={mapSrc}
+    title="Lokasi JalaninWeb — Jl. Rodah Sekolahan No.21, Gebang Putih, Sukolilo, Surabaya"
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"
+    allowfullscreen
+  ></iframe>
+</div>

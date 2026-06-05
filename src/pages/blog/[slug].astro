@@ -1,0 +1,89 @@
+---
+// src/pages/blog/[slug].astro
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BlogDetail from '../../components/BlogDetail.astro';
+import BlogSidebar from '../../components/BlogSidebar.astro';
+import CTA from '../../components/CTA.astro';
+import { blogs, getBlogBySlug } from '../../data/blog';
+import type { GetStaticPaths } from 'astro';
+
+export const getStaticPaths: GetStaticPaths = () => {
+  return blogs.map(b => ({ params: { slug: b.slug } }));
+};
+
+const { slug } = Astro.params;
+const blog = getBlogBySlug(slug!);
+
+if (!blog) return Astro.redirect('/blog');
+
+// Prev & Next artikel
+const idx = blogs.findIndex(b => b.slug === slug);
+const prev = blogs[idx - 1];
+const next = blogs[idx + 1];
+---
+
+<BaseLayout
+  title={`${blog.title} - JalaninWeb.com`}
+  description={blog.metaDesc}
+>
+  <main class="page_content">
+
+    <!-- Page Banner -->
+    <section
+      class="page_banner_section text-center"
+      style="background-image: url('/assets/images/shapes/bg_pattern_4.svg');"
+    >
+      <div class="container">
+        <div class="heading_focus_text text-white">
+          Blog <span class="badge bg-secondary">{blog.badge} 😍</span>
+        </div>
+        <h1 class="page_title mb-0 text-white">{blog.title}</h1>
+        <ul class="breadcrumb_nav unordered_list justify-content-center mt-3">
+          <li><a href="/">Home</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li>{blog.category}</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Blog Detail + Sidebar -->
+    <BlogDetail blog={blog}>
+      <BlogSidebar slot="sidebar" />
+    </BlogDetail>
+
+    <!-- Prev / Next Navigation -->
+    <section class="section_space bg-light pt-0">
+      <div class="container">
+        <hr class="mb-5" />
+        <div class="other_posts_nav">
+          {prev ? (
+            <a href={`/blog/${prev.slug}`}>
+              <i class="fa-regular fa-arrow-left-long"></i>
+              <span>
+                <strong>{prev.title}</strong>
+                <small>{prev.date}</small>
+              </span>
+            </a>
+          ) : <span></span>}
+
+          <a href="/blog" aria-label="Kembali ke semua artikel">
+            <i class="fa-solid fa-grid-2"></i>
+          </a>
+
+          {next ? (
+            <a href={`/blog/${next.slug}`}>
+              <span>
+                <strong>{next.title}</strong>
+                <small>{next.date}</small>
+              </span>
+              <i class="fa-regular fa-arrow-right-long"></i>
+            </a>
+          ) : <span></span>}
+        </div>
+      </div>
+    </section>
+
+    <CTA />
+
+  </main>
+</BaseLayout>

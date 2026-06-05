@@ -1,0 +1,125 @@
+---
+// src/components/AboutStats.astro
+// Berisi: client logo carousel + funfact counter + employees card
+
+const clientLogos = [
+  "/assets/images/clients/client_logo_1.webp",
+  "/assets/images/clients/client_logo_2.webp",
+  "/assets/images/clients/client_logo_3.webp",
+  "/assets/images/clients/client_logo_4.webp",
+  "/assets/images/clients/client_logo_5.webp",
+  "/assets/images/clients/client_logo_6.webp",
+  "/assets/images/clients/client_logo_7.webp",
+];
+
+// Duplikat 3x agar carousel loop seamless
+const slides = [...clientLogos, ...clientLogos, ...clientLogos];
+
+const stats = [
+  {
+    icon: "/assets/images/icons/icon_head.svg",
+    iconAlt: "Experience Icon",
+    count: "3",
+    suffix: "+",
+    label: "Tahun Berpengalaman",
+  },
+  {
+    icon: "/assets/images/icons/icon_check.svg",
+    iconAlt: "Project Icon",
+    count: "99",
+    suffix: "+",
+    label: "Proyek Selesai",
+  },
+  {
+    icon: "/assets/images/icons/icon_like.svg",
+    iconAlt: "Client Icon",
+    count: "150",
+    suffix: "+",
+    label: "Klien Puas",
+  },
+  {
+    icon: "/assets/images/icons/icon_dart_board.svg",
+    iconAlt: "Satisfaction Icon",
+    count: "100",
+    suffix: "%",
+    label: "Kepuasan Klien",
+  },
+];
+---
+
+<section class="client_logo_section section_space">
+  <div class="container">
+    <!-- Client Logo Carousel -->
+    <div class="section_space pt-0">
+      <div class="heading_block text-center">
+        <div class="heading_focus_text mb-0">
+          <span class="badge bg-secondary text-white">Klien Kami</span>
+          Yang Telah Mempercayai Kami
+        </div>
+      </div>
+      <div class="client_logo_carousel swiper">
+        <div class="swiper-wrapper">
+          {
+            slides.map((logo, i) => (
+              <div class="swiper-slide">
+                <div class="client_logo_item">
+                  <img
+                    src={logo}
+                    alt={`Client Logo ${(i % clientLogos.length) + 1}`}
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+
+    <!-- Funfact + Employees -->
+    <div class="row funfact_wrapper">
+      <div class="col-lg-8">
+        <div class="row">
+          {
+            stats.map((stat) => (
+              <div class="col-md-6">
+                <div class="funfact_block">
+                  <div class="funfact_icon">
+                    <img src={stat.icon} alt={stat.iconAlt} loading="lazy" />
+                  </div>
+                  <div class="funfact_content">
+                    <div class="counter_value">
+                      <span class="odometer" data-count={stat.count}>
+                        0
+                      </span>
+                      <span>{stat.suffix}</span>
+                    </div>
+                    <h3 class="funfact_title mb-0">{stat.label}</h3>
+                  </div>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="our_world_employees">
+          <div class="image_wrap">
+            <img
+              src="/assets/images/about/about_image_1.webp"
+              alt="Tim JalaninWeb"
+              loading="lazy"
+            />
+          </div>
+          <div class="content_wrap">
+            <h3 class="title_text mb-0">
+              <b class="d-block">Berbasis di Surabaya</b>
+              Melayani klien di seluruh Indonesia
+            </h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

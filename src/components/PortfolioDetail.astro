@@ -1,0 +1,86 @@
+---
+// src/components/PortfolioDetail.astro
+import type { Portfolio } from '../data/portfolio';
+
+interface Props {
+  portfolio: Portfolio;
+}
+
+const { portfolio } = Astro.props;
+---
+
+<section class="portfolio_details_section section_space bg-light">
+  <div class="container">
+    <div class="details_item_image mb-5">
+      <img class="w-100 rounded" src={portfolio.detailImage} alt={portfolio.title} loading="lazy" />
+    </div>
+    
+    <h2 class="details_item_title">{portfolio.title}</h2>
+    <p>{portfolio.description1}</p>
+    <p class="mb-0">{portfolio.description2}</p>
+    
+    <hr>
+    
+    <ul class="portfolio_details_info_list icon_list unordered_list justify-content-lg-between mb-5">
+      <li>
+        <span class="icon_list_text">
+          <strong class="text-dark text-uppercase">Layanan:</strong>
+          {portfolio.service}
+        </span>
+      </li>
+      <li>
+        <span class="icon_list_text">
+          <strong class="text-dark text-uppercase">Klien:</strong>
+          {portfolio.client}
+        </span>
+      </li>
+      <li>
+        <span class="icon_list_text">
+          <strong class="text-dark text-uppercase">Lokasi:</strong>
+          {portfolio.location}
+        </span>
+      </li>
+      <li>
+        <span class="icon_list_text">
+          <strong class="text-dark text-uppercase">Tanggal Selesai:</strong>
+          {portfolio.date}
+        </span>
+      </li>
+    </ul>
+
+    <h3 class="details_item_info_title pt-4">Kebutuhan Proyek</h3>
+    <p>{portfolio.requirementsText}</p>
+    
+    <div class="row mb-4">
+      <div class="col-lg-5">
+        <ul class="icon_list unordered_list_block">
+          {portfolio.requirementsList1.map((req) => (
+            <li>
+              <span class="icon_list_icon">
+                <img src="/assets/images/icons/icon_check_3.svg" alt="Check Icon" loading="lazy" />
+              </span>
+              <span class="icon_list_text">{req}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div class="col-lg-5">
+        <ul class="icon_list unordered_list_block">
+          {portfolio.requirementsList2.map((req) => (
+            <li>
+              <span class="icon_list_icon">
+                <img src="/assets/images/icons/icon_check_3.svg" alt="Check Icon" loading="lazy" />
+              </span>
+              <span class="icon_list_text">{req}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="details_item_info_title pt-4">Solusi & Hasil</h3>
+    <p>{portfolio.solution1}</p>
+    <p>{portfolio.solution2}</p>
+
+  </div>
+</section>

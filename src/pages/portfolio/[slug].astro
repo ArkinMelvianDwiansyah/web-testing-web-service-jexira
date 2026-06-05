@@ -1,0 +1,102 @@
+---
+// src/pages/portfolio/[slug].astro
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PortfolioDetail from '../../components/PortfolioDetail.astro';
+import { portfolios } from '../../data/portfolio';
+
+// Fungsi wajib Astro untuk Dynamic Routing
+export function getStaticPaths() {
+  return portfolios.map((portfolio) => ({
+    params: { slug: portfolio.slug },
+    props: { portfolio },
+  }));
+}
+
+// Menangkap data yang dikirim dari getStaticPaths
+const { portfolio } = Astro.props;
+
+// LOGIKA BARU UNTUK RELATED PROJECTS:
+// Ambil semua data portofolio -> Kecualikan yang sedang dibuka -> Ambil 2 saja
+const relatedProjects = portfolios
+  .filter((p) => p.slug !== portfolio.slug)
+  .slice(0, 2);
+---
+
+<BaseLayout title={`${portfolio.title} - Detail Portofolio`}>
+  
+  <section class="page_banner_section text-center" style="background-image: url('/assets/images/shapes/bg_pattern_4.svg'); margin-top: 134px;">
+    <div class="container">
+      <div class="heading_focus_text text-white">
+        Portfolio 
+        <span class="badge bg-secondary">Detail 😍</span>
+      </div>
+      <h1 class="page_title mb-0 text-white">{portfolio.title}</h1>
+    </div>
+  </section>
+
+  <PortfolioDetail portfolio={portfolio} />
+
+  <section class="portfolio_section portfolio_section-improve section_space bg-light">
+    <div class="container">
+      <hr class="mb-5"> 
+      <h3 class="details_item_info_title mb-4">Proyek Terkait</h3>
+      
+      <div class="row">
+        {relatedProjects.map((project) => (
+          <div class="col-lg-6">
+            <div class="portfolio_block portfolio_layout_2">
+              <div class="portfolio_image">
+                <a class="portfolio_image_wrap bg-light" href={`/portfolio/${project.slug}`}>
+                  <img src={project.image} alt={project.title} loading="lazy" />
+                </a>
+              </div>
+              <div class="portfolio_content">
+                <h3 class="portfolio_title">
+                  <a href={`/portfolio/${project.slug}`}>
+                    {project.title}
+                  </a>
+                </h3>
+                <ul class="category_list unordered_list">
+                  <li>
+                    <a href={`/portfolio/${project.slug}`}>
+                      <i class="fa-solid fa-tags"></i> {project.service}
+                    </a>
+                  </li>
+                  <li>
+                    <a href={`/portfolio/${project.slug}`}>
+                      <i class="fa-solid fa-building"></i> {project.client}
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="calltoaction_section parallaxie" style="background-image: url('/assets/images/backgrounds/bg_image_1.webp');">
+    <div class="container text-center">
+      <div class="heading_block text-white">
+        <h2 class="heading_text">Siap Berkolaborasi? Ayo Ngobrol!</h2>
+        <p class="heading_description mb-0">
+          Tim ahli kami siap mendampingi Anda di setiap langkah — mulai dari konsultasi awal hingga implementasi penuh. Ceritakan kebutuhan Anda, dan kami akan wujudkan solusinya.
+        </p>
+      </div>
+      <a class="btn btn-primary" href="/contact">
+        <span class="btn_label" data-text="Hubungi Kami Sekarang!">Hubungi Kami Sekarang!</span>
+        <span class="btn_icon">
+          <i class="fa-solid fa-arrow-up-right"></i>
+        </span>
+      </a>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .portfolio_section-improve {
+    margin-top: -240px;
+  }
+</style>

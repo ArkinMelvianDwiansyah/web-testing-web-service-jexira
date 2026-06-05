@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>JalaninWeb — Coming Soon</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
+  <style>
+    *{
+      font-family: 'Inter', sans-serif;
+    }
+
+    body{
+      overflow:hidden;
+      background:#030712;
+    }
+
+    /* Background Grid */
+    .grid-bg{
+      background-image:
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size:40px 40px;
+    }
+
+    /* Glass Effect */
+    .glass{
+      background:rgba(255,255,255,0.05);
+      backdrop-filter:blur(20px);
+      border:1px solid rgba(255,255,255,0.08);
+      box-shadow:0 0 50px rgba(0,0,0,0.35);
+    }
+
+    /* Glow */
+    .glow{
+      position:absolute;
+      border-radius:9999px;
+      filter:blur(120px);
+      opacity:.35;
+      animation:float 10s ease-in-out infinite;
+    }
+
+    .glow2{
+      animation-delay:2s;
+    }
+
+    @keyframes float{
+      0%,100%{
+        transform:translateY(0px) translateX(0px);
+      }
+      50%{
+        transform:translateY(-30px) translateX(20px);
+      }
+    }
+
+    /* Gradient Text */
+    .shine{
+      background:linear-gradient(
+        90deg,
+        #22d3ee,
+        #3b82f6,
+        #a855f7,
+        #ec4899
+      );
+
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+
+    /* Pulse */
+    .pulse-ring{
+      animation:pulse 2s infinite;
+    }
+
+    @keyframes pulse{
+      0%{
+        transform:scale(.96);
+        opacity:.7;
+      }
+
+      70%{
+        transform:scale(1);
+        opacity:1;
+      }
+
+      100%{
+        transform:scale(.96);
+        opacity:.7;
+      }
+    }
+
+    /* Mobile */
+    @media(max-width:768px){
+      body{
+        overflow:auto;
+      }
+    }
+  </style>
+</head>
+
+<body class="min-h-screen flex items-center justify-center text-white relative grid-bg px-4 py-10">
+
+  <!-- Background Glow -->
+  <div class="glow w-[320px] h-[320px] bg-cyan-500 top-[-100px] left-[-100px]"></div>
+
+  <div class="glow glow2 w-[280px] h-[280px] bg-fuchsia-600 bottom-[-100px] right-[-100px]"></div>
+
+  <!-- Main -->
+  <div class="relative z-10 w-full max-w-4xl">
+
+    <div class="glass rounded-[32px] px-6 md:px-12 py-10 md:py-14">
+
+      <!-- Badge -->
+      <div class="flex justify-center mb-6">
+
+        <div class="pulse-ring px-4 py-2 rounded-full bg-white/10 border border-white/10 text-xs md:text-sm tracking-wide text-gray-300">
+          ⚡ New Experience Is Loading
+        </div>
+
+      </div>
+
+      <!-- Logo -->
+      <div class="text-center mb-6">
+
+        <h2 class="text-xl md:text-2xl font-black tracking-[4px] shine">
+          JALANINWEB.COM
+        </h2>
+
+      </div>
+
+      <!-- Heading -->
+      <div class="text-center">
+
+        <h1 class="text-4xl md:text-6xl font-black leading-[1.05] mb-6">
+
+          WE ARE
+          <span class="shine">
+            COOKING
+          </span>
+
+          <br>
+
+          SOMETHING AWESOME
+
+        </h1>
+
+        <p class="text-gray-400 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+          Website sedang dipersiapkan dengan tampilan yang lebih modern,
+          cepat, dan powerful untuk pengalaman digital yang lebih maksimal.
+        </p>
+
+      </div>
+
+      <!-- Countdown -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10 max-w-3xl mx-auto">
+
+        <!-- Days -->
+        <div class="glass rounded-2xl p-5 text-center">
+
+          <h2 id="days" class="text-3xl md:text-4xl font-extrabold text-cyan-400">
+            00
+          </h2>
+
+          <p class="text-gray-400 mt-1 text-sm">
+            Days
+          </p>
+
+        </div>
+
+        <!-- Hours -->
+        <div class="glass rounded-2xl p-5 text-center">
+
+          <h2 id="hours" class="text-3xl md:text-4xl font-extrabold text-blue-400">
+            00
+          </h2>
+
+          <p class="text-gray-400 mt-1 text-sm">
+            Hours
+          </p>
+
+        </div>
+
+        <!-- Minutes -->
+        <div class="glass rounded-2xl p-5 text-center">
+
+          <h2 id="minutes" class="text-3xl md:text-4xl font-extrabold text-fuchsia-400">
+            00
+          </h2>
+
+          <p class="text-gray-400 mt-1 text-sm">
+            Minutes
+          </p>
+
+        </div>
+
+        <!-- Seconds -->
+        <div class="glass rounded-2xl p-5 text-center">
+
+          <h2 id="seconds" class="text-3xl md:text-4xl font-extrabold text-pink-400">
+            00
+          </h2>
+
+          <p class="text-gray-400 mt-1 text-sm">
+            Seconds
+          </p>
+
+        </div>
+
+      </div>
+
+      <!-- Instagram -->
+      <div class="mt-10 flex justify-center">
+
+        <a href="https://instagram.com/jalaninweb"
+          target="_blank"
+          class="group glass px-5 py-3 rounded-2xl flex items-center gap-3 hover:scale-105 duration-300">
+
+          <!-- Icon -->
+          <div class="w-11 h-11 rounded-xl bg-gradient-to-r from-pink-500 via-fuchsia-500 to-orange-400 flex items-center justify-center text-lg">
+
+            <i class="fa-brands fa-instagram"></i>
+
+          </div>
+
+          <!-- Text -->
+          <div class="text-left leading-tight">
+
+            <p class="text-xs text-gray-400">
+              Follow Our Journey
+            </p>
+
+            <h3 class="font-bold text-base group-hover:text-fuchsia-400 duration-300">
+              @jalaninweb.com
+            </h3>
+
+          </div>
+
+        </a>
+
+      </div>
+
+      <!-- Footer -->
+      <div class="text-center mt-10">
+
+        <p class="text-gray-500 text-xs md:text-sm">
+          Crafted with passion, innovation, and a little bit of caffeine ☕
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Countdown Script -->
+  <script>
+
+    const targetDate = new Date();
+    targetDate.setDate(targetDate.getDate() + 14);
+
+    function updateCountdown() {
+
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+
+      const hours = Math.floor(
+        (distance % (1000 * 60 * 60 * 24)) /
+        (1000 * 60 * 60)
+      );
+
+      const minutes = Math.floor(
+        (distance % (1000 * 60 * 60)) /
+        (1000 * 60)
+      );
+
+      const seconds = Math.floor(
+        (distance % (1000 * 60)) /
+        1000
+      );
+
+      document.getElementById("days").innerHTML =
+        String(days).padStart(2, '0');
+
+      document.getElementById("hours").innerHTML =
+        String(hours).padStart(2, '0');
+
+      document.getElementById("minutes").innerHTML =
+        String(minutes).padStart(2, '0');
+
+      document.getElementById("seconds").innerHTML =
+        String(seconds).padStart(2, '0');
+    }
+
+    updateCountdown();
+
+    setInterval(updateCountdown, 1000);
+
+  </script>
+
+</body>
+</html>

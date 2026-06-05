@@ -1,0 +1,88 @@
+---
+interface Props {
+  title?: string;
+  badgeHighlight?: string;
+}
+
+const {
+  title = "Apa Kata Klien Tentang Kami",
+  badgeHighlight = "Klien"
+} = Astro.props;
+
+const reviews = [
+  {
+    title: "Website Franchise Coffeshop",
+    comment: "Website yang dibuat sangat profesional dan mudah digunakan. Setelah website live, pelanggan jadi lebih percaya dan mudah menghubungi kami.",
+    name: "Andi Simatupang",
+    role: "Owner Coffee Shop",
+    image: "/assets/images/avatar/avatar_4.webp"
+  },
+  {
+    title: "Portofolio Website",
+    comment: "Portofolio online saya jadi terlihat lebih profesional. Sangat membantu untuk melamar pekerjaan.",
+    name: "Raden Wahyu",
+    role: "UI/UX Designer",
+    image: "/assets/images/avatar/avatar_5.webp"
+  },
+  {
+    title: "Landingpage Perusahaan",
+    comment: "Prosesnya cepat, komunikatif, dan hasilnya sesuai ekspektasi. Tim sangat membantu dari awal sampai launching.",
+    name: "Rina Putri",
+    role: "Manager CV Semoga Rezeki",
+    image: "/assets/images/avatar/avatar_6.webp"
+  },
+  {
+    title: "Website Pabrik Furniture",
+    comment: "Sebelumnya kami hanya mengandalkan pemasaran offline. Setelah memiliki website, calon pelanggan jadi lebih mudah melihat produk dan menghubungi kami. Sekarang bisnis terasa lebih profesional dan dipercaya klien besar.",
+    name: "Budi Santoso",
+    role: "Owner Pabrik Furniture",
+    image: "/assets/images/avatar/avatar_7.webp"
+  }
+];
+---
+
+<section class="review_section section_space bg-light" style="background-image: url('/assets/images/shapes/bg_pattern_2.svg');">
+  <div class="container">
+    <div class="heading_block text-center">
+      <div class="heading_focus_text">
+        Testimoni 
+        <span class="badge bg-secondary text-white">{badgeHighlight}</span> 
+      </div>
+      <h2 class="heading_text mb-0">
+        {title}
+      </h2>
+    </div>
+    <div class="row">
+      <div class="col-lg-6">
+        {reviews.slice(0, 2).map((review) => (
+          <div class="review_block pb-0">
+            <h3 class="review_title">{review.title}</h3>
+            <p class="review_commtent">"{review.comment}"</p>
+            <div class="review_admin">
+              <div class="review_admin_image"><img src={review.image} alt={review.name} /></div>
+              <div class="review_admin_info"><h4 class="review_admin_name">{review.name}</h4><span class="review_admin_designation">{review.role}</span></div>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div class="col-lg-6">
+        {reviews.slice(2, 4).map((review) => (
+          <div class="review_block pb-0">
+            <h3 class="review_title">{review.title}</h3>
+            <p class="review_commtent">"{review.comment}"</p>
+            <div class="review_admin">
+              <div class="review_admin_image"><img src={review.image} alt={review.name} /></div>
+              <div class="review_admin_info"><h4 class="review_admin_name">{review.name}</h4><span class="review_admin_designation">{review.role}</span></div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+  .portfolio_section:has(.portfolio_carousel) + .review_section {
+    padding-top: 490px;
+    margin-top: -375px;
+  }
+</style>

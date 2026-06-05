@@ -1,0 +1,211 @@
+---
+// src/components/BlogDetail.astro
+import type { BlogData } from '../data/blog';
+
+interface Props {
+  blog: BlogData;
+}
+
+const { blog } = Astro.props;
+---
+
+<section class="blog_details_section section_space bg-light">
+  <div class="container">
+
+    <!-- Hero Image -->
+    <div class="details_item_image">
+      <img src={blog.heroImage} alt={blog.title} loading="lazy" />
+    </div>
+
+    <!-- Meta & Title -->
+    <div class="post_meta_wrap mb-4">
+      <ul class="category_btns_group unordered_list">
+        <li><a href={`/blog/category/${blog.category.toLowerCase().replace(/\s+/g, '-')}`}>{blog.category}</a></li>
+      </ul>
+      <ul class="post_meta unordered_list">
+        <li>
+          <a href="#!">
+            <img src="/assets/images/icons/icon_calendar.svg" alt="Tanggal" loading="lazy" /> {blog.date}
+          </a>
+        </li>
+        <li>
+          <a href="#!">
+            <i class="fa-regular fa-clock"></i> {blog.readTime}
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <h2 class="details_item_title">{blog.title}</h2>
+    <p>{blog.intro}</p>
+
+    <!-- Author & Stats -->
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <ul class="post_meta unordered_list">
+          <li>
+            <a href="#!">
+              <img src="/assets/images/icons/icon_user.svg" alt="Penulis" loading="lazy" />
+              oleh {blog.author.name}
+            </a>
+          </li>
+          <li>
+            <a href="#!">
+              <i class="fa-regular fa-comment-lines"></i> Komentar
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-6">
+        <ul class="post_meta unordered_list justify-content-md-end">
+          <li>
+            <a href="#!">
+              <img src="/assets/images/icons/icon_bookmark.svg" alt="Simpan" loading="lazy" /> Simpan
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <hr class="mb-0" />
+
+    <!-- Main Content -->
+    <div class="section_space pb-0">
+      <div class="row">
+
+        <!-- Left: Main Article Content -->
+        <div class="col-lg-8">
+
+          <!-- Content Images -->
+          <div class="row mb-4 mt-4">
+            <div class="col-md-6 col-sm-6">
+              <div class="details_item_image m-0">
+                <img src={blog.contentImages[0]} alt={`${blog.title} - Gambar 1`} loading="lazy" />
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-6">
+              <div class="details_item_image m-0">
+                <img src={blog.contentImages[1]} alt={`${blog.title} - Gambar 2`} loading="lazy" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Section Content -->
+          <h3 class="details_item_info_title mb-4">{blog.sectionTitle}</h3>
+          <p>{blog.sectionBody}</p>
+
+          <!-- Key Points + Image -->
+          <div class="row align-items-center mb-5">
+            <div class="col-md-6">
+              <div class="details_item_image m-0">
+                <img src={blog.sectionImage} alt={`${blog.title} - ilustrasi`} loading="lazy" />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <ul class="icon_list unordered_list_block">
+                {blog.keyPoints.map(point => (
+                  <li>
+                    <span class="icon_list_icon">
+                      <i class="fa-solid fa-circle fa-fw"></i>
+                    </span>
+                    <span class="icon_list_text">{point}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <!-- Reasons Section -->
+          <h3 class="details_item_info_title">{blog.reasonsTitle}</h3>
+          <p class="mb-2">Berikut fakta dan alasan kuat yang perlu kamu ketahui:</p>
+          <ul class="icon_list unordered_list_block mb-5">
+            {blog.reasons.map((reason, i) => (
+              <li>
+                <span class="icon_list_text">{i + 1}. {reason}</span>
+              </li>
+            ))}
+          </ul>
+
+          <hr class="mt-0 mb-5" />
+
+          <!-- Tags & Share -->
+          <div class="row">
+            <div class="col-md-6">
+              <ul class="tags_list unordered_list">
+                {blog.tags.map(tag => (
+                  <li>
+                    <a href={`/blog/tag/${tag.toLowerCase().replace(/\s+/g, '-')}`}>{tag}</a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <div class="post_share_link">
+                <ul class="social_icons_block unordered_list justify-content-md-end">
+                  <li>
+                    <a class="rounded-circle" href="#!" aria-label="Bagikan ke Facebook">
+                      <img src="/assets/images/icons/icon_facebook.svg" alt="Facebook" loading="lazy" />
+                    </a>
+                  </li>
+                  <li>
+                    <a class="rounded-circle" href="#!" aria-label="Bagikan ke Twitter">
+                      <img src="/assets/images/icons/icon_twitter_x.svg" alt="Twitter X" loading="lazy" />
+                    </a>
+                  </li>
+                  <li>
+                    <a class="rounded-circle" href="#!" aria-label="Bagikan ke LinkedIn">
+                      <img src="/assets/images/icons/icon_linkedin.svg" alt="LinkedIn" loading="lazy" />
+                    </a>
+                  </li>
+                  <li>
+                    <a class="rounded-circle" href="#!" aria-label="Bagikan ke Instagram">
+                      <img src="/assets/images/icons/icon_instagram.svg" alt="Instagram" loading="lazy" />
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Author Box -->
+          <div class="post_author_box">
+            <div class="author_image">
+              <img src={blog.author.avatar} alt={blog.author.name} loading="lazy" />
+            </div>
+            <div class="author_content">
+              <h3 class="author_name">Tentang {blog.author.name}</h3>
+              <h4 class="author_designation">{blog.author.designation}</h4>
+              <p>
+                Tim konten JalaninWeb.com berkomitmen menghadirkan artikel edukatif seputar dunia website, bisnis digital, dan strategi pemasaran online untuk UMKM dan pelaku bisnis di Indonesia.
+              </p>
+              <ul class="author_social_icons unordered_list">
+                <li>
+                  <a class="rounded-circle" href="#!" aria-label="Facebook">
+                    <i class="fa-brands fa-facebook-f"></i>
+                  </a>
+                </li>
+                <li>
+                  <a class="rounded-circle" href="#!" aria-label="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                  </a>
+                </li>
+                <li>
+                  <a class="rounded-circle" href="#!" aria-label="LinkedIn">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right: Sidebar -->
+        <div class="col-lg-4">
+          <slot name="sidebar" />
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,54 @@
+---
+// src/components/PortfolioGrid.astro
+import { portfolios } from '../data/portfolio';
+---
+
+<section class="portfolio_section section_space bg-light">
+  <div class="container">
+    <div class="filter_elements_nav">
+      <ul class="unordered_list justify-content-center">
+        <li class="active" data-filter="all">Semua</li>
+        <li data-filter="branding">Branding</li>
+        <li data-filter="aplikasi">Aplikasi</li>
+        <li data-filter="webdesign">Web Design</li>
+        <li data-filter="infrastruktur">Infrastruktur IT</li>
+      </ul>
+    </div>
+    <div class="filter_elements_wrapper row">
+      {portfolios.map((portfolio) => (
+        <div class={`col-lg-6 ${portfolio.filter}`}>
+          <div class="portfolio_block portfolio_layout_2">
+            <div class="portfolio_image">
+              <a class="portfolio_image_wrap bg-light" href={`/portfolio/${portfolio.slug}`}>
+                <img
+                  src={portfolio.image}
+                  alt={portfolio.title}
+                  loading="lazy"
+                />
+              </a>
+            </div>
+            <div class="portfolio_content">
+              <h3 class="portfolio_title">
+                <a href={`/portfolio/${portfolio.slug}`}>
+                  {portfolio.title}
+                </a>
+              </h3>
+              <ul class="category_list unordered_list">
+                <li>
+                  <a href="/portfolio">
+                    <i class={portfolio.categoryIcon}></i> {portfolio.service}
+                  </a>
+                </li>
+                <li>
+                  <a href="/portfolio">
+                    <i class="fa-solid fa-building"></i> {portfolio.client}
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

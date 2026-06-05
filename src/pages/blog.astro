@@ -1,0 +1,427 @@
+---
+// src/pages/blog.astro
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTA from '../components/CTA.astro';
+import Preloader from '../components/Preloader.astro';
+import BackToTop from '../components/BackToTop.astro';
+import PageBanner from '../components/PageBanner.astro';
+import BlogFeaturedSlider from '../components/BlogFeaturedSlider.astro';
+import { blogs, getBlogCategories, getAllTags } from '../data/blog';
+
+const categories = getBlogCategories();
+const tags = getAllTags();
+const POSTS_PER_PAGE = 4;
+
+// Semua post dikirim ke client sebagai JSON untuk filtering/search/pagination
+const allPostsJson = JSON.stringify(blogs.map(b => ({
+  slug: b.slug,
+  title: b.title,
+  category: b.category,
+  date: b.date,
+  readTime: b.readTime,
+  image: b.image,
+  excerpt: b.excerpt,
+  comments: b.comments,
+  tags: b.tags,
+})));
+---
+
+<BaseLayout
+  title="Blog & Tips Website — JalaninWeb.com"
+  description="Tips website, panduan bisnis digital, dan update terbaru dari JalaninWeb."
+>
+  <Preloader />
+  <BackToTop />
+
+  <main class="page_content">
+    <PageBanner
+      title="Blog & Tips Website"
+      subtitle="Wawasan"
+      badge="Digital 💡"
+    />
+
+    <section class="blog_section section_space bg-light">
+      <div class="container">
+
+        <!-- Featured Slider -->
+        <div class="blog_featured_wrap mb-5">
+          <BlogFeaturedSlider />
+        </div>
+
+        <div class="row g-5">
+
+          <!-- ===== Post List (kiri) ===== -->
+          <div class="col-lg-8">
+
+            <!-- Post cards container — diisi oleh JS -->
+            <div id="blog-post-wrap" class="blog_post_wrap d-flex flex-column gap-4">
+              <!-- skeleton placeholder saat JS belum load -->
+              {blogs.slice(0, POSTS_PER_PAGE).map((post) => (
+                <div class="blog_post_block image_left_layout" data-slug={post.slug}>
+                  {post.image && (
+                    <div class="blog_post_image">
+                      <a class="image_wrap" href={`/blog/${post.slug}`} aria-label={post.title}>
+                        <img src={post.image} alt={post.title} loading="lazy" style="width: 100%; height: 100%; object-fit: cover;" />
+                      </a>
+                    </div>
+                  )}
+                  <div class="blog_post_content">
+                    <div class="post_meta_wrap">
+                      <ul class="category_btns_group unordered_list">
+                        <li>
+                          <a href={`/blog/category/${post.category.toLowerCase().replace(/\s+/g, '-')}`}>{post.category}</a>
+                        </li>
+                      </ul>
+                      <ul class="post_meta unordered_list">
+                        <li>
+                          <a href="#!">
+                            <img src="/assets/images/icons/icon_calendar.svg" alt="Calendar Icon" loading="lazy" /> {post.date}
+                          </a>
+                        </li>
+                        {post.comments > 0 && (
+                          <li>
+                            <a href="#!">
+                              <i class="fa-regular fa-comment-lines"></i> {post.comments}
+                            </a>
+                          </li>
+                        )}
+                        <li>
+                          <i class="fa-regular fa-clock"></i> {post.readTime}
+                        </li>
+                      </ul>
+                    </div>
+                    <h3 class="blog_post_title">
+                      <a href={`/blog/${post.slug}`}>{post.title}</a>
+                    </h3>
+                    <p class="mb-0" style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">{post.excerpt}</p>
+                    <a class="blog_read_more" href={`/blog/${post.slug}`}>
+                      Baca Selengkapnya
+                      <i class="fa-solid fa-arrow-up-right ms-2"></i>
+                    </a>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <!-- No result message -->
+            <div id="blog-no-result" class="text-center py-5" style="display:none;">
+              <i class="fa-solid fa-magnifying-glass fa-3x mb-3 text-muted"></i>
+              <h4 class="text-muted">Artikel tidak ditemukan</h4>
+              <p class="text-muted">Coba kata kunci atau kategori yang berbeda.</p>
+              <button id="blog-reset-btn" class="btn btn-primary mt-2">
+                <span class="btn_label" data-text="Tampilkan Semua">Tampilkan Semua</span>
+                <span class="btn_icon"><i class="fa-solid fa-arrow-up-right"></i></span>
+              </button>
+            </div>
+
+            <!-- Pagination -->
+            <div id="blog-pagination" class="pagination_wrap mt-5 pb-0">
+              <ul class="pagination_nav unordered_list justify-content-center">
+                <!-- diisi JS -->
+              </ul>
+            </div>
+
+          </div>
+
+          <!-- ===== Sidebar (kanan) ===== -->
+          <div class="col-lg-4">
+            <aside class="sidebar ps-lg-4">
+
+              <!-- Search -->
+              <div class="search_form">
+                <h3 class="sidebar_widget_title">Cari Artikel</h3>
+                <form id="blog-search-form" onsubmit="return false;">
+                  <div class="form-group">
+                    <input
+                      id="blog-search-input"
+                      class="form-control"
+                      type="search"
+                      name="q"
+                      placeholder="Ketik keyword..."
+                      aria-label="Cari artikel"
+                      autocomplete="off"
+                    />
+                    <button type="submit" id="blog-search-btn" aria-label="Cari">
+                      <img src="/assets/images/icons/icon_search.svg" alt="Cari" loading="lazy" />
+                    </button>
+                  </div>
+                </form>
+              </div>
+
+              <!-- Recent Posts -->
+              <div class="post_list_block">
+                <h3 class="sidebar_widget_title">Artikel Terbaru</h3>
+                <ul class="unordered_list_block">
+                  {blogs.slice(0, 3).map(post => (
+                    <li>
+                      <h3 class="post_title">
+                        <a href={`/blog/${post.slug}`}>{post.title}</a>
+                      </h3>
+                      <ul class="post_meta unordered_list">
+                        <li>
+                          <a href="#!">
+                            <img src="/assets/images/icons/icon_calendar.svg" alt="Calendar" loading="lazy" />
+                            {post.date}
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#!">
+                            <i class="fa-regular fa-comment-lines"></i> {post.comments}
+                          </a>
+                        </li>
+                      </ul>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <!-- Kategori -->
+              <div class="post_category_wrap">
+                <h3 class="sidebar_widget_title">Kategori</h3>
+                <ul class="post_category_list unordered_list_block">
+                  {categories.map(cat => (
+                    <li>
+                      <a
+                        href="#!"
+                        class="blog-filter-cat"
+                        data-cat={cat.name}
+                        aria-label={`Filter kategori ${cat.name}`}
+                      >
+                        <i class="fa-solid fa-arrow-up-right"></i>
+                        <span>{cat.name}</span>
+                        <span>({cat.count.toString().padStart(2, '0')})</span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <!-- Tag Populer -->
+              <div class="popular_tags">
+                <h3 class="sidebar_widget_title">Tag Populer</h3>
+                <ul class="tags_list unordered_list">
+                  {tags.map(tag => (
+                    <li>
+                      <a
+                        href="#!"
+                        class="blog-filter-tag"
+                        data-tag={tag}
+                        aria-label={`Filter tag ${tag}`}
+                      >{tag}</a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+            </aside>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <CTA />
+  </main>
+</BaseLayout>
+
+<!-- Inject data & logic -->
+<script define:vars={{ allPostsJson, POSTS_PER_PAGE }}>
+(function () {
+  const allPosts = JSON.parse(allPostsJson);
+  let filtered = [...allPosts];
+  let currentPage = 1;
+  let activeCategory = '';
+  let activeTag = '';
+  let searchQuery = '';
+
+  const wrap = document.getElementById('blog-post-wrap');
+  const paginationEl = document.getElementById('blog-pagination');
+  const noResult = document.getElementById('blog-no-result');
+  const searchInput = document.getElementById('blog-search-input');
+  const searchForm = document.getElementById('blog-search-form');
+  const resetBtn = document.getElementById('blog-reset-btn');
+
+  function buildCard(post) {
+    const imgHtml = post.image
+      ? `<div class="blog_post_image">
+           <a class="image_wrap" href="/blog/${post.slug}" aria-label="${post.title}">
+             <img src="${post.image}" alt="${post.title}" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;" />
+           </a>
+         </div>`
+      : '';
+    const catSlug = post.category.toLowerCase().replace(/\s+/g, '-');
+    const commentsHtml = post.comments > 0
+      ? `<li><a href="#!"><i class="fa-regular fa-comment-lines"></i> ${post.comments}</a></li>`
+      : '';
+    return `
+      <div class="blog_post_block image_left_layout">
+        ${imgHtml}
+        <div class="blog_post_content">
+          <div class="post_meta_wrap">
+            <ul class="category_btns_group unordered_list">
+              <li><a href="/blog/category/${catSlug}">${post.category}</a></li>
+            </ul>
+            <ul class="post_meta unordered_list">
+              <li><a href="#!"><img src="/assets/images/icons/icon_calendar.svg" alt="Calendar" /> ${post.date}</a></li>
+              ${commentsHtml}
+              <li><i class="fa-regular fa-clock"></i> ${post.readTime}</li>
+            </ul>
+          </div>
+          <h3 class="blog_post_title"><a href="/blog/${post.slug}">${post.title}</a></h3>
+          <p class="mb-0" style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">${post.excerpt}</p>
+          <a class="blog_read_more" href="/blog/${post.slug}">
+            Baca Selengkapnya <i class="fa-solid fa-arrow-up-right ms-2"></i>
+          </a>
+        </div>
+      </div>`;
+  }
+
+  function applyFilters() {
+    filtered = allPosts.filter(p => {
+      const matchSearch = !searchQuery ||
+        p.title.toLowerCase().includes(searchQuery) ||
+        p.excerpt.toLowerCase().includes(searchQuery) ||
+        p.category.toLowerCase().includes(searchQuery);
+      const matchCat = !activeCategory || p.category === activeCategory;
+      const matchTag = !activeTag || p.tags.includes(activeTag);
+      return matchSearch && matchCat && matchTag;
+    });
+    currentPage = 1;
+    render();
+  }
+
+  function render() {
+    const total = filtered.length;
+    const totalPages = Math.max(1, Math.ceil(total / POSTS_PER_PAGE));
+    const start = (currentPage - 1) * POSTS_PER_PAGE;
+    const pagePosts = filtered.slice(start, start + POSTS_PER_PAGE);
+
+    // Posts
+    if (total === 0) {
+      wrap.innerHTML = '';
+      noResult.style.display = 'block';
+    } else {
+      noResult.style.display = 'none';
+      wrap.innerHTML = pagePosts.map(buildCard).join('');
+    }
+
+    // Pagination
+    let paginHtml = '';
+    if (totalPages > 1) {
+      paginHtml += `<li><a href="#!" id="pg-prev" aria-label="Sebelumnya"><i class="fa-solid fa-angles-left"></i></a></li>`;
+      for (let i = 1; i <= totalPages; i++) {
+        paginHtml += `<li class="${i === currentPage ? 'active' : ''}"><a href="#!" data-page="${i}">${i}</a></li>`;
+      }
+      paginHtml += `<li><a href="#!" id="pg-next" aria-label="Berikutnya"><i class="fa-solid fa-angles-right"></i></a></li>`;
+    }
+    paginationEl.querySelector('ul').innerHTML = paginHtml;
+
+    // Highlight active category in sidebar
+    document.querySelectorAll('.blog-filter-cat').forEach(el => {
+      el.classList.toggle('active-filter', el.dataset.cat === activeCategory);
+    });
+    document.querySelectorAll('.blog-filter-tag').forEach(el => {
+      el.classList.toggle('active-filter', el.dataset.tag === activeTag);
+    });
+
+    // Bind pagination clicks
+    paginationEl.querySelectorAll('[data-page]').forEach(el => {
+      el.addEventListener('click', (e) => {
+        e.preventDefault();
+        currentPage = parseInt(el.dataset.page);
+        render();
+        wrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+    const prevBtn = document.getElementById('pg-prev');
+    const nextBtn = document.getElementById('pg-next');
+    if (prevBtn) prevBtn.addEventListener('click', (e) => { e.preventDefault(); if (currentPage > 1) { currentPage--; render(); wrap.scrollIntoView({ behavior: 'smooth' }); } });
+    if (nextBtn) nextBtn.addEventListener('click', (e) => { e.preventDefault(); if (currentPage < totalPages) { currentPage++; render(); wrap.scrollIntoView({ behavior: 'smooth' }); } });
+  }
+
+  // Search
+  function doSearch() {
+    searchQuery = (searchInput.value || '').toLowerCase().trim();
+    activeCategory = '';
+    activeTag = '';
+    applyFilters();
+  }
+
+  if (searchForm) {
+    searchForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      doSearch();
+    });
+  }
+  
+  if (searchInput) {
+    searchInput.addEventListener('input', () => {
+      if (searchInput.value === '') { searchQuery = ''; applyFilters(); }
+    });
+  }  // Category filter
+  document.querySelectorAll('.blog-filter-cat').forEach(el => {
+    el.addEventListener('click', (e) => {
+      e.preventDefault();
+      const cat = el.dataset.cat;
+      activeCategory = activeCategory === cat ? '' : cat;
+      activeTag = '';
+      searchQuery = '';
+      if (searchInput) searchInput.value = '';
+      applyFilters();
+    });
+  });
+
+  // Tag filter
+  document.querySelectorAll('.blog-filter-tag').forEach(el => {
+    el.addEventListener('click', (e) => {
+      e.preventDefault();
+      const tag = el.dataset.tag;
+      activeTag = activeTag === tag ? '' : tag;
+      activeCategory = '';
+      searchQuery = '';
+      if (searchInput) searchInput.value = '';
+      applyFilters();
+    });
+  });
+
+  // Reset
+  if (resetBtn) {
+    resetBtn.addEventListener('click', () => {
+      activeCategory = '';
+      activeTag = '';
+      searchQuery = '';
+      if (searchInput) searchInput.value = '';
+      applyFilters();
+    });
+  }
+
+  // Initial render — JS replaces the SSR placeholder
+  render();
+})();
+</script>
+
+<style>
+  .blog_read_more {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 16px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--bs-primary);
+    text-decoration: none;
+    transition: gap 0.2s ease, color 0.2s ease;
+  }
+  .blog_read_more:hover { gap: 10px; color: var(--bs-dark); }
+  .blog_read_more i { font-size: 12px; transition: transform 0.2s ease; }
+  .blog_read_more:hover i { transform: translate(2px, -2px); }
+
+  .active-filter {
+    color: var(--bs-primary) !important;
+    font-weight: 700;
+  }
+  .blog-filter-cat, .blog-filter-tag {
+    transition: color 0.2s ease;
+    cursor: pointer;
+  }
+</style>
