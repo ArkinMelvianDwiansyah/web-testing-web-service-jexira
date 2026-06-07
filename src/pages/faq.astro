@@ -1,0 +1,32 @@
+---
+// src/pages/faq.astro
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FaqAccordion from '../components/FaqAccordion.astro';
+import CTA from '../components/CTA.astro';
+---
+
+<BaseLayout
+  title="FAQ - Pertanyaan yang Sering Ditanyakan | JalaninWeb"
+  description="Temukan jawaban seputar layanan JalaninWeb — harga, proses pengerjaan, teknologi, domain hosting, revisi, dan support."
+>
+  <main class="page_content">
+
+    <!-- Page Banner — TIDAK ada heading FAQ di sini, beda dari komponen -->
+    <section
+      class="page_banner_section text-center"
+      style="background-image: url('/assets/images/shapes/bg_pattern_4.svg');"
+    >
+      <div class="container">
+        <div class="heading_focus_text text-white">
+          Pusat Bantuan <span class="badge bg-secondary">JalaninWeb 💬</span>
+        </div>
+        <h1 class="page_title mb-0 text-white">Ada yang Ingin Kamu Tanyakan?</h1>
+      </div>
+    </section>
+
+    <FaqAccordion />
+
+    <CTA />
+
+  </main>
+</BaseLayout>

@@ -31,11 +31,6 @@ if (!service) return Astro.redirect('/services');
           Layanan <span class="badge bg-secondary">{service.badge} 😍</span>
         </div>
         <h1 class="page_title mb-0 text-white">{service.title}</h1>
-        <ul class="breadcrumb_nav unordered_list justify-content-center mt-3">
-          <li><a href="/">Home</a></li>
-          <li><a href="/services">Services</a></li>
-          <li>{service.title}</li>
-        </ul>
       </div>
     </section>
 
