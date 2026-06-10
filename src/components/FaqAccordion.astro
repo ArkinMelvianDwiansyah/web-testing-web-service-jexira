@@ -32,7 +32,7 @@ import { faqCategories } from "../data/faq";
           </ul>
 
           <a
-            href="https://wa.me/6289680551957"
+            href="https://wa.me/6289680551957?text=Halo%2C%20saya%20habis%20lihat-lihat%20website%20dan%20mau%20tanya%20soal%20layanan%20jasanya.%20Bisa%20diskusi%20sebentar%3F"
             target="_blank"
             rel="noopener"
             class="faq_wa_cta"
@@ -319,34 +319,49 @@ import { faqCategories } from "../data/faq";
     @media (max-width: 991px) {
       .faq_sidebar {
         position: static;
-        margin-bottom: 40px;
+        margin-bottom: 32px;
       }
 
+      /* Grid 2 kolom di mobile, bukan flex wrap */
       .faq_tab_list {
-        flex-direction: row;
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
         gap: 8px;
+      }
+
+      /* Item terakhir kalau ganjil, span full width */
+      .faq_tab_list li:last-child:nth-child(odd) {
+        grid-column: 1 / -1;
       }
 
       .faq_tab_btn {
-        width: auto;
-        padding: 8px 14px;
-        border-radius: 999px;
-        gap: 8px;
+        width: 100%;
+        padding: 10px 14px;
+        border-radius: 12px;
+        gap: 10px;
       }
 
       .faq_tab_icon {
-        width: 28px;
-        height: 28px;
+        width: 30px;
+        height: 30px;
         font-size: 12px;
+        flex-shrink: 0;
       }
 
       .faq_tab_text strong {
         font-size: 13px;
+        justify-content: center; /* Menengahkan secara horizontal */
+        align-items: center;
+        margin-bottom:0px;
       }
 
       .faq_tab_text small {
         display: none;
+      }
+
+      /* WhatsApp CTA full width */
+      .faq_wa_cta {
+        width: 100%;
       }
     }
   </style>

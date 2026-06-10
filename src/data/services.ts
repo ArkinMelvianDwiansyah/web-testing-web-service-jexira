@@ -17,6 +17,10 @@ export interface ServiceData {
     outcomes: string[];
     process: ServiceProcess[];
     metaDesc: string;
+    // --- TAMBAHAN BARU UNTUK HALAMAN LIST (UI) ---
+    listImage: string; 
+    tags: string[];    
+    gridCol: string;   
 }
 
 export const services: ServiceData[] = [
@@ -47,13 +51,17 @@ export const services: ServiceData[] = [
             { step: '04', title: 'Review & Go Live', desc: 'Setelah revisi final, website di-deploy ke hosting. Kami pastikan semua berjalan sempurna sebelum diserahkan ke Anda.' },
         ],
         metaDesc: 'Jasa pembuatan website company profile profesional untuk bisnis dan UMKM. Desain modern, cepat, dan siap go live dalam 5–7 hari.',
+        // --- DATA UI HALAMAN LIST ---
+        listImage: '/assets/images/services/service_image_1.webp',
+        tags: ['Bisnis', 'Corporate', 'UMKM'],
+        gridCol: 'col-lg-6',
     },
     {
-        slug: 'landing-page',
-        title: 'Landing Page Bisnis',
-        badge: 'Konversi Tinggi',
-        tagline: 'Halaman khusus yang mengubah pengunjung jadi pelanggan',
-        description: 'Landing page dirancang khusus untuk satu tujuan: konversi. Cocok untuk campaign produk, event, promosi, atau lead generation dengan desain yang fokus dan call-to-action yang kuat.',
+        slug: 'website-umkm-katalog',
+        title: 'Website UMKM & Katalog Produk',
+        badge: 'UMKM & Showcase',
+        tagline: 'Go digital dengan etalase online terjangkau dan terima order via WhatsApp',
+        description: 'Kami membantu UMKM memiliki kehadiran digital yang kuat tanpa biaya besar. Miliki etalase digital sendiri untuk memamerkan produk Anda tanpa batasan, lengkap dengan profil usaha dan terintegrasi langsung dengan WhatsApp untuk kemudahan transaksi.',
         heroImage: '/assets/images/services/service_details_image_1.webp',
         detailImages: [
             '/assets/images/services/service_details_image_2.webp',
@@ -61,76 +69,24 @@ export const services: ServiceData[] = [
             '/assets/images/services/service_details_image_4.webp',
         ],
         outcomes: [
-            'Desain fokus satu tujuan konversi',
-            'CTA (Call-to-Action) yang kuat',
-            'Loading super cepat',
-            'Form lead capture terintegrasi',
-            'A/B testing ready',
-            'Selesai 3–5 hari kerja',
-        ],
-        process: [
-            { step: '01', title: 'Riset & Strategi', desc: 'Kami pelajari produk, target pasar, dan kompetitor untuk menentukan pesan utama dan struktur halaman yang paling efektif.' },
-            { step: '02', title: 'Copywriting & Desain', desc: 'Teks persuasif dan desain visual yang menarik dibuat bersamaan untuk hasil yang kohesif dan konversi tinggi.' },
-            { step: '03', title: 'Development', desc: 'Landing page dibangun ringan dan cepat, kompatibel di semua browser dan device.' },
-            { step: '04', title: 'Launch & Tracking', desc: 'Setelah launch, kami pasang Google Analytics dan Pixel untuk memantau performa halaman.' },
-        ],
-        metaDesc: 'Jasa pembuatan landing page bisnis dengan konversi tinggi. Desain fokus, CTA kuat, dan siap dalam 3–5 hari kerja.',
-    },
-    {
-        slug: 'website-umkm',
-        title: 'Website UMKM',
-        badge: 'UMKM & Lokal',
-        tagline: 'Website terjangkau untuk bisnis lokal yang ingin go digital',
-        description: 'Kami membantu UMKM memiliki kehadiran digital yang kuat tanpa biaya besar. Website katalog produk, profil usaha, dan halaman kontak yang mudah dikelola sendiri.',
-        heroImage: '/assets/images/services/service_details_image_1.webp',
-        detailImages: [
-            '/assets/images/services/service_details_image_2.webp',
-            '/assets/images/services/service_details_image_3.webp',
-            '/assets/images/services/service_details_image_4.webp',
-        ],
-        outcomes: [
-            'Katalog produk / menu digital',
+            'Katalog produk & kategori',
             'Profil usaha yang meyakinkan',
-            'Integrasi WhatsApp order langsung',
-            'Google My Business setup',
-            'Mudah diupdate sendiri',
-            'Harga terjangkau, kualitas pro',
+            'Tombol direct order ke WhatsApp',
+            'Desain responsif (Mobile-friendly)',
+            'Mudah diupdate & dikelola sendiri',
+            'Bantuan setup Google My Business',
         ],
         process: [
-            { step: '01', title: 'Kumpulkan Informasi', desc: 'Kami kumpulkan data usaha, foto produk, dan konten yang akan ditampilkan di website.' },
-            { step: '02', title: 'Desain Simpel & Menarik', desc: 'Tampilan dibuat bersih, mudah dinavigasi, dan sesuai karakter usaha Anda.' },
-            { step: '03', title: 'Build & Upload Konten', desc: 'Website dibangun dan semua konten diunggah. Termasuk setup domain dan hosting.' },
-            { step: '04', title: 'Training & Serah Terima', desc: 'Kami ajari cara update konten sendiri, lalu website resmi diserahkan.' },
+            { step: '01', title: 'Konsultasi & Kumpulkan Data', desc: 'Kami pelajari jenis usaha Anda, kategori produk, foto, dan informasi profil yang akan ditampilkan.' },
+            { step: '02', title: 'Desain Etalase & Profil', desc: 'Tampilan dirancang bersih, mudah dinavigasi, dan menonjolkan produk serta identitas brand Anda.' },
+            { step: '03', title: 'Input Produk & Integrasi WA', desc: 'Kami mengunggah produk awal dan mengatur tombol pesanan agar langsung terhubung ke WhatsApp Anda.' },
+            { step: '04', title: 'Training & Serah Terima', desc: 'Website rilis! Kami ajari Anda cara mengunggah produk baru sendiri dengan mudah.' },
         ],
-        metaDesc: 'Jasa pembuatan website UMKM terjangkau dan profesional. Katalog produk, profil usaha, dan WhatsApp terintegrasi.',
-    },
-    {
-        slug: 'toko-online',
-        title: 'Toko Online',
-        badge: 'E-Commerce',
-        tagline: 'Jualan online 24 jam tanpa tergantung marketplace',
-        description: 'Punya toko online sendiri artinya tidak perlu bayar komisi marketplace dan bisa bangun brand sendiri. Kami membangun toko online lengkap dengan manajemen produk, keranjang belanja, dan payment gateway.',
-        heroImage: '/assets/images/services/service_details_image_1.webp',
-        detailImages: [
-            '/assets/images/services/service_details_image_2.webp',
-            '/assets/images/services/service_details_image_3.webp',
-            '/assets/images/services/service_details_image_4.webp',
-        ],
-        outcomes: [
-            'Manajemen produk & stok',
-            'Keranjang belanja & checkout',
-            'Integrasi payment gateway',
-            'Notifikasi order otomatis',
-            'Dashboard admin lengkap',
-            'Mobile-friendly & cepat',
-        ],
-        process: [
-            { step: '01', title: 'Konsultasi Produk', desc: 'Kami pelajari jenis produk, alur transaksi, dan kebutuhan khusus toko Anda.' },
-            { step: '02', title: 'Setup Platform', desc: 'Pilih platform yang tepat (custom / WooCommerce / lainnya) sesuai skala bisnis.' },
-            { step: '03', title: 'Input Produk & Konfigurasi', desc: 'Semua produk diinput, payment gateway dikonfigurasi, dan sistem diuji penuh.' },
-            { step: '04', title: 'Launch & Support', desc: 'Toko go live dengan panduan lengkap. Support 3 bulan pertama gratis.' },
-        ],
-        metaDesc: 'Jasa pembuatan toko online profesional dengan payment gateway dan dashboard admin. Bebas komisi marketplace.',
+        metaDesc: 'Jasa pembuatan website UMKM dan katalog produk terjangkau. Tampilkan etalase digital Anda dengan rapi dan terima pesanan langsung melalui WhatsApp.',
+        // --- DATA UI HALAMAN LIST ---
+        listImage: '/assets/images/services/service_image_2.webp', // Menggunakan gambar UMKM sebelumnya
+        tags: ['UMKM', 'Katalog', 'WhatsApp'],
+        gridCol: 'col-lg-6',
     },
     {
         slug: 'portofolio-online',
@@ -159,6 +115,42 @@ export const services: ServiceData[] = [
             { step: '04', title: 'Serah Terima', desc: 'Website live dan siap digunakan untuk melamar kerja atau mencari klien.' },
         ],
         metaDesc: 'Jasa pembuatan website portofolio untuk mahasiswa, freelancer, dan profesional kreatif. Personal, unik, dan SEO-friendly.',
+        // --- DATA UI HALAMAN LIST ---
+        listImage: '/assets/images/services/service_image_3.webp',
+        tags: ['Mahasiswa', 'Freelancer'],
+        gridCol: 'col-lg-4',
+    },
+    {
+        slug: 'landing-page',
+        title: 'Landing Page Bisnis',
+        badge: 'Konversi Tinggi',
+        tagline: 'Halaman khusus yang mengubah pengunjung jadi pelanggan',
+        description: 'Landing page dirancang khusus untuk satu tujuan: konversi. Cocok untuk campaign produk, event, promosi, atau lead generation dengan desain yang fokus dan call-to-action yang kuat.',
+        heroImage: '/assets/images/services/service_details_image_1.webp',
+        detailImages: [
+            '/assets/images/services/service_details_image_2.webp',
+            '/assets/images/services/service_details_image_3.webp',
+            '/assets/images/services/service_details_image_4.webp',
+        ],
+        outcomes: [
+            'Desain fokus satu tujuan konversi',
+            'CTA (Call-to-Action) yang kuat',
+            'Loading super cepat',
+            'Form lead capture terintegrasi',
+            'A/B testing ready',
+            'Selesai 3–5 hari kerja',
+        ],
+        process: [
+            { step: '01', title: 'Riset & Strategi', desc: 'Kami pelajari produk, target pasar, dan kompetitor untuk menentukan pesan utama dan struktur halaman yang paling efektif.' },
+            { step: '02', title: 'Copywriting & Desain', desc: 'Teks persuasif dan desain visual yang menarik dibuat bersamaan untuk hasil yang kohesif dan konversi tinggi.' },
+            { step: '03', title: 'Development', desc: 'Landing page dibangun ringan dan cepat, kompatibel di semua browser dan device.' },
+            { step: '04', title: 'Launch & Tracking', desc: 'Setelah launch, kami pasang Google Analytics dan Pixel untuk memantau performa halaman.' },
+        ],
+        metaDesc: 'Jasa pembuatan landing page bisnis dengan konversi tinggi. Desain fokus, CTA kuat, dan siap dalam 3–5 hari kerja.',
+        // --- DATA UI HALAMAN LIST ---
+        listImage: '/assets/images/services/service_image_4.webp',
+        tags: ['Event', 'Campaign', 'Produk'],
+        gridCol: 'col-lg-4',
     },
     {
         slug: 'maintenance',
@@ -187,6 +179,42 @@ export const services: ServiceData[] = [
             { step: '04', title: 'Laporan & Rekomendasi', desc: 'Anda terima laporan bulanan plus rekomendasi peningkatan website.' },
         ],
         metaDesc: 'Layanan maintenance dan support website profesional. Update rutin, backup, monitoring uptime, dan perbaikan bug.',
+        // --- DATA UI HALAMAN LIST ---
+        listImage: '/assets/images/services/service_image_5.webp',
+        tags: ['Update', 'Backup', 'Support'],
+        gridCol: 'col-lg-4',
+    },
+    {
+        slug: 'undangan-online',
+        title: 'Undangan Pernikahan Digital',
+        badge: 'Event & Personal',
+        tagline: 'Sebarkan momen bahagiamu dengan elegan, praktis, dan tanpa batas',
+        description: 'Ubah cara Anda mengundang tamu dengan undangan pernikahan berbasis website. Lebih ramah lingkungan, interaktif, dan mudah dibagikan ke mana saja hanya dengan satu tautan.',
+        heroImage: '/assets/images/services/service_details_image_1.webp',
+        detailImages: [
+            '/assets/images/services/service_details_image_2.webp',
+            '/assets/images/services/service_details_image_3.webp',
+            '/assets/images/services/service_details_image_4.webp',
+        ],
+        outcomes: [
+            'Desain elegan & tema premium',
+            'Formulir RSVP untuk tamu',
+            'Galeri foto & video prewedding',
+            'Navigasi lokasi (Google Maps)',
+            'Buku tamu digital & ucapan',
+            'Bebas sebar tanpa batasan kuota',
+        ],
+        process: [
+            { step: '01', title: 'Pemilihan Tema & Data', desc: 'Anda memilih tema yang tersedia dan mengirimkan data acara, foto, serta cerita cinta Anda.' },
+            { step: '02', title: 'Pembuatan Website', desc: 'Kami merakit undangan Anda dengan animasi yang halus dan memasukkan musik latar sesuai permintaan.' },
+            { step: '03', title: 'Review & Revisi', desc: 'Kami mengirimkan draf undangan. Anda bisa melakukan pengecekan nama, waktu, dan lokasi sebelum disebar.' },
+            { step: '04', title: 'Siap Disebar', desc: 'Tautan aktif dan undangan siap disebarkan ke keluarga, teman, dan kerabat Anda.' },
+        ],
+        metaDesc: 'Jasa pembuatan website undangan pernikahan online digital. Desain elegan, fitur RSVP tamu, galeri foto, dan Google Maps terintegrasi.',
+        // --- DATA UI HALAMAN LIST ---
+        listImage: '/assets/images/services/service_image_4.webp', // Pastikan menyiapkan gambar ini
+        tags: ['Undangan', 'Wedding', 'Digital'],
+        gridCol: 'col-lg-4',
     },
     {
         slug: 'redesign-website',
@@ -196,25 +224,61 @@ export const services: ServiceData[] = [
         description: 'Punya website tapi tampilannya sudah ketinggalan zaman, lambat, atau tidak mobile-friendly? Kami bantu redesign total tanpa kehilangan konten dan SEO yang sudah ada.',
         heroImage: '/assets/images/services/service_details_image_1.webp',
         detailImages: [
-        '/assets/images/services/service_details_image_2.webp',
-        '/assets/images/services/service_details_image_3.webp',
-        '/assets/images/services/service_details_image_4.webp',
+            '/assets/images/services/service_details_image_2.webp',
+            '/assets/images/services/service_details_image_3.webp',
+            '/assets/images/services/service_details_image_4.webp',
         ],
         outcomes: [
-        'Tampilan modern & fresh',
-        'Kecepatan loading meningkat',
-        'Mobile-friendly & responsif',
-        'Konten & struktur dipertahankan',
-        'SEO tidak terganggu',
-        'Selesai 5–7 hari kerja',
+            'Tampilan modern & fresh',
+            'Kecepatan loading meningkat',
+            'Mobile-friendly & responsif',
+            'Konten & struktur dipertahankan',
+            'SEO tidak terganggu',
+            'Selesai 5–7 hari kerja',
         ],
         process: [
-        { step: '01', title: 'Audit Website Lama', desc: 'Kami analisis website lama: kecepatan, tampilan, struktur konten, dan SEO yang sudah ada agar tidak ada yang hilang setelah redesign.' },
-        { step: '02', title: 'Konsep Desain Baru', desc: 'Tim desainer kami buat konsep tampilan baru yang modern sesuai tren dan karakter bisnis Anda. Review bersama sebelum masuk development.' },
-        { step: '03', title: 'Migrasi & Development', desc: 'Semua konten dipindahkan ke desain baru. Kecepatan, keamanan, dan responsivitas jadi prioritas utama.' },
-        { step: '04', title: 'Launch & Verifikasi', desc: 'Setelah QA menyeluruh, website baru go live. Kami pastikan redirect, SEO, dan semua halaman berjalan sempurna.' },
+            { step: '01', title: 'Audit Website Lama', desc: 'Kami analisis website lama: kecepatan, tampilan, struktur konten, dan SEO yang sudah ada agar tidak ada yang hilang setelah redesign.' },
+            { step: '02', title: 'Konsep Desain Baru', desc: 'Tim desainer kami buat konsep tampilan baru yang modern sesuai tren dan karakter bisnis Anda. Review bersama sebelum masuk development.' },
+            { step: '03', title: 'Migrasi & Development', desc: 'Semua konten dipindahkan ke desain baru. Kecepatan, keamanan, dan responsivitas jadi prioritas utama.' },
+            { step: '04', title: 'Launch & Verifikasi', desc: 'Setelah QA menyeluruh, website baru go live. Kami pastikan redirect, SEO, dan semua halaman berjalan sempurna.' },
         ],
         metaDesc: 'Jasa redesign website profesional. Tampilan lama dirombak jadi modern, cepat, dan mobile-friendly tanpa kehilangan konten dan SEO.',
+        // --- DATA UI HALAMAN LIST ---
+        listImage: '/assets/images/services/service_image_3.webp',
+        tags: ['Revamp', 'Modern', 'Migrasi'],
+        gridCol: 'col-lg-4',
+    },
+    {
+        slug: 'web-scraping',
+        title: 'Web Scraping & Ekstraksi Data',
+        badge: 'Data & Otomatisasi',
+        tagline: 'Kumpulkan data dari website dan aplikasi secara otomatis',
+        description: 'Butuh ribuan data produk, kontak, atau informasi dari sebuah website? Kami membantu mengekstrak data dari website atau aplikasi menjadi format yang rapi dan terstruktur untuk kebutuhan analisis bisnis Anda.',
+        heroImage: '/assets/images/services/service_details_image_1.webp',
+        detailImages: [
+            '/assets/images/services/service_details_image_2.webp',
+            '/assets/images/services/service_details_image_3.webp',
+            '/assets/images/services/service_details_image_4.webp',
+        ],
+        outcomes: [
+            'Ekstraksi data ke Excel / CSV / JSON',
+            'Scraping data e-commerce & direktori',
+            'Bypass sistem login & keamanan dasar',
+            'Pembersihan data (Data Cleaning)',
+            'Automasi pengambilan data berkala',
+            'Pembuatan API Endpoint (Custom)',
+        ],
+        process: [
+            { step: '01', title: 'Analisis Target', desc: 'Kami mempelajari struktur website atau aplikasi target untuk menemukan jalur pengambilan data terbaik.' },
+            { step: '02', title: 'Pembuatan Script', desc: 'Menulis bot atau script khusus untuk mengambil data dengan aman tanpa membebani server target.' },
+            { step: '03', title: 'Eksekusi & Scraping', desc: 'Proses penarikan data dalam jumlah besar dilakukan oleh server kami.' },
+            { step: '04', title: 'Validasi & Penyerahan', desc: 'Data dirapikan (dibersihkan dari format yang berantakan) lalu diserahkan ke Anda dalam format Excel/CSV.' },
+        ],
+        metaDesc: 'Jasa web scraping dan ekstraksi data otomatis dari website dan aplikasi. Dapatkan data terstruktur (Excel/CSV) untuk riset dan analisis kompetitor.',
+        // --- DATA UI HALAMAN LIST ---
+        listImage: '/assets/images/services/service_image_5.webp', // Pastikan menyiapkan gambar ini
+        tags: ['Scraping', 'Data', 'Otomatisasi'],
+        gridCol: 'col-lg-4',
     },
 ];
 
