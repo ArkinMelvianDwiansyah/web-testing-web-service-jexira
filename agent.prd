@@ -1,0 +1,292 @@
+# AGENT PRD: JalaninWeb.com — Astro Website Project
+
+## 1. Ringkasan Proyek
+
+**Nama:** JalaninWeb.com  
+**Deskripsi:** Website jasa pembuatan website profesional untuk UMKM dan bisnis, berbasis di Surabaya, Indonesia.  
+**Tujuan:** Menyediakan kehadiran digital yang modern, cepat, dan SEO-friendly untuk mempromosikan layanan JalaninWeb kepada calon klien.  
+**Status:** Migrasi dari legacy HTML template ke Astro framework (SSG - Static Site Generation).
+
+---
+
+## 2. Tech Stack
+
+| Layer | Teknologi |
+|-------|-----------|
+| Framework | Astro v6.3.7 |
+| Bahasa | TypeScript + Astro syntax (.astro) |
+| Styling | Pre-defined Custom CSS (dari template legacy, TANPA CSS baru) |
+| JS Libraries | jQuery, Bootstrap 5, Swiper, WOW.js, Magnific Popup, Odometer, Parallax |
+| Build Tool | Vite (bawaan Astro) |
+| Node Version | >= 22.12.0 |
+| Package Manager | npm |
+| Deployment | VPS Linux (aaPanel) |
+| Domain | https://jalaninweb.com |
+
+---
+
+## 3. Arsitektur Folder
+
+```
+d:\jalaninweb\
+├── public/                     # Aset statis (TIDAK di-bundle Vite)
+│   ├── assets/
+│   │   ├── css/               # Bootstrap, FontAwesome, Swiper, style.css
+│   │   ├── js/                # jQuery, Bootstrap JS, Swiper, main.js, dll
+│   │   ├── fonts/             # Font files
+│   │   ├── images/            # Semua gambar (site_logo, blog, portfolio, services, dll)
+│   │   └── scss/              # Source SCSS (reference only)
+│   ├── favicon.ico
+│   ├── favicon.svg
+│   └── robots.txt
+├── src/
+│   ├── components/            # 33 komponen UI modular (.astro)
+│   ├── data/                  # Data statis TypeScript (mock database)
+│   │   ├── blog.ts            # 6 artikel blog
+│   │   ├── faq.ts             # 6 kategori FAQ (30+ Q&A)
+│   │   ├── portfolio.ts       # 10 item portfolio
+│   │   └── services.ts        # 8 layanan
+│   ├── layouts/
+│   │   └── BaseLayout.astro   # Layout utama (meta, SEO, CSS/JS global)
+│   └── pages/                 # File-based routing
+│       ├── index.astro        # Homepage
+│       ├── about.astro
+│       ├── blog.astro
+│       ├── contact.astro
+│       ├── faq.astro
+│       ├── portfolio.astro
+│       ├── pricing.astro
+│       ├── services.astro
+│       ├── 404.astro
+│       ├── blog/[slug].astro        # Dynamic route blog detail
+│       ├── portfolio/[slug].astro   # Dynamic route portfolio detail
+│       └── service/[slug].astro     # Dynamic route service detail
+├── old-web/                   # Legacy HTML template (referensi)
+├── astro.config.mjs           # Konfigurasi Astro (site URL)
+├── tsconfig.json              # TypeScript config (strict mode)
+├── package.json               # Dependencies & scripts
+├── PROJECT_BRAIN.md           # Panduan arsitektur untuk AI
+├── intro.md                   # Context ringkas proyek
+└── .gitignore                 # Ignore dist/, node_modules/, .env, dll
+```
+
+---
+
+## 4. Sistem Routing
+
+### Static Routes
+| File | URL |
+|------|-----|
+| `pages/index.astro` | `/` |
+| `pages/about.astro` | `/about` |
+| `pages/blog.astro` | `/blog` |
+| `pages/contact.astro` | `/contact` |
+| `pages/faq.astro` | `/faq` |
+| `pages/portfolio.astro` | `/portfolio` |
+| `pages/pricing.astro` | `/pricing` |
+| `pages/services.astro` | `/services` |
+| `pages/404.astro` | `/404` |
+
+### Dynamic Routes (Slug-based)
+| File | URL Pattern | Data Source |
+|------|-------------|-------------|
+| `pages/blog/[slug].astro` | `/blog/{slug}` | `data/blog.ts` |
+| `pages/portfolio/[slug].astro` | `/portfolio/{slug}` | `data/portfolio.ts` |
+| `pages/service/[slug].astro` | `/service/{slug}` | `data/services.ts` |
+
+Dynamic routes menggunakan `getStaticPaths()` untuk generate halaman pada build time.
+
+---
+
+## 5. Komponen UI
+
+### Layout
+- **BaseLayout.astro** — Wrapper utama: HTML head (meta, OG, Twitter Card, JSON-LD Schema), global CSS, Header, Footer, legacy JS scripts.
+
+### Komponen Utama (33 total)
+| Kategori | Komponen |
+|----------|----------|
+| Global | Header, Footer, Preloader, BackToTop, PageBanner |
+| Homepage | Hero, HeroMain, Features, Services, Portfolio, Pricing, Testimonials, CTA, FaqAccordion, ClientLogos |
+| About | AboutIntro, AboutPolicy, AboutStats, AboutTeam, PolicyHighlights |
+| Blog | BlogCard, BlogCardHorizontal, BlogDetail, BlogFeaturedSlider, BlogSidebar |
+| Portfolio | PortfolioGrid, PortfolioDetail |
+| Services | ServiceIntro |
+| Contact | ContactForm, ContactInfo, ContactMap |
+| Other | NotFound |
+
+---
+
+## 6. Data Layer
+
+Data disimpan sebagai TypeScript arrays di `src/data/`. Setiap file export:
+- **Interface** (tipe data)
+- **Array data** (mock database)
+- **Helper functions** (getBySlug, getCategories, dll)
+
+### services.ts
+- 8 layanan: Company Profile, UMKM & Katalog, Portofolio, Landing Page, Maintenance, Undangan Digital, Redesign, Web Scraping
+- Interface: `ServiceData` dengan slug, title, badge, tagline, description, heroImage, detailImages, outcomes, process, metaDesc, listImage, tags, gridCol
+
+### portfolio.ts
+- 10 proyek portfolio (branding, aplikasi, webdesign, infrastruktur)
+- Interface: `Portfolio` dengan slug, title, image, carouselImage, detailImage, descriptions, service, client, location, date, filter, requirements, solutions
+
+### blog.ts
+- 6 artikel blog tentang website & bisnis digital
+- Interface: `BlogData` dengan slug, title, category, badge, date, readTime, images, content sections, keyPoints, reasons, tags, author
+- Helpers: `getBlogBySlug`, `getBlogCategories`, `getAllTags`
+
+### faq.ts
+- 6 kategori: Umum, Harga & Pembayaran, Teknis & Desain, Domain & Hosting, Revisi & Serah Terima, Support & Maintenance
+- Interface: `FaqCategory` → `FaqItem[]`
+
+---
+
+## 7. SEO & Metadata
+
+BaseLayout mengimplementasikan:
+- **Primary Meta** — title, description, robots
+- **Canonical URL** — auto-generated dari pathname
+- **Open Graph** — type, url, title, description, image (1200x630)
+- **Twitter Card** — summary_large_image
+- **JSON-LD Schema** — LocalBusiness + WebSite + WebPage (Google Knowledge Panel)
+- **Structured Data** — alamat, telepon, email, jam operasional, logo
+
+### Informasi Bisnis (Schema)
+- Nama: JalaninWeb
+- Alamat: Jl. Rodah Sekolahan No. 21, Sukolilo, Surabaya, Jawa Timur 60111
+- Telepon: +6289680551957
+- Email: Jalaninweb@gmail.com
+- Jam: Sen-Sab 08:00-21:00
+
+---
+
+## 8. Rules & Coding Guidelines (WAJIB DIPATUHI)
+
+### ❌ LARANGAN KERAS
+1. **Zero New CSS** — Dilarang membuat styling baru (tidak boleh `<style>` tag custom, inline style, maupun Tailwind). Gunakan HANYA class yang sudah ada di `public/assets/css/`.
+   - **Pengecualian:** Header.astro memiliki `<style>` minimal untuk logo sizing yang sudah ada — jangan tambah lagi.
+2. **Jangan gunakan `<Image/>` bawaan Astro** — Selalu gunakan tag `<img>` standar dengan `loading="lazy"`.
+3. **Jangan edit folder `/dist/`** — Folder ini auto-generated oleh build.
+4. **Jangan edit file di `public/assets/`** — Ini adalah source of truth yang sudah fixed.
+5. **Jangan menggunakan `npm start`** — Tidak ada script tersebut.
+
+### ✅ ATURAN WAJIB
+1. **Modularity** — Setiap komponen WAJIB menggunakan `Astro.props` agar konten dinamis, tapi class CSS tetap statis sesuai template lama.
+2. **Asset Path** — Semua aset dari `public/` dipanggil dengan absolute path: `/assets/images/...`, `/assets/css/...`, `/assets/js/...` (TANPA `./public/`).
+3. **TypeScript** — Gunakan TypeScript untuk mendefinisikan interface/types pada props komponen.
+4. **BaseLayout** — Setiap halaman WAJIB dibungkus `<BaseLayout>` untuk konsistensi Header, Footer, dan meta.
+5. **Lazy Loading** — Semua `<img>` WAJIB memiliki `loading="lazy"` dan atribut `alt` yang deskriptif.
+6. **SEO First** — Berikan meta tags dan alt text pada setiap elemen visual.
+7. **File-based Routing** — Halaman baru ditambahkan sebagai file `.astro` di `src/pages/`.
+8. **Data-driven** — Konten dinamis (services, portfolio, blog) diambil dari `src/data/*.ts`, BUKAN hardcode di komponen.
+
+### 🔍 STRICT ASSET VERIFICATION
+Sebelum meng-commit perubahan, pastikan:
+- Setiap class CSS yang digunakan benar-benar ada di `public/assets/css/style.css`
+- Setiap path gambar merujuk ke file yang benar-benar ada di `public/assets/images/`
+- Tidak ada asset 404 (broken link) setelah build
+
+---
+
+## 9. Workflow Operasional
+
+### Development
+```bash
+npm install          # Install dependencies (pertama kali)
+npm run dev          # Dev server di http://localhost:4321
+```
+
+### Build & Preview
+```bash
+npm run build        # Output ke /dist/
+npm run preview      # Preview hasil build (pre-flight check)
+```
+
+### Deployment (Production)
+```bash
+git push             # Push ke repository
+# Di server:
+git pull
+npm run build
+# Update direktori web di aaPanel ke /dist/
+```
+
+### Pre-Flight Checklist
+Sebelum deploy, jalankan `npm run preview` dan pastikan:
+- [ ] Tidak ada asset broken (404)
+- [ ] Semua halaman ter-render dengan benar
+- [ ] Navigasi internal berfungsi
+- [ ] Gambar tampil dan responsif
+- [ ] Schema JSON-LD valid
+
+---
+
+## 10. Troubleshooting
+
+### Isu Utama: Asset Path Mismatch
+**Gejala:** HTML ter-render tapi styling hancur / gambar 404.  
+**Penyebab:** Path relatif salah.  
+**Solusi:**
+- Pastikan `astro.config.mjs` memiliki `site` yang benar
+- Semua asset path HARUS dimulai dengan `/assets/...` (absolute dari root)
+- JANGAN gunakan `./assets/...` atau `../assets/...`
+- Jika deploy di subfolder, aktifkan `base: '/subfolder'` di config
+
+### Error Handling
+- Jika ada error, diagnosa spesifik path + berikan solusi kode + cara preventif
+- Periksa console browser untuk 404 pada CSS/JS/images
+- Gunakan `npm run preview` untuk simulasi production
+
+---
+
+## 11. Kontak & Informasi Bisnis
+
+| Item | Nilai |
+|------|-------|
+| Brand | JalaninWeb |
+| Tagline | Jasa Pembuatan Website Profesional |
+| Target Market | UMKM, bisnis kecil-menengah, individu |
+| Lokasi | Gebang, Surabaya, Indonesia |
+| WhatsApp | +62 89680551957 |
+| Email | Jalaninweb@gmail.com |
+| Jam Kerja | Senin-Sabtu 08:00-21:00 WIB |
+
+---
+
+## 12. Navigasi Website
+
+### Menu Utama
+- Home (`/`)
+- Portfolio (`/portfolio`)
+- Services (Mega Menu dropdown)
+  - Layanan: Company Profile, Landing Page, Website UMKM, Toko Online, Portofolio Online, Maintenance, Redesign
+  - Informasi: Tentang, Harga & Paket, Portfolio, Blog, FAQ, Kontak
+  - Kenapa Kami: Pengerjaan Cepat, Harga Terjangkau, Revisi Gratis, Support Responsif, Teknologi Modern, 99+ Klien
+- Blog (`/blog`)
+- Contact (`/contact`)
+- CTA Button: "Get Started" → `/pricing`
+
+---
+
+## 13. Dependencies
+
+```json
+{
+  "@astrojs/sitemap": "^3.7.3",
+  "astro": "^6.3.7"
+}
+```
+
+Minimal dependencies — proyek ini sengaja lean. Jangan menambah dependency tanpa alasan kuat.
+
+---
+
+## 14. Legacy Reference
+
+Folder `old-web/` berisi template HTML original yang digunakan sebagai referensi class CSS dan struktur HTML. File-file ini TIDAK di-deploy dan hanya berfungsi sebagai panduan saat merakit komponen Astro baru.
+
+---
+
+*Dokumen ini adalah panduan utama (single source of truth) bagi agent AI untuk memahami, memodifikasi, dan mengembangkan proyek JalaninWeb.com. Selalu rujuk dokumen ini sebelum melakukan perubahan apapun.*

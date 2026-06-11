@@ -4,7 +4,7 @@ export interface Portfolio {
     slug: string;
     title: string;
     image: string;         // Gambar kecil (Thumbnail)
-    carouselImage: string;  // ← TAMBAH INI — khusus carousel index
+    carouselImage: string;  // khusus carousel index
     detailImage: string;   // Gambar besar (Full Details)
     description1: string;
     description2: string;
@@ -12,7 +12,7 @@ export interface Portfolio {
     client: string;
     location: string;
     date: string;
-    filter: string;        // Kategori filter grid: branding | aplikasi | webdesign | infrastruktur
+    filter: string;        // Kategori filter grid
     categoryIcon: string;  // FontAwesome class icon kategori
     requirementsText: string;
     requirementsList1: string[];
@@ -23,303 +23,258 @@ export interface Portfolio {
 
 export const portfolios: Portfolio[] = [
     {
-        slug: "driving-digital-transformation",
-        title: "Transformasi Digital UMKM: Desain Logo & Branding Premium",
+        slug: "company-profile-klinik-sehat-prima",
+        title: "Website Company Profile untuk Klinik Sehat Prima",
         image: "/assets/images/portfolio/portfolio_item_image_4.webp",
-        carouselImage: "/assets/images/portfolio/portfolio_item_image_1.webp", 
+        carouselImage: "/assets/images/portfolio/portfolio_item_image_1.webp",
         detailImage: "/assets/images/portfolio/portfolio_details_image_1.webp",
-        description1: "Di era persaingan bisnis yang semakin ketat, identitas visual bukan sekadar pelengkap — ia adalah wajah pertama yang dilihat calon pelanggan sebelum mereka memutuskan untuk mempercayai sebuah brand. Proyek ini hadir sebagai langkah strategis bagi Bioraprimacorp, sebuah pelaku UMKM di Surabaya yang ingin bertransisi dari tampilan visual yang konvensional dan kurang konsisten menuju identitas brand yang modern, profesional, dan mudah diingat. Kami memulai dengan melakukan brand discovery session mendalam, menggali nilai-nilai inti perusahaan, target pasar, serta tone of voice yang ingin disampaikan. Dari sana, tim desainer JalaninWeb menyusun moodboard, mengeksplorasi berbagai arah kreatif, dan akhirnya mengeksekusi satu desain logo yang tidak hanya estetis — tetapi juga memiliki makna dan cerita di balik setiap elemennya.",
-        description2: "Proses branding yang kami jalankan tidak berhenti pada file logo semata. Kami membangun panduan identitas visual lengkap yang mencakup palet warna primer dan sekunder, tipografi resmi beserta hierarki penggunaannya, aturan penempatan logo di berbagai media (digital, cetak, merchandise), serta template dasar untuk keperluan promosi. Hasilnya, Bioraprimacorp kini memiliki identitas visual yang konsisten di seluruh touchpoint bisnis mereka — mulai dari kartu nama, kemasan produk, hingga tampilan media sosial. Dengan brand yang kuat dan terstruktur, kepercayaan pelanggan meningkat secara signifikan, membuka pintu bagi pertumbuhan bisnis jangka panjang yang lebih solid. JalaninWeb tidak sekadar membuat logo — kami membantu bisnis Anda bercerita lewat visual.",
-        service: "Logo Design",
-        client: "Bioraprimacorp",
+        description1: "Klinik Sehat Prima adalah klinik kesehatan keluarga di Surabaya yang ingin meningkatkan kehadiran digitalnya. Sebelumnya, informasi tentang layanan klinik hanya tersebar melalui brosur fisik dan mulut ke mulut. Calon pasien kesulitan menemukan informasi jam operasional, daftar dokter, dan lokasi klinik secara online. JalaninWeb ditugaskan untuk membangun website company profile yang profesional, informatif, dan mobile-friendly agar calon pasien bisa mendapatkan semua informasi yang mereka butuhkan dalam hitungan detik.",
+        description2: "Kami membangun website 5 halaman yang mencakup: Beranda dengan hero section yang menampilkan keunggulan klinik, halaman Tentang Kami yang membangun kredibilitas dengan menampilkan profil dokter dan sertifikasi, halaman Layanan dengan deskripsi lengkap setiap pelayanan medis, halaman Lokasi dengan embed Google Maps dan petunjuk arah, serta halaman Kontak dengan integrasi langsung ke WhatsApp. SEO dasar dioptimasi agar klinik muncul di pencarian Google untuk kata kunci 'klinik terdekat Surabaya'. Hasilnya, dalam 30 hari pertama setelah launch, traffic organik klinik meningkat 280% dan jumlah pasien baru yang datang menyebut 'menemukan di Google' naik signifikan.",
+        service: "Company Profile",
+        client: "Klinik Sehat Prima",
         location: "Surabaya, Jawa Timur",
-        date: "15-01-2025",
-        filter: "branding",
-        categoryIcon: "fa-solid fa-tags",
-        requirementsText: "Fokus utama pada fase ini adalah mengeksekusi strategi branding yang solid untuk memastikan kelancaran transisi identitas perusahaan dari tampilan lama menuju citra yang segar, modern, dan berdampak.",
+        date: "10-01-2026",
+        filter: "company-profile",
+        categoryIcon: "fa-solid fa-globe",
+        requirementsText: "Klinik membutuhkan website profesional yang menampilkan informasi layanan, profil dokter, dan lokasi agar mudah ditemukan calon pasien secara online.",
         requirementsList1: [
-            "Fase Asesmen & Brand Discovery",
-            "Pengembangan Strategi Branding"
+            "Desain halaman beranda yang meyakinkan",
+            "Profil dokter dan jam praktek",
+            "Integrasi Google Maps & WhatsApp"
         ],
         requirementsList2: [
-            "Implementasi Desain Logo",
-            "Dokumentasi Standar Branding (Brand Guideline)"
+            "SEO dasar untuk pencarian lokal",
+            "Responsif di semua perangkat",
+            "Loading time di bawah 3 detik"
         ],
-        solution1: "Eksekusi strategi desain yang matang dan terstruktur memastikan transisi identitas visual yang mulus — logo tampil profesional dan konsisten di berbagai media, baik cetak maupun digital.",
-        solution2: "Pendekatan menyeluruh JalaninWeb yang mencakup riset pasar lokal, eksplorasi kreatif, dan panduan implementasi branding menjadikan transformasi ini bukan sekadar perubahan tampilan, melainkan investasi jangka panjang untuk reputasi bisnis klien."
+        solution1: "Website company profile yang kami bangun berhasil meningkatkan traffic organik klinik sebesar 280% dalam 30 hari pertama — calon pasien kini bisa menemukan informasi lengkap klinik langsung dari Google.",
+        solution2: "Integrasi WhatsApp dan Google Maps memudahkan pasien menghubungi dan menemukan lokasi klinik, mengurangi pertanyaan repetitif ke resepsionis hingga 60%."
     },
     {
-        slug: "explore-our-it-solutions",
-        title: "Eksplorasi Solusi IT untuk Layanan Sektor Publik dan Pemerintahan",
+        slug: "website-umkm-batik-nusantara",
+        title: "Website Katalog Produk untuk Batik Nusantara Collection",
         image: "/assets/images/portfolio/portfolio_item_image_5.webp",
         carouselImage: "/assets/images/portfolio/portfolio_item_image_1.webp",
         detailImage: "/assets/images/portfolio/portfolio_details_image_1.webp",
-        description1: "Pelayanan publik yang baik dimulai dari sistem digital yang andal. Dinas Kominfo Kabupaten Kediri menyadari bahwa aplikasi pelayanan masyarakat mereka yang lama sudah tidak lagi mampu memenuhi tuntutan era modern — antarmuka yang tidak intuitif, infrastruktur yang rentan terhadap gangguan, dan proses birokrasi yang masih manual menjadi hambatan nyata bagi kelancaran layanan. JalaninWeb hadir sebagai mitra teknologi untuk merombak sistem tersebut dari dalam. Kami memulai proses dengan melakukan audit menyeluruh terhadap alur kerja existing, mengidentifikasi bottleneck utama, dan memetakan kebutuhan nyata para petugas serta masyarakat pengguna aplikasi. Pendekatan berbasis data ini menjadi fondasi desain ulang UI/UX yang kami lakukan — bukan sekadar mempercantik tampilan, tetapi membangun pengalaman yang benar-benar mempermudah proses pelayanan dari awal hingga akhir.",
-        description2: "Di sisi teknis, tantangan terbesar adalah memodernisasi sistem legacy yang telah berjalan bertahun-tahun tanpa menghentikan layanan aktif yang sedang berjalan. Tim back-end JalaninWeb mengimplementasikan arsitektur microservice yang memisahkan komponen sistem secara modular, sehingga pembaruan dapat dilakukan secara bertahap tanpa risiko downtime massal. Kami juga menerapkan enkripsi data end-to-end dan sistem autentikasi berlapis untuk membentengi aplikasi dari potensi serangan siber yang semakin marak menarget instansi pemerintah. Pengujian beban (load testing) dilakukan secara menyeluruh untuk memastikan sistem tetap stabil meski diakses ribuan pengguna secara bersamaan pada jam-jam puncak layanan. Hasilnya: aplikasi yang lebih cepat, lebih aman, dan lebih nyaman digunakan — baik oleh petugas di lapangan maupun masyarakat yang mengaksesnya dari rumah.",
-        service: "App Design",
-        client: "Dinas Kominfo Kediri",
-        location: "Kediri, Jawa Timur",
-        date: "22-03-2025",
-        filter: "aplikasi",
-        categoryIcon: "fa-solid fa-mobile-screen",
-        requirementsText: "Klien membutuhkan perombakan total pada aplikasi pelayanan publik mereka agar lebih ramah pengguna (user-friendly), responsif di berbagai perangkat, dan terlindungi dari ancaman keamanan siber yang terus berkembang.",
+        description1: "Batik Nusantara Collection adalah UMKM batik tulis di Pekalongan yang menjual produk melalui Instagram dan WhatsApp. Dengan katalog produk yang terus bertambah hingga 200+ item, pemilik usaha kewalahan menjawab pertanyaan pelanggan satu per satu tentang ketersediaan motif dan harga. Mereka membutuhkan etalase digital yang bisa menampilkan seluruh koleksi secara terorganisir, dengan fitur order langsung ke WhatsApp tanpa perlu membalas DM satu-satu.",
+        description2: "JalaninWeb membangun website katalog produk dengan kategorisasi berdasarkan jenis batik (tulis, cap, kombinasi), range harga, dan ukuran. Setiap produk dilengkapi galeri foto high-quality, deskripsi detail bahan dan perawatan, serta tombol 'Pesan via WhatsApp' yang otomatis menyertakan nama produk dan kode SKU dalam pesan. Halaman profil usaha menampilkan cerita brand dan proses pembuatan batik untuk membangun emotional connection. Setelah website live, volume order via WhatsApp meningkat 150% karena pelanggan sudah tahu persis apa yang mereka mau sebelum menghubungi.",
+        service: "Website UMKM & Katalog",
+        client: "Batik Nusantara Collection",
+        location: "Pekalongan, Jawa Tengah",
+        date: "15-02-2026",
+        filter: "website-umkm-katalog",
+        categoryIcon: "fa-solid fa-globe",
+        requirementsText: "UMKM batik membutuhkan etalase digital yang menampilkan 200+ produk secara terorganisir dengan fitur direct order ke WhatsApp.",
         requirementsList1: [
-            "Perombakan UI/UX Aplikasi Pelayanan",
-            "Peningkatan Sistem Keamanan & Enkripsi Data"
+            "Katalog produk dengan filter kategori & harga",
+            "Galeri foto produk high-quality",
+            "Tombol order WhatsApp otomatis"
         ],
         requirementsList2: [
-            "Integrasi Database Backend & Migrasi Data",
-            "Pengujian Beban Server (Load Testing)"
+            "Halaman profil brand & cerita usaha",
+            "Mobile-friendly untuk pelanggan yang akses dari HP",
+            "Panduan update produk mandiri"
         ],
-        solution1: "Kami menghadirkan pengalaman penggunaan aplikasi yang jauh lebih mulus dengan antarmuka yang intuitif dan backend yang kokoh — siap menampung ribuan antrean data pelayanan secara simultan.",
-        solution2: "Pengujian menyeluruh yang kami lakukan memastikan uptime sistem mencapai 99,9%, bahkan saat menghadapi lonjakan trafik pada jam puncak pelayanan masyarakat, tanpa gangguan berarti pada kualitas layanan."
+        solution1: "Website katalog yang kami bangun meningkatkan volume order via WhatsApp sebesar 150% — pelanggan sudah tahu persis produk yang mereka inginkan sebelum chat.",
+        solution2: "Sistem kategorisasi dan filter mengurangi waktu yang dihabiskan pemilik untuk menjawab pertanyaan repetitif tentang ketersediaan dan harga hingga 70%."
     },
     {
-        slug: "innovative-solutions",
-        title: "Solusi Inovatif: Menampilkan Keberagaman Portofolio IT Kami",
+        slug: "portofolio-desainer-grafis-ayu",
+        title: "Website Portofolio untuk Desainer Grafis Freelance",
         image: "/assets/images/portfolio/portfolio_item_image_6.webp",
         carouselImage: "/assets/images/portfolio/portfolio_item_image_1.webp",
         detailImage: "/assets/images/portfolio/portfolio_details_image_1.webp",
-        description1: "Setiap perusahaan berskala nasional memiliki kebutuhan IT yang unik dan kompleks. PT Global Service Indonesia, sebagai perusahaan dengan operasional yang tersebar di berbagai kota, membutuhkan lebih dari sekadar solusi teknologi biasa — mereka butuh ekosistem digital yang kohesif, skalabel, dan mampu tumbuh seiring ekspansi bisnis mereka. JalaninWeb ditugaskan untuk merancang dan mengimplementasikan solusi IT menyeluruh yang mencakup pengembangan perangkat lunak kustom, pembenahan infrastruktur jaringan, hingga penerapan protokol keamanan siber tingkat lanjut. Proyek ini bukan hanya tentang teknologi — ini tentang bagaimana teknologi yang tepat dapat menjadi akselerator pertumbuhan bisnis yang nyata.",
-        description2: "Kami mengadopsi metodologi Agile dalam seluruh proses pengembangan, memungkinkan tim klien untuk terlibat aktif di setiap sprint dan memberikan feedback secara real-time. Pipeline CI/CD (Continuous Integration/Continuous Deployment) yang kami bangun memastikan pembaruan sistem dapat dirilis dengan cepat dan aman, tanpa risiko gangguan pada operasional yang sedang berjalan. Seluruh komponen sistem dirancang dengan prinsip modularitas — setiap modul dapat diperbarui atau diganti secara independen tanpa mempengaruhi bagian sistem lainnya. Hasilnya adalah infrastruktur IT yang tidak hanya menjawab kebutuhan hari ini, tetapi juga siap menghadapi tantangan dan peluang di masa depan, dengan biaya operasional yang jauh lebih efisien dari sebelumnya.",
-        service: "Card Design",
-        client: "PT Global Service Indonesia",
+        description1: "Ayu Pratiwi adalah desainer grafis freelance di Jakarta yang selama ini mengandalkan Behance dan Instagram untuk menampilkan karyanya. Masalahnya, kedua platform tersebut tidak memberikan kesan profesional yang cukup kuat saat melamar ke agensi kreatif atau pitching ke klien korporat. Dia membutuhkan website portofolio personal yang menampilkan karya terbaiknya dengan presentasi yang premium, lengkap dengan halaman tentang diri, skill, pengalaman, dan formulir kontak untuk inquiry project.",
+        description2: "Kami membangun website portofolio satu halaman dengan pendekatan visual-first: hero section menampilkan tagline personal dan CTA, dilanjutkan galeri karya dengan filter berdasarkan kategori (branding, packaging, illustration, social media), section about yang menceritakan perjalanan karir, daftar skill dan tools yang dikuasai, testimoni klien sebelumnya, serta form kontak yang terhubung ke email. Desain dibuat minimal dan elegan agar fokus tetap pada karya. SEO nama personal dioptimasi agar muncul di Google saat dicari. Dalam 2 bulan setelah launch, Ayu mendapatkan 3 klien baru yang menemukan portofolionya via Google.",
+        service: "Portofolio Online",
+        client: "Ayu Pratiwi (Freelancer)",
         location: "Jakarta, Indonesia",
-        date: "10-06-2025",
-        filter: "infrastruktur",
-        categoryIcon: "fa-solid fa-server",
-        requirementsText: "Kebutuhan mendesak akan infrastruktur IT yang skalabel, modular, dan mampu mendukung ekspansi bisnis perusahaan ke berbagai wilayah baru tanpa mengorbankan stabilitas sistem yang sudah ada.",
+        date: "05-03-2026",
+        filter: "portofolio-online",
+        categoryIcon: "fa-solid fa-palette",
+        requirementsText: "Desainer grafis freelance membutuhkan website portofolio personal yang premium untuk pitching ke klien korporat dan agensi kreatif.",
         requirementsList1: [
-            "Penilaian & Audit Skalabilitas Sistem",
-            "Pemilihan Stack Teknologi yang Tepat"
+            "Galeri karya dengan filter kategori",
+            "Halaman about & skill",
+            "SEO nama personal"
         ],
         requirementsList2: [
-            "Pengembangan dengan Metode Agile",
-            "Implementasi Pipeline CI/CD"
+            "Form kontak untuk inquiry project",
+            "Desain minimal dan elegan",
+            "Responsif & loading cepat"
         ],
-        solution1: "Tim JalaninWeb berhasil mengimplementasikan arsitektur modular yang fleksibel, memperlancar komunikasi dan pertukaran data antar berbagai unit bisnis yang tersebar secara geografis.",
-        solution2: "Arsitektur baru yang kami bangun terbukti secara signifikan mengurangi biaya operasional server dan pemeliharaan IT hingga 30%, sekaligus meningkatkan kecepatan deployment fitur baru yang dibutuhkan bisnis."
+        solution1: "Website portofolio yang kami buat membantu Ayu mendapatkan 3 klien korporat baru dalam 2 bulan pertama — semua menemukan portofolionya melalui pencarian Google.",
+        solution2: "Presentasi karya yang premium dan profesional meningkatkan confidence Ayu saat pitching, menghasilkan closing rate yang jauh lebih tinggi dibanding sebelumnya."
     },
     {
-        slug: "tech-triumphs",
-        title: "Pencapaian Teknologi: Merayakan Kesuksesan Solusi Web Kami",
+        slug: "landing-page-workshop-digital-marketing",
+        title: "Landing Page untuk Workshop Digital Marketing",
         image: "/assets/images/portfolio/portfolio_item_image_7.webp",
         carouselImage: "/assets/images/portfolio/portfolio_item_image_1.webp",
         detailImage: "/assets/images/portfolio/portfolio_details_image_1.webp",
-        description1: "Ketika PT United Tractors Tbk — salah satu perusahaan distribusi alat berat terbesar di Indonesia — mempercayakan pengembangan sistem web enterprise mereka kepada JalaninWeb, kami memahami sepenuhnya bahwa ini bukan sekadar proyek pengembangan website biasa. Ini adalah tulang punggung digital dari operasional logistik dan distribusi skala nasional yang tidak boleh berhenti sedetik pun. Sistem yang kami bangun harus mampu menangani ribuan transaksi data logistik secara real-time, memastikan visibilitas penuh terhadap pergerakan armada dan inventaris alat berat, sekaligus menyajikan laporan operasional yang akurat bagi para pengambil keputusan di level manajemen. Tantangan teknis ini kami jawab dengan arsitektur web yang dioptimalkan secara menyeluruh dari sisi performa, keamanan, maupun keandalan.",
-        description2: "Kami membangun sistem dengan pendekatan high-availability architecture, di mana redundansi server diterapkan di beberapa titik kritis untuk memastikan tidak ada single point of failure. Konfigurasi CDN (Content Delivery Network) global kami pasang untuk memastikan akses yang cepat dari berbagai lokasi di seluruh Indonesia, termasuk wilayah-wilayah terpencil sekalipun. Tim keamanan JalaninWeb juga menerapkan pemantauan 24/7 dengan sistem deteksi anomali otomatis yang mampu mengidentifikasi dan merespons ancaman siber sebelum berdampak pada operasional. Hasilnya sungguh luar biasa: sistem berhasil mencatat uptime 100% selama 12 bulan pertama operasional penuh, sebuah pencapaian yang menjadi kebanggaan bersama. Lebih dari itu, pengguna internal melaporkan peningkatan kepuasan dan produktivitas hingga 50% berkat antarmuka yang lebih intuitif dan respons sistem yang jauh lebih cepat.",
-        service: "Web Design",
-        client: "PT United Tractors Tbk",
-        location: "Jakarta Barat, Indonesia",
-        date: "05-08-2025",
-        filter: "webdesign",
+        description1: "DigiLearn Academy menyelenggarakan workshop digital marketing offline di Surabaya dan membutuhkan landing page khusus untuk campaign pendaftaran. Target mereka: mengisi 50 kursi workshop dalam 2 minggu dengan budget iklan terbatas. Landing page harus mampu mengkonversi traffic dari Instagram Ads dan Google Ads menjadi pendaftar yang langsung bayar atau minimal mengisi form interest.",
+        description2: "JalaninWeb membangun landing page satu halaman dengan struktur yang dioptimasi untuk konversi: headline yang menyentuh pain point target audience, social proof berupa testimoni alumni workshop sebelumnya, detail materi dan jadwal yang jelas, profil mentor dengan kredensial yang meyakinkan, pricing dengan early bird discount dan countdown timer, serta CTA yang mengarah ke form pendaftaran singkat (hanya 3 field). Halaman diintegrasikan dengan Meta Pixel dan Google Tag untuk tracking konversi. Hasilnya: 50 kursi sold out dalam 9 hari — 5 hari lebih cepat dari target.",
+        service: "Landing Page",
+        client: "DigiLearn Academy",
+        location: "Surabaya, Jawa Timur",
+        date: "20-03-2026",
+        filter: "landing-page",
         categoryIcon: "fa-solid fa-globe",
-        requirementsText: "Klien menuntut aplikasi web berkinerja sangat tinggi dengan persyaratan downtime yang nyaris nol — sistem harus mampu berjalan non-stop untuk mendukung pengawasan dan koordinasi operasional logistik berskala nasional.",
+        requirementsText: "Academy membutuhkan landing page high-converting untuk mengisi 50 kursi workshop digital marketing dalam 2 minggu melalui paid ads.",
         requirementsList1: [
-            "Optimasi Performa Web & Query Database",
-            "Perencanaan Arsitektur Redundansi Server"
+            "Desain fokus konversi (CRO)",
+            "Countdown timer & urgency element",
+            "Form pendaftaran singkat (3 field)"
         ],
         requirementsList2: [
-            "Konfigurasi CDN Global",
-            "Pemantauan Keamanan Siber 24/7"
+            "Integrasi Meta Pixel & Google Tag",
+            "Performa loading di bawah 2 detik",
+            "A/B testing ready"
         ],
-        solution1: "Sistem web enterprise yang kami rancang sukses mencatat rekor uptime 100% selama 12 bulan penuh masa operasional — sebuah pencapaian teknis yang membuktikan kekokohan arsitektur yang kami bangun.",
-        solution2: "Pengguna internal melaporkan lonjakan kepuasan dan produktivitas hingga 50%, berkat antarmuka yang lebih intuitif, performa sistem yang lebih responsif, dan keandalan akses data yang dapat diandalkan kapan saja."
+        solution1: "Landing page yang kami buat berhasil menjual habis 50 kursi workshop dalam 9 hari — 5 hari lebih cepat dari target awal klien dengan budget iklan yang sama.",
+        solution2: "Conversion rate halaman mencapai 12.3%, jauh di atas rata-rata industri 3-5%, berkat struktur CRO dan copywriting persuasif yang kami implementasikan."
     },
     {
-        slug: "revolutionizing-it-strategies",
-        title: "Revolusi Strategi IT: Mengintip Solusi IT Dinamis JalaninWeb",
+        slug: "maintenance-ecommerce-tokosepatu",
+        title: "Maintenance & Support untuk Toko Sepatu Online",
         image: "/assets/images/portfolio/portfolio_item_image_8.webp",
         carouselImage: "/assets/images/portfolio/portfolio_item_image_1.webp",
         detailImage: "/assets/images/portfolio/portfolio_details_image_1.webp",
-        description1: "Bisnis bengkel otomotif seperti ACE Motocare Surabaya seringkali terjebak dalam dilema klasik: mereka tahu sistem manual yang selama ini digunakan sudah tidak efisien, tetapi merasa khawatir proses digitalisasi akan mengganggu ritme kerja harian yang sudah berjalan. JalaninWeb hadir untuk membuktikan bahwa transformasi digital tidak harus menyakitkan. Kami memulai dengan melakukan analisis mendalam terhadap alur kerja para mekanik dan staf administrasi — mencatat setiap langkah proses pencatatan servis, pengelolaan stok sparepart, dan pembuatan laporan harian yang selama ini dilakukan secara manual di buku atau spreadsheet sederhana. Dari hasil analisis inilah kami merancang solusi digital yang benar-benar sesuai dengan kebutuhan lapangan, bukan solusi generik yang dipaksakan.",
-        description2: "Solusi yang kami implementasikan berbasis Excel VBA otomatis — sebuah pilihan yang disengaja agar tim bengkel tidak perlu belajar sistem yang asing dari nol. Dengan memanfaatkan antarmuka Excel yang sudah mereka kenal, kami membangun sistem otomatisasi yang mampu mengurangi waktu input data manual secara drastis, menghasilkan laporan harian secara otomatis dalam hitungan detik, serta mengelola catatan servis dan histori kendaraan pelanggan dengan lebih terstruktur. Proses implementasi dilakukan secara bertahap — modul demi modul diperkenalkan dengan sesi pelatihan singkat yang praktis — sehingga tidak ada satu pun hari operasional bengkel yang terganggu selama masa transisi. Hasilnya: produktivitas harian bengkel meningkat signifikan, error akibat pencatatan manual berkurang, dan kepuasan karyawan terhadap sistem baru pun sangat tinggi.",
-        service: "Web Design",
-        client: "ACE Motocare Surabaya",
-        location: "Surabaya, Jawa Timur",
-        date: "12-10-2025",
-        filter: "infrastruktur",
+        description1: "SneakersHub.id adalah toko sepatu online berbasis WordPress + WooCommerce yang sudah berjalan 2 tahun. Seiring pertumbuhan, website mulai mengalami berbagai masalah: loading lambat (7+ detik), error checkout yang sporadis, plugin conflict setelah update, dan kekhawatiran keamanan setelah menerima email phishing yang mentarget admin panel. Pemilik tidak punya waktu dan keahlian teknis untuk menangani semua ini sendiri.",
+        description2: "JalaninWeb mengambil alih maintenance penuh dengan paket bulanan yang mencakup: update WordPress core, theme, dan seluruh plugin setiap minggu, backup otomatis harian ke cloud storage terpisah, monitoring uptime 24/7 dengan alert instant jika website down, optimasi kecepatan (berhasil menurunkan loading dari 7 detik menjadi 2.1 detik), security hardening (firewall, limit login attempt, 2FA), serta jatah 5 jam support teknis per bulan untuk perbaikan bug dan perubahan minor. Setelah 6 bulan under maintenance kami, zero downtime tercatat dan tidak ada satu pun insiden keamanan.",
+        service: "Maintenance & Support",
+        client: "SneakersHub.id",
+        location: "Bandung, Jawa Barat",
+        date: "01-04-2026",
+        filter: "maintenance",
         categoryIcon: "fa-solid fa-server",
-        requirementsText: "Objektif utama adalah memodernisasi sistem pencatatan dan pengelolaan inventaris internal bengkel tanpa sekalipun mengganggu alur kerja operasional harian yang sudah berjalan dan menghasilkan pendapatan.",
+        requirementsText: "Toko online membutuhkan maintenance profesional untuk mengatasi masalah kecepatan, keamanan, dan stabilitas yang sudah menumpuk selama 2 tahun.",
         requirementsList1: [
-            "Analisis Mendalam Alur Kerja Mekanik & Admin",
-            "Penyebaran Sistem Secara Bertahap (Phased Rollout)"
+            "Update rutin WordPress, theme & plugin",
+            "Backup harian otomatis ke cloud",
+            "Optimasi kecepatan website"
         ],
         requirementsList2: [
-            "Pelatihan Staf & Onboarding Digital",
-            "Sistem Umpan Balik & Evaluasi Berkala"
+            "Security hardening & monitoring",
+            "Monitoring uptime 24/7",
+            "Support teknis 5 jam/bulan"
         ],
-        solution1: "Transisi menuju sistem digital baru berjalan sangat mulus tanpa gangguan operasional, dengan tingkat adopsi dan kepuasan karyawan yang jauh melampaui ekspektasi awal klien.",
-        solution2: "Produktivitas harian bengkel meningkat signifikan berkat otomatisasi berbasis Excel VBA yang kami kembangkan secara kustom — mengeliminasi input data manual berulang dan menghasilkan laporan operasional secara instan tanpa keahlian teknis khusus."
+        solution1: "Loading time berhasil dipangkas dari 7 detik menjadi 2.1 detik — meningkatkan conversion rate checkout sebesar 35% dalam bulan pertama maintenance.",
+        solution2: "Zero downtime dan zero insiden keamanan selama 6 bulan penuh maintenance — memberikan ketenangan pikiran bagi pemilik untuk fokus pada pertumbuhan bisnis."
     },
     {
-        slug: "cloud-migration-and-integration",
-        title: "Proyek Migrasi dan Integrasi Cloud untuk Bisnis F&B Lokal",
+        slug: "undangan-digital-wedding-rina-aldi",
+        title: "Undangan Pernikahan Digital untuk Rina & Aldi",
         image: "/assets/images/portfolio/portfolio_item_image_9.webp",
         carouselImage: "/assets/images/portfolio/portfolio_item_image_1.webp",
         detailImage: "/assets/images/portfolio/portfolio_details_image_1.webp",
-        description1: "Bisnis kuliner yang berkembang pesat seperti Runchise Cafe menghadapi tantangan yang sangat nyata ketika infrastruktur IT mereka tidak mampu lagi mengimbangi kecepatan pertumbuhan jaringan kedai mereka. Sistem kasir (Point of Sales) yang sebelumnya berjalan di server lokal mulai menunjukkan keterbatasannya: data transaksi sulit diakses dari pusat, pembaruan menu membutuhkan kunjungan fisik ke setiap cabang, dan risiko kehilangan data akibat kerusakan hardware lokal selalu mengintai. JalaninWeb ditugaskan untuk memindahkan seluruh infrastruktur sistem POS ini ke solusi cloud komersial yang andal menggunakan layanan Rumahweb — sebuah langkah besar yang membutuhkan perencanaan sangat matang agar tidak satu pun data transaksi berharga yang hilang dalam prosesnya.",
-        description2: "Migrasi database dari server on-premise ke cloud adalah proses yang jauh lebih kompleks dari yang terlihat di permukaan. Kami mengawali dengan audit lengkap terhadap struktur database existing, mengidentifikasi inkonsistensi data, dan membersihkan data duplikat sebelum proses transfer dimulai. Strategi migrasi kami dirancang dengan pendekatan zero-downtime — sistem lama tetap berjalan aktif melayani transaksi sementara proses replikasi data ke server cloud berlangsung secara paralel di latar belakang. Setelah sinkronisasi selesai dan diverifikasi, perpindahan akses dilakukan dalam hitungan menit tanpa pelanggan merasakan gangguan apapun. Pasca-migrasi, kami melakukan konfigurasi domain, pengaturan akses multi-cabang yang aman, serta pelatihan komprehensif bagi seluruh staf kasir agar dapat mengoperasikan sistem baru dengan percaya diri. Kini Runchise Cafe dapat memantau performa seluruh cabang secara real-time dari mana saja, kapan saja — cukup dengan koneksi internet.",
-        service: "Web Design",
-        client: "Runchise Cafe",
-        location: "Jakarta Barat, Indonesia",
-        date: "20-12-2024",
-        filter: "aplikasi",
-        categoryIcon: "fa-solid fa-cloud",
-        requirementsText: "Pada fase kritis migrasi ini, fokus kami adalah mengeksekusi strategi Database Migration yang kuat dari server lokal kasir on-premise menuju solusi hosting cloud komersial terpercaya, dengan jaminan nol kehilangan data transaksi.",
+        description1: "Rina dan Aldi adalah pasangan muda di Malang yang ingin menikah dengan konsep modern dan eco-friendly. Mereka memilih undangan digital sebagai pengganti undangan cetak — lebih hemat biaya, lebih ramah lingkungan, dan lebih mudah disebar ke seluruh tamu yang tersebar di berbagai kota. Mereka menginginkan undangan yang elegan, interaktif, dan bisa mengakomodasi RSVP serta ucapan dari tamu secara online.",
+        description2: "JalaninWeb membangun undangan pernikahan digital dengan tema elegant garden yang sesuai konsep acara. Fitur yang diimplementasikan: hero section dengan nama pasangan dan countdown menuju hari H, love story timeline, galeri foto prewedding dengan efek lightbox, detail acara (akad & resepsi) lengkap dengan Google Maps dan navigasi, formulir RSVP yang memudahkan tamu konfirmasi kehadiran, buku tamu digital untuk ucapan dan doa, informasi rekening untuk gift, serta musik latar yang bisa di-toggle. Undangan disebarkan via WhatsApp dengan personalisasi nama tamu di URL. Total 350 tamu menerima undangan, 89% membuka link, dan 200+ ucapan masuk di buku tamu digital.",
+        service: "Undangan Digital",
+        client: "Rina & Aldi",
+        location: "Malang, Jawa Timur",
+        date: "14-04-2026",
+        filter: "undangan-online",
+        categoryIcon: "fa-solid fa-heart",
+        requirementsText: "Pasangan membutuhkan undangan pernikahan digital yang elegan, interaktif, dan mudah disebar ke 350+ tamu di berbagai kota.",
         requirementsList1: [
-            "Fase Asesmen & Audit Infrastruktur Jaringan",
-            "Pengembangan Rencana & Jadwal Migrasi",
-            "Strategi Migrasi Data dengan Zero-Downtime",
-            "Persiapan & Konfigurasi Lingkungan Server Cloud"
+            "Desain tema elegant garden",
+            "Countdown timer hari H",
+            "Galeri foto prewedding"
         ],
         requirementsList2: [
-            "Migrasi Aplikasi Point of Sales (POS)",
-            "Pelatihan Kasir & Pembuatan Dokumentasi Penggunaan",
-            "Konfigurasi Domain & Manajemen Akses Multi-Cabang",
-            "Dukungan Teknis Penuh Pasca-Migrasi (Post-Migration Support)"
+            "Formulir RSVP online",
+            "Buku tamu & ucapan digital",
+            "Personalisasi nama tamu di URL"
         ],
-        solution1: "Strategi migrasi bertahap dengan pendekatan zero-downtime yang kami terapkan berhasil memindahkan ribuan data transaksi dari server lokal ke cloud tanpa kehilangan satu pun record data — proses yang berjalan sepenuhnya transparan bagi pelanggan di lapangan.",
-        solution2: "Sebagai mitra teknologi yang bertanggung jawab penuh, JalaninWeb memastikan bisnis kafe klien beroperasi tanpa interupsi sepanjang proses migrasi — dari perencanaan awal, eksekusi teknis, hingga pendampingan pasca-migrasi yang menjamin kemandirian tim operasional klien.",
+        solution1: "Dari 350 tamu yang menerima undangan, 89% membuka link — jauh lebih tinggi dibanding undangan cetak yang sering terselip dan tidak dibaca.",
+        solution2: "Lebih dari 200 ucapan masuk di buku tamu digital, menciptakan kenangan abadi yang bisa dibaca pasangan kapan saja — sesuatu yang tidak mungkin dengan buku tamu fisik."
     },
     {
-        slug: "sistem-manajemen-klinik-digital",
-        title: "Sistem Manajemen Klinik Digital: Dari Antrian Kertas ke Dashboard Real-Time",
+        slug: "redesign-website-firma-hukum",
+        title: "Redesign Website untuk Firma Hukum Adhi & Partners",
         image: "/assets/images/portfolio/portfolio_item_image_10.webp",
         carouselImage: "/assets/images/portfolio/portfolio_item_image_1.webp",
         detailImage: "/assets/images/portfolio/portfolio_details_image_1.webp",
-        description1: "Klinik Pratama Sehat Bersama di Malang adalah contoh nyata bagaimana fasilitas kesehatan skala menengah bisa tertinggal bukan karena kualitas pelayanannya buruk, melainkan karena sistem administrasinya yang belum terdigitalisasi. Setiap hari, staf resepsionis harus mengelola antrian pasien secara manual menggunakan buku tulis, dokter tidak memiliki akses cepat ke rekam medis pasien sebelumnya, dan laporan keuangan harian harus dikerjakan secara manual setelah jam operasional berakhir. Inefisiensi ini tidak hanya menguras energi staf, tetapi juga berdampak langsung pada pengalaman pasien yang harus menunggu lebih lama dari seharusnya. JalaninWeb hadir dengan solusi sistem manajemen klinik berbasis web yang dirancang khusus sesuai alur kerja operasional klinik tersebut — bukan solusi generik yang dipaksakan, melainkan sistem yang tumbuh dari kebutuhan nyata di lapangan.",
-        description2: "Sistem yang kami bangun mencakup modul pendaftaran dan antrian pasien digital dengan tampilan nomor antrian real-time di layar ruang tunggu, modul rekam medis elektronik (RME) yang memungkinkan dokter mengakses dan memperbarui catatan pasien dari tablet maupun laptop, serta modul kasir dan laporan keuangan harian yang terintegrasi penuh. Semua modul terhubung dalam satu dashboard terpusat yang bisa diakses kepala klinik dari mana saja. Proses implementasi kami lakukan secara bertahap selama tiga minggu — paralel dengan operasional klinik yang tetap berjalan normal — disertai sesi pelatihan intensif untuk seluruh staf. Hasilnya signifikan: waktu tunggu rata-rata pasien berkurang dari 35 menit menjadi 12 menit, dan kepala klinik kini bisa memantau performa operasional harian hanya dari smartphone mereka.",
-        service: "App Design",
-        client: "Klinik Pratama Sehat Bersama",
-        location: "Malang, Jawa Timur",
-        date: "03-02-2025",
-        filter: "aplikasi",
-        categoryIcon: "fa-solid fa-hospital",
-        requirementsText: "Klinik membutuhkan sistem terpadu yang mendigitalisasi seluruh alur operasional — dari pendaftaran pasien, rekam medis, hingga pelaporan keuangan — tanpa menghentikan pelayanan yang sedang berjalan.",
+        description1: "Firma Hukum Adhi & Partners sudah memiliki website sejak 2019, tetapi tampilannya ketinggalan zaman, tidak mobile-friendly, dan loading sangat lambat karena masih menggunakan template WordPress lawas dengan banyak plugin usang. Calon klien korporat yang mengunjungi website sering kali meragukan profesionalisme firma karena tampilan digital yang tidak match dengan reputasi mereka di dunia nyata. Firma membutuhkan redesign total tanpa kehilangan konten dan ranking SEO yang sudah dibangun bertahun-tahun.",
+        description2: "JalaninWeb melakukan audit menyeluruh terhadap website lama: memetakan semua halaman dan URL yang sudah ter-index Google, mengidentifikasi backlink berharga, dan mendokumentasikan seluruh konten. Redesign dilakukan dengan teknologi Astro untuk performa maksimal — loading turun dari 8 detik menjadi 1.5 detik. Semua URL lama di-redirect 301 ke URL baru agar tidak kehilangan ranking. Tampilan baru dibuat profesional, modern, dan authoritative sesuai industri hukum: warna navy-gold, typography serif untuk heading, layout yang clean dan spacious. Hasilnya: bounce rate turun 45%, average session duration naik 2x, dan inquiry klien baru via website meningkat 80%.",
+        service: "Redesign Website",
+        client: "Firma Hukum Adhi & Partners",
+        location: "Jakarta Selatan, Indonesia",
+        date: "01-05-2026",
+        filter: "redesign-website",
+        categoryIcon: "fa-solid fa-globe",
+        requirementsText: "Firma hukum membutuhkan redesign total website lama yang ketinggalan zaman tanpa mengorbankan SEO ranking dan konten yang sudah terbangun.",
         requirementsList1: [
-            "Modul Antrian & Pendaftaran Pasien Digital",
-            "Rekam Medis Elektronik (RME) Berbasis Web",
-            "Integrasi Jadwal Dokter & Appointment Online"
+            "Audit & mapping URL lama",
+            "Redesign UI/UX sesuai industri hukum",
+            "Migrasi konten tanpa kehilangan data"
         ],
         requirementsList2: [
-            "Modul Kasir & Laporan Keuangan Harian",
-            "Dashboard Monitoring Real-Time untuk Manajemen",
-            "Pelatihan Staf & Pendampingan Pasca-Launch"
+            "Redirect 301 semua URL lama",
+            "Optimasi performa (target <2 detik)",
+            "Mobile-responsive di semua device"
         ],
-        solution1: "Sistem manajemen klinik yang kami bangun berhasil memangkas waktu tunggu rata-rata pasien dari 35 menit menjadi hanya 12 menit — sebuah peningkatan yang langsung dirasakan oleh pasien dan staf sejak hari pertama go-live.",
-        solution2: "Kepala klinik kini memiliki visibilitas penuh terhadap seluruh operasional harian melalui satu dashboard terintegrasi, menggantikan laporan manual yang sebelumnya membutuhkan waktu berjam-jam untuk disusun setiap malam."
+        solution1: "Loading time dipangkas drastis dari 8 detik menjadi 1.5 detik, menghasilkan penurunan bounce rate sebesar 45% dan peningkatan session duration 2x lipat.",
+        solution2: "Inquiry klien baru melalui website meningkat 80% pasca-redesign — tampilan profesional yang baru berhasil membangun kepercayaan calon klien korporat sejak kunjungan pertama."
     },
     {
-        slug: "website-properti-landing-page",
-        title: "Landing Page Properti High-Converting untuk Developer Perumahan Surabaya",
+        slug: "web-scraping-data-supplier-marketplace",
+        title: "Web Scraping Data Supplier dari Marketplace untuk Distributor F&B",
         image: "/assets/images/portfolio/portfolio_item_image_11.webp",
         carouselImage: "/assets/images/portfolio/portfolio_item_image_1.webp",
         detailImage: "/assets/images/portfolio/portfolio_details_image_1.webp",
-        description1: "Di industri properti, kesan pertama adalah segalanya. PT Griya Nusantara Indah, developer perumahan menengah atas di kawasan Surabaya Barat, menyadari bahwa website mereka yang lama tidak lagi mampu mengkonversi pengunjung menjadi calon pembeli yang serius. Tampilan yang sudah ketinggalan zaman, loading yang lambat, dan tidak adanya fitur interaktif membuat calon pembeli potensial beralih ke kompetitor yang tampilannya lebih modern dan meyakinkan. JalaninWeb ditugaskan untuk membangun landing page properti baru yang tidak hanya cantik secara visual, tetapi juga dioptimalkan secara teknis untuk menghasilkan lead berkualitas — calon pembeli yang benar-benar tertarik dan siap dihubungi tim marketing.",
-        description2: "Strategi desain kami berpusat pada konsep visual storytelling — setiap section halaman dirancang untuk memandu pengunjung dalam sebuah perjalanan emosional, dari membangun keinginan hingga mendorong tindakan nyata. Kami mengintegrasikan galeri foto dan video 360° unit rumah, kalkulator KPR interaktif yang memungkinkan calon pembeli menghitung cicilan secara langsung di halaman, peta lokasi interaktif dengan highlight fasilitas sekitar, serta formulir lead yang dioptimalkan dengan hanya tiga field wajib untuk meminimalkan friction. Di sisi teknis, halaman dibangun dengan performa loading di bawah 2 detik, fully responsive di semua perangkat, dan terintegrasi dengan Google Analytics serta Meta Pixel untuk tracking konversi yang akurat. Dalam 60 hari pertama setelah launch, jumlah lead masuk meningkat 340% dibandingkan periode yang sama dengan website lama.",
-        service: "Web Design",
-        client: "PT Griya Nusantara Indah",
-        location: "Surabaya Barat, Jawa Timur",
-        date: "18-03-2025",
-        filter: "webdesign",
-        categoryIcon: "fa-solid fa-globe",
-        requirementsText: "Developer properti membutuhkan landing page modern yang mampu mengkonversi traffic organik dan berbayar menjadi lead berkualitas, dengan performa teknis tinggi dan pengalaman pengguna yang memikat.",
+        description1: "PT Sumber Rasa Nusantara adalah distributor bahan makanan F&B di Surabaya yang ingin memperluas jaringan supplier. Mereka membutuhkan database lengkap supplier bahan baku dari beberapa marketplace B2B dan direktori bisnis online — termasuk nama usaha, produk yang dijual, lokasi, rating, dan kontak. Mengumpulkan data ini secara manual dari ribuan halaman marketplace akan memakan waktu berminggu-minggu. Mereka membutuhkan solusi otomatis.",
+        description2: "JalaninWeb membangun script scraping kustom yang mengekstrak data dari 3 marketplace B2B dan 2 direktori bisnis online. Proses scraping mengumpulkan 5.000+ data supplier lengkap dengan: nama toko, kategori produk, range harga, lokasi gudang, rating & jumlah transaksi, serta kontak (nomor telepon/WhatsApp jika tersedia). Data dibersihkan dari duplikasi dan format yang berantakan, lalu diserahkan dalam format Excel yang sudah dikategorisasi rapi. Kami juga membangun mini API endpoint agar tim procurement bisa query data berdasarkan kategori dan lokasi. Hasilnya: tim procurement berhasil menghubungi dan menjalin kerjasama dengan 47 supplier baru dalam bulan pertama menggunakan database ini.",
+        service: "Web Scraping",
+        client: "PT Sumber Rasa Nusantara",
+        location: "Surabaya, Jawa Timur",
+        date: "20-05-2026",
+        filter: "web-scraping",
+        categoryIcon: "fa-solid fa-database",
+        requirementsText: "Distributor F&B membutuhkan database supplier dari marketplace B2B secara otomatis — mencakup ribuan data yang tidak mungkin dikumpulkan manual.",
         requirementsList1: [
-            "Desain UI/UX Berorientasi Konversi (CRO)",
-            "Galeri Foto & Tur Virtual 360°",
-            "Kalkulator KPR Interaktif"
+            "Scraping dari 3 marketplace + 2 direktori",
+            "Ekstraksi nama, produk, harga, lokasi, kontak",
+            "Data cleaning & deduplication"
         ],
         requirementsList2: [
-            "Optimasi Performa & Core Web Vitals",
-            "Integrasi Analytics & Meta Pixel",
-            "Formulir Lead Terintegrasi CRM"
+            "Output format Excel terstruktur",
+            "Mini API endpoint untuk query data",
+            "Dokumentasi cara penggunaan"
         ],
-        solution1: "Landing page baru berhasil meningkatkan jumlah lead masuk sebesar 340% dalam 60 hari pertama — hasil yang melampaui target awal klien dan membuktikan efektivitas pendekatan desain berbasis konversi yang kami terapkan.",
-        solution2: "Performa teknis halaman yang optimal dengan loading time di bawah 2 detik berkontribusi langsung pada penurunan bounce rate sebesar 45%, artinya jauh lebih banyak pengunjung yang bertahan dan menjelajahi konten hingga mengisi formulir kontak."
+        solution1: "5.000+ data supplier berhasil diekstrak dan dibersihkan dalam waktu 3 hari — pekerjaan yang jika manual akan memakan waktu 4-6 minggu kerja penuh.",
+        solution2: "Tim procurement berhasil menjalin kerjasama dengan 47 supplier baru di bulan pertama menggunakan database ini — ROI investasi scraping tercapai dalam hitungan hari."
     },
     {
-        slug: "erp-custom-distributor-sembako",
-        title: "Sistem ERP Custom untuk Distributor Sembako Skala Regional",
-        image: "/assets/images/portfolio/portfolio_item_image_1.webp",
+        slug: "website-umkm-kotak-rasa-ayam-crispy",
+        title: "Website Landing Page untuk KOTAK RASA — UMKM Ayam Goreng Crispy",
+        image: "/assets/images/portfolio/portfolio_item_image_4.webp",
         carouselImage: "/assets/images/portfolio/portfolio_item_image_1.webp",
         detailImage: "/assets/images/portfolio/portfolio_details_image_1.webp",
-        description1: "UD Makmur Jaya adalah distributor sembako yang telah beroperasi selama lebih dari 20 tahun di wilayah Jawa Timur, dengan jaringan lebih dari 150 toko pengecer aktif. Di balik pengalaman panjang itu, tersimpan masalah operasional yang semakin hari semakin menghambat pertumbuhan: pencatatan stok barang yang masih menggunakan buku besar fisik, proses pembuatan faktur yang lambat dan rawan salah hitung, serta tidak adanya visibilitas real-time terhadap posisi stok di gudang. JalaninWeb ditugaskan untuk membangun sistem ERP kustom yang benar-benar sesuai dengan model bisnis distribusi sembako mereka — ramping, fokus, dan mudah dioperasikan oleh tim yang tidak memiliki latar belakang IT.",
-        description2: "Sistem yang kami bangun dirancang di tiga pilar utama: manajemen stok real-time, manajemen pesanan dan faktur, serta laporan penjualan dan hutang piutang. Modul stok dilengkapi sistem peringatan otomatis ketika stok barang mendekati batas minimum, sehingga tim gudang bisa melakukan reorder sebelum kehabisan. Modul faktur memungkinkan tim penjualan membuat dan mengirim faktur digital ke toko pengecer hanya dalam hitungan detik dari smartphone mereka. Seluruh data terintegrasi dalam satu database terpusat yang dapat diakses pemilik usaha secara real-time dari mana saja. Setelah tiga bulan beroperasi dengan sistem baru, UD Makmur Jaya melaporkan pengurangan kesalahan pengiriman hingga 90% dan penghematan waktu administrasi harian lebih dari 4 jam.",
-        service: "App Design",
-        client: "UD Makmur Jaya",
-        location: "Sidoarjo, Jawa Timur",
-        date: "25-04-2025",
-        filter: "infrastruktur",
-        categoryIcon: "fa-solid fa-server",
-        requirementsText: "Distributor membutuhkan sistem ERP kustom yang menggantikan pencatatan manual dengan solusi digital terpadu — mencakup manajemen stok, faktur, dan laporan keuangan — tanpa kerumitan software ERP generik yang berlebihan.",
+        description1: "KOTAK RASA adalah UMKM ayam goreng crispy di Surabaya yang melayani pesanan satuan hingga catering acara besar (arisan, ulang tahun, pengajian, hajatan). Sebelumnya, seluruh proses order hanya mengandalkan chat WhatsApp tanpa katalog yang jelas — pelanggan sering bingung soal menu, harga, dan paket yang tersedia. Pemilik usaha membutuhkan website yang bisa menjadi 'etalase digital' sekaligus mesin penjualan otomatis yang bekerja 24 jam.",
+        description2: "JalaninWeb membangun landing page modern berbasis Astro dengan Tailwind CSS yang mengutamakan konversi dan kecepatan. Website menampilkan menu lengkap dengan harga transparan, 4 paket acara (Arisan 10 porsi, Party 20 porsi, Jumat Berkah 50 porsi, Hajatan 100 porsi), galeri foto pelanggan yang sudah order, testimoni real, dan integrasi multi-platform (GoFood, GrabFood, ShopeeFood, WhatsApp). Setiap section memiliki CTA langsung ke WhatsApp dengan pesan otomatis. Desain bergaya meriah dan appetizing dengan animasi scroll reveal, floating badges, dan tema warna merah-oranye yang memicu selera makan. Dalam 2 minggu pertama setelah launch, order via WhatsApp meningkat 200% karena pelanggan sudah paham menu dan harga sebelum menghubungi.",
+        service: "Landing Page",
+        client: "KOTAK RASA",
+        location: "Surabaya, Jawa Timur",
+        date: "11-06-2026",
+        filter: "umkm",
+        categoryIcon: "fa-solid fa-utensils",
+        requirementsText: "UMKM ayam goreng crispy membutuhkan landing page yang bisa menampilkan menu, harga, paket acara, dan menerima order dari berbagai platform secara profesional.",
         requirementsList1: [
-            "Modul Manajemen Stok Real-Time dengan Alert Otomatis",
-            "Sistem Pembuatan & Pengiriman Faktur Digital",
-            "Manajemen Data Master Produk & Pengecer"
+            "Katalog menu lengkap dengan harga & filter kategori",
+            "Paket catering acara (10-100 porsi) dengan detail isi",
+            "Integrasi multi-platform: GoFood, GrabFood, ShopeeFood, WhatsApp"
         ],
         requirementsList2: [
-            "Laporan Penjualan, Stok & Hutang Piutang",
-            "Akses Mobile untuk Tim Sales di Lapangan",
-            "Migrasi Data Historis & Pelatihan Operasional"
+            "Desain menarik & appetizing yang memicu pembelian",
+            "Galeri foto pelanggan & testimoni real",
+            "SEO lokal agar muncul di pencarian 'ayam crispy Surabaya'"
         ],
-        solution1: "Sistem ERP kustom yang kami bangun berhasil mengurangi kesalahan pengiriman akibat data stok yang tidak akurat hingga 90% — sebuah perbaikan operasional yang langsung berdampak pada kepuasan toko pengecer dan reputasi bisnis klien.",
-        solution2: "Tim administrasi melaporkan penghematan waktu kerja harian lebih dari 4 jam yang sebelumnya terbuang untuk input data manual — waktu yang kini dialihkan untuk aktivitas yang lebih bernilai bagi pertumbuhan bisnis."
+        solution1: "Landing page yang kami bangun berhasil meningkatkan order WhatsApp sebesar 200% dalam 2 minggu — pelanggan tidak perlu lagi tanya-tanya menu dan harga karena semua sudah tersaji jelas di website.",
+        solution2: "Fitur paket acara dengan detail lengkap dan CTA langsung membuat closing catering naik drastis — 3 dari 5 calon pelanggan langsung deal tanpa negosiasi panjang karena sudah yakin dengan isi paket dan harganya."
     },
-    {
-        slug: "rebranding-sekolah-swasta",
-        title: "Rebranding Digital Sekolah Swasta: Website, Logo & Sistem PPDB Online",
-        image: "/assets/images/portfolio/portfolio_item_image_1.webp",
-        carouselImage: "/assets/images/portfolio/portfolio_item_image_1.webp",
-        detailImage: "/assets/images/portfolio/portfolio_details_image_1.webp",
-        description1: "SMP-SMA Terpadu Al-Hikmah Gresik menghadapi tantangan yang banyak dialami institusi pendidikan swasta: reputasi akademik yang baik, tetapi citra digital yang tidak merepresentasikannya dengan layak. Website lama mereka tampil ketinggalan zaman, sulit diakses dari smartphone, dan tidak memberikan informasi yang cukup bagi orang tua calon siswa. Lebih kritis lagi, proses PPDB masih dilakukan sepenuhnya secara tatap muka — calon wali murid harus datang ke sekolah hanya untuk mengambil formulir. Di era digital ini, penghalang seperti itu bisa menjadi alasan orang tua memilih sekolah lain yang prosesnya lebih praktis. JalaninWeb ditugaskan untuk melakukan transformasi digital menyeluruh: mulai dari rebranding identitas visual hingga pembangunan sistem PPDB online yang fungsional.",
-        description2: "Proses kami dimulai dengan riset mendalam terhadap nilai-nilai dan keunggulan sekolah, yang kemudian kami tuangkan ke dalam identitas visual baru — logo yang lebih modern namun tetap mempertahankan elemen islami yang menjadi ciri khas institusi. Website baru dibangun dengan pendekatan mobile-first, dilengkapi halaman profil guru, galeri kegiatan siswa, dan blog pendidikan untuk membangun kepercayaan calon wali murid. Puncak dari proyek ini adalah sistem PPDB online terintegrasi yang memungkinkan calon siswa mendaftar, mengunggah dokumen, dan memantau status pendaftaran secara mandiri dari rumah. Panitia PPDB dapat mengelola seluruh data pendaftar dan melakukan verifikasi dokumen melalui panel admin yang sederhana namun lengkap. Pada tahun ajaran pertama menggunakan sistem baru, jumlah pendaftar meningkat 60% dibandingkan tahun sebelumnya.",
-        service: "Web Design",
-        client: "SMP-SMA Terpadu Al-Hikmah",
-        location: "Gresik, Jawa Timur",
-        date: "10-06-2025",
-        filter: "webdesign",
-        categoryIcon: "fa-solid fa-globe",
-        requirementsText: "Institusi pendidikan membutuhkan transformasi digital menyeluruh yang mencakup rebranding identitas visual, website modern yang informatif, dan sistem PPDB online yang memudahkan calon siswa mendaftar dari rumah.",
-        requirementsList1: [
-            "Rebranding Logo & Identitas Visual Islami Modern",
-            "Desain & Pengembangan Website Mobile-First",
-            "Sistem PPDB Online dengan Upload Dokumen"
-        ],
-        requirementsList2: [
-            "Panel Admin Manajemen Data Pendaftar",
-            "Notifikasi Status Pendaftaran via WhatsApp",
-            "Pelatihan Operator & Dokumentasi Sistem"
-        ],
-        solution1: "Transformasi digital menyeluruh yang kami implementasikan berkontribusi langsung pada peningkatan jumlah pendaftar PPDB sebesar 60% di tahun ajaran pertama — bukti nyata bahwa citra digital yang kuat dan kemudahan akses pendaftaran adalah investasi yang sangat berharga bagi institusi pendidikan.",
-        solution2: "Panitia PPDB yang sebelumnya kewalahan mengelola tumpukan berkas fisik kini dapat memproses ratusan pendaftar secara efisien dari satu panel admin — menghemat waktu, mengurangi risiko kehilangan dokumen, dan memberikan pengalaman pendaftaran yang jauh lebih profesional bagi orang tua calon siswa."
-    },
-    {
-        slug: "keamanan-jaringan-manufaktur",
-        title: "Audit & Penguatan Keamanan Jaringan untuk Pabrik Manufaktur Tekstil",
-        image: "/assets/images/portfolio/portfolio_item_image_1.webp",
-        carouselImage: "/assets/images/portfolio/portfolio_item_image_1.webp",
-        detailImage: "/assets/images/portfolio/portfolio_details_image_1.webp",
-        description1: "PT Sandang Prima Tekstil adalah perusahaan manufaktur tekstil menengah di Mojokerto yang memproduksi kain untuk pasar domestik dan ekspor. Ketika mereka mengalami insiden kebocoran data desain produk eksklusif yang diduga dicuri melalui celah keamanan jaringan internal, manajemen menyadari bahwa investasi dalam keamanan siber bukan lagi pilihan — melainkan keharusan. Jaringan mereka yang terdiri dari puluhan komputer di lantai produksi, gudang, dan kantor administrasi belum pernah diaudit secara profesional sejak awal dibangun bertahun-tahun lalu. JalaninWeb dengan tim spesialis keamanan jaringan ditugaskan untuk melakukan audit menyeluruh, mengidentifikasi seluruh celah keamanan yang ada, dan mengimplementasikan solusi penguatan jaringan yang komprehensif.",
-        description2: "Audit keamanan yang kami lakukan mengungkap sejumlah temuan kritis: penggunaan password default pada beberapa router dan switch, tidak adanya segmentasi jaringan antara komputer produksi dan kantor, firmware perangkat jaringan yang sudah kadaluarsa, serta absennya sistem pemantauan aktivitas jaringan yang mencurigakan. Berbekal temuan ini, kami menyusun roadmap perbaikan yang diprioritaskan berdasarkan tingkat risiko. Implementasi mencakup penerapan network segmentation dengan VLAN, instalasi firewall enterprise-grade dengan aturan akses yang ketat, pembaruan firmware seluruh perangkat jaringan, serta implementasi sistem Network Intrusion Detection System (NIDS) untuk memantau aktivitas mencurigakan secara real-time. Kami juga menyelenggarakan sesi security awareness training bagi seluruh karyawan — karena faktor manusia adalah celah yang paling sering dieksploitasi. Pasca-implementasi, tidak ada satu pun insiden keamanan yang berhasil menembus jaringan dalam enam bulan pemantauan.",
-        service: "App Design",
-        client: "PT Sandang Prima Tekstil",
-        location: "Mojokerto, Jawa Timur",
-        date: "15-07-2025",
-        filter: "infrastruktur",
-        categoryIcon: "fa-solid fa-shield-halved",
-        requirementsText: "Perusahaan manufaktur membutuhkan audit keamanan jaringan menyeluruh pasca-insiden kebocoran data, dilanjutkan dengan implementasi solusi penguatan keamanan yang komprehensif untuk mencegah kejadian serupa di masa depan.",
-        requirementsList1: [
-            "Audit & Penetration Testing Jaringan Internal",
-            "Implementasi Network Segmentation dengan VLAN",
-            "Instalasi Firewall Enterprise-Grade"
-        ],
-        requirementsList2: [
-            "Pembaruan Firmware Seluruh Perangkat Jaringan",
-            "Implementasi Sistem NIDS (Network Intrusion Detection)",
-            "Security Awareness Training untuk Seluruh Karyawan"
-        ],
-        solution1: "Audit menyeluruh berhasil mengidentifikasi 12 celah keamanan kritis yang sebelumnya tidak diketahui manajemen — seluruhnya telah ditutup melalui serangkaian tindakan perbaikan terstruktur dalam waktu kurang dari empat minggu.",
-        solution2: "Selama enam bulan pemantauan pasca-implementasi, sistem NIDS yang kami pasang berhasil mendeteksi dan memblokir 47 upaya akses mencurigakan secara otomatis — tanpa satu pun insiden keamanan yang berhasil menembus pertahanan jaringan baru perusahaan."
-    }
 ];
+
+export const getPortfolioBySlug = (slug: string): Portfolio | undefined =>
+    portfolios.find(p => p.slug === slug);
