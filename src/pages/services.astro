@@ -1,0 +1,49 @@
+---
+// src/pages/services.astro
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Preloader from '../components/Preloader.astro';
+import BackToTop from '../components/BackToTop.astro';
+import PageBanner from '../components/PageBanner.astro';
+import ServiceIntro from '../components/ServiceIntro.astro';
+import Services from '../components/Services.astro';
+import Features from '../components/Features.astro';
+import CTA from '../components/CTA.astro';
+---
+
+<BaseLayout
+  title="Layanan Kami - JalaninWeb.com"
+  description="Jasa pembuatan website profesional untuk company profile, UMKM, landing page, portofolio, toko online, dan maintenance. Dikerjakan cepat, modern, dan terpercaya."
+>
+  <Preloader />
+  <BackToTop />
+
+  <main class="page_content">
+
+    <PageBanner
+      title="Layanan JalaninWeb"
+      subtitle="Layanan"
+      badge="Kami 😍"
+    />
+
+    <!-- Intro: tentang layanan kami -->
+    <ServiceIntro />
+
+    <!-- Grid semua layanan -->
+    <Services
+      badgePrefix="Spesialisasi"
+      badgeHighlight="Kami"
+      title="Semua Layanan yang Kami Tawarkan"
+    />
+
+    <!-- Kenapa pilih kami -->
+    <Features
+      badgeText="Kenapa JalaninWeb"
+      title="Kenapa Layanan Kami Lebih Baik?"
+      description="Kami tidak hanya membangun website, tapi memastikan setiap detail sesuai kebutuhan bisnis Anda — dari desain hingga go live."
+    />
+
+    <!-- CTA -->
+    <CTA />
+
+  </main>
+</BaseLayout>

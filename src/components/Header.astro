@@ -1,0 +1,310 @@
+---
+// src/components/Header.astro
+const currentPath = Astro.url.pathname;
+
+// Helper: exact match atau starts-with untuk nested routes
+const isActive = (path: string) => {
+  if (path === '/') return currentPath === '/';
+  return currentPath === path || currentPath.startsWith(path + '/');
+};
+
+// Helper: apakah salah satu child aktif (untuk dropdown parent)
+const isDropdownActive = (...paths: string[]) => paths.some(p => isActive(p));
+---
+
+<header class="site_header site_header_1">
+
+  <!-- Top Bar -->
+  <div class="header_top text-center">
+    <div class="container">
+      <p class="m-0">
+        Dapatkan <b>Free Maintenance 3 Bulan</b> untuk setiap pemesanan.
+        <a href="/pricing"><u>Konsultasi Sekarang</u> <i class="fa-solid fa-arrow-right"></i></a>
+      </p>
+    </div>
+  </div>
+
+  <!-- Header Bottom -->
+  <div class="header_bottom stricky">
+    <div class="container">
+      <div class="row align-items-center">
+
+        <!-- LOGO -->
+        <div class="col-xl-3 col-lg-2 col-5">
+          <div class="site_logo">
+            <a class="site_link" href="/">
+              <img
+                src="/assets/images/site_logo/logo.svg"
+                alt="Site Logo – JalaninWeb – Jasa Pembuatan Website Profesional"
+                width="110"
+                height="auto"
+              />
+            </a>
+            <div class="badge bg-danger-subtle text-danger">Top Rated Service</div>
+          </div>
+        </div>
+
+        <!-- NAV -->
+        <div class="col-xl-6 col-lg-7 col-2">
+          <nav class="main_menu navbar navbar-expand-lg">
+            <div
+              class="main_menu_inner collapse navbar-collapse justify-content-lg-center"
+              id="main_menu_dropdown"
+            >
+              <ul class="main_menu_list unordered_list justify-content-center">
+
+                <!-- Home -->
+                <li class:list={[{ active: isActive('/') }]}>
+                  <a class="nav-link" href="/">Home</a>
+                </li>
+
+                <!-- Portfolio -->
+                <li class:list={[{ active: isActive('/portfolio') }]}>
+                  <a href="/portfolio">Portfolio</a>
+                </li>
+
+                <!-- Services (mega menu) -->
+                <li class:list={["dropdown", {
+                  active: isDropdownActive(
+                    '/service', '/service-details', '/pricing',
+                    '/about', '/faq'
+                  )
+                }]}>
+                  <a
+                    class="nav-link"
+                    href="#"
+                    id="services_submenu"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Services
+                  </a>
+                  <div class="dropdown-menu mega_menu_wrapper p-0" aria-labelledby="services_submenu">
+                    <div class="container">
+                      <div class="row justify-content-lg-between">
+                        <div class="col-lg-8">
+                          <div class="row">
+
+                            <!-- Kolom 1: Layanan -->
+                            <div class="col-lg-4">
+                              <div class="megamenu_widget">
+                                <h3 class="megamenu_info_title">Layanan Kami</h3>
+                                <ul class="icon_list unordered_list_block">
+                                  <li class:list={[{ active: isActive('/service/company-profile') }]}>
+                                    <a href="/service/company-profile">
+                                      <span class="icon_list_text">Company Profile</span>
+                                    </a>
+                                  </li>
+                                  <li class:list={[{ active: isActive('/service/website-umkm-katalog') }]}>
+                                    <a href="/service/website-umkm-katalog">
+                                      <span class="icon_list_text">Website UMKM & Katalog</span>
+                                    </a>
+                                  </li>
+                                  <li class:list={[{ active: isActive('/service/portofolio-online') }]}>
+                                    <a href="/service/portofolio-online">
+                                      <span class="icon_list_text">Portofolio Online</span>
+                                    </a>
+                                  </li>
+                                  <li class:list={[{ active: isActive('/service/landing-page') }]}>
+                                    <a href="/service/landing-page">
+                                      <span class="icon_list_text">Landing Page</span>
+                                    </a>
+                                  </li>
+                                  <li class:list={[{ active: isActive('/service/maintenance') }]}>
+                                    <a href="/service/maintenance">
+                                      <span class="icon_list_text">Maintenance & Support</span>
+                                    </a>
+                                  </li>
+                                  <li class:list={[{ active: isActive('/service/undangan-online') }]}>
+                                    <a href="/service/undangan-online">
+                                      <span class="icon_list_text">Undangan Digital</span>
+                                    </a>
+                                  </li>
+                                  <li class:list={[{ active: isActive('/service/redesign-website') }]}>
+                                    <a href="/service/redesign-website">
+                                      <span class="icon_list_text">Redesign Website</span>
+                                    </a>
+                                  </li>
+                                  <li class:list={[{ active: isActive('/service/web-scraping') }]}>
+                                    <a href="/service/web-scraping">
+                                      <span class="icon_list_text">Web Scraping</span>
+                                    </a>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+
+                            <!-- Kolom 2: Informasi -->
+                            <div class="col-lg-4">
+                              <div class="megamenu_widget">
+                                <h3 class="megamenu_info_title">Informasi</h3>
+                                <ul class="icon_list unordered_list_block">
+                                  <li class:list={[{ active: isActive('/about') }]}>
+                                    <a href="/about">
+                                      <span class="icon_list_text">Tentang JalaninWeb</span>
+                                    </a>
+                                  </li>
+                                  <li class:list={[{ active: isActive('/pricing') }]}>
+                                    <a href="/pricing">
+                                      <span class="icon_list_text">Harga & Paket</span>
+                                    </a>
+                                  </li>
+                                  <li class:list={[{ active: isActive('/portfolio') }]}>
+                                    <a href="/portfolio">
+                                      <span class="icon_list_text">Portfolio Klien</span>
+                                    </a>
+                                  </li>
+                                  <li class:list={[{ active: isActive('/blog') }]}>
+                                    <a href="/blog">
+                                      <span class="icon_list_text">Blog & Tips</span>
+                                    </a>
+                                  </li>
+                                  <li class:list={[{ active: isActive('/faq') }]}>
+                                    <a href="/faq">
+                                      <span class="icon_list_text">FAQ</span>
+                                    </a>
+                                  </li>
+                                  <li class:list={[{ active: isActive('/contact') }]}>
+                                    <a href="/contact">
+                                      <span class="icon_list_text">Kontak Kami</span>
+                                    </a>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+
+                            <!-- Kolom 3: Kenapa Kami -->
+                            <div class="col-lg-4">
+                              <div class="megamenu_widget">
+                                <h3 class="megamenu_info_title">Kenapa Kami</h3>
+                                <ul class="icon_list unordered_list_block">
+                                  <li><a href="/about#proses"><span class="icon_list_text">Pengerjaan Cepat</span></a></li>
+                                  <li><a href="/about#harga"><span class="icon_list_text">Harga Terjangkau</span></a></li>
+                                  <li><a href="/about#revisi"><span class="icon_list_text">Revisi Gratis</span></a></li>
+                                  <li><a href="/about#support"><span class="icon_list_text">Support Responsif</span></a></li>
+                                  <li><a href="/about#teknologi"><span class="icon_list_text">Teknologi Modern</span></a></li>
+                                  <li><a href="/portfolio"><span class="icon_list_text">99+ Klien Puas</span></a></li>
+                                </ul>
+                              </div>
+                            </div>
+
+                          </div>
+
+                          <!-- Social area -->
+                          <div class="social_area">
+                            <ul class="social_icons_block unordered_list" data-text="Follow Us:">
+                              <li>
+                                <a href="#!" aria-label="Instagram">
+                                  <i class="fa-brands fa-instagram"></i>
+                                </a>
+                              </li>
+                              <li>
+                                <a href="#!" aria-label="TikTok">
+                                  <i class="fa-brands fa-tiktok"></i>
+                                </a>
+                              </li>
+                              <li>
+                                <a href="#!" aria-label="WhatsApp">
+                                  <i class="fa-brands fa-whatsapp"></i>
+                                </a>
+                              </li>
+                            </ul>
+                            <p class="career_link m-0">
+                              Ada pertanyaan? <a href="/contact">Hubungi Kami</a>
+                            </p>
+                          </div>
+                        </div>
+
+                        <!-- Featured Portfolio -->
+                        <div class="col-lg-3">
+                          <div class="megamenu_case bg-primary">
+                            <h3>Website UMKM</h3>
+                            <h4>Klien Terbaru</h4>
+                            <img src="/assets/images/case/case_image_4.webp" alt="Portfolio JalaninWeb" />
+                            <a class="btn" href="/portfolio">
+                              <span class="btn_label" data-text="Lihat Portfolio">Lihat Portfolio</span>
+                              <span class="btn_icon">
+                                <i class="fa-solid fa-arrow-up-right"></i>
+                              </span>
+                            </a>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                </li>
+
+                <!-- Blog -->
+                <li class:list={[{ active: isActive('/blog') }]}>
+                  <a href="/blog">Blog</a>
+                </li>
+
+                <!-- Contact -->
+                <li class:list={[{ active: isActive('/contact') }]}>
+                  <a href="/contact">Contact</a>
+                </li>
+
+              </ul>
+            </div>
+          </nav>
+        </div>
+
+        <!-- CTA + Mobile Toggle -->
+        <div class="col-xl-3 col-lg-3 col-5">
+          <ul class="header_btns_group unordered_list justify-content-end">
+            <li>
+              <button
+                class="mobile_menu_btn"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#main_menu_dropdown"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <i class="far fa-bars"></i>
+              </button>
+            </li>
+            <li>
+              <a
+                class:list={["btn btn-outline-light", { active: isActive('/pricing') }]}
+                href="/pricing"
+              >
+                <span class="btn_label" data-text="Get Started">Get Started</span>
+                <span class="btn_icon">
+                  <i class="fa-solid fa-arrow-up-right"></i>
+                </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</header>
+
+<style>
+  /* Logo size konsisten di semua breakpoint */
+  .site_header .site_logo .site_link {
+    max-width: 110px;
+  }
+
+  .site_header .site_logo .site_link img {
+    width: 100%;
+  }
+
+  /* Mobile: logo tetap proporsional */
+  @media (max-width: 991px) {
+    .site_header .site_logo .site_link {
+      max-width: 90px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .site_header .site_logo .site_link {
+      max-width: 80px;
+    }
+  }
+</style>

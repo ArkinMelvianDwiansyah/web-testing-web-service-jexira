@@ -1,0 +1,28 @@
+---
+// src/components/ClientLogos.astro
+---
+<div class="client_logo_section section_space bg-light">
+  <div class="container">
+    <div class="heading_block text-center">
+      <div class="heading_focus_text mb-0">
+        <span class="badge bg-secondary text-white">Brand yang Kami</span>
+        Percayakan 🎉
+      </div>
+    </div>
+    <div class="client_logo_carousel swiper">
+      <div class="swiper-wrapper">
+        {[1,2,3,4,5,6,7,1,2,3,4,5,6,7].map((n) => (
+          <div class="swiper-slide">
+            <div class="client_logo_item">
+              <img
+                src={`/assets/images/clients/client_logo_${n}.webp`}
+                alt={`JalaninWeb - Client Logo`}
+                loading="lazy"
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</div>

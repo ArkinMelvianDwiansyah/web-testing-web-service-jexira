@@ -1,0 +1,102 @@
+---
+// src/components/BlogCardHorizontal.astro
+interface Props {
+  title: string;
+  category: string;
+  date: string;
+  image?: string;
+  excerpt: string;
+  slug: string;
+  comments?: number;
+  readTime?: string;
+}
+
+const { title, category, date, image, excerpt, slug, comments = 0, readTime } = Astro.props;
+const categorySlug = category.toLowerCase().replace(/\s+/g, '-');
+---
+
+<div class="blog_post_block image_left_layout">
+
+  {image && (
+    <div class="blog_post_image">
+      <a class="image_wrap" href={`/blog/${slug}`} aria-label={title}>
+        <img src={image} alt={title} loading="lazy" />
+      </a>
+    </div>
+  )}
+
+  <div class="blog_post_content">
+    <div class="post_meta_wrap">
+      <ul class="category_btns_group unordered_list">
+        <li>
+          <a href={`/blog/category/${categorySlug}`}>{category}</a>
+        </li>
+      </ul>
+      <ul class="post_meta unordered_list">
+        <li>
+          <a href="#!">
+            <img
+              src="/assets/images/icons/icon_calendar.svg"
+              alt="Calendar Icon"
+              loading="lazy"
+            /> {date}
+          </a>
+        </li>
+        {comments > 0 && (
+          <li>
+            <a href="#!">
+              <i class="fa-regular fa-comment-lines"></i> {comments}
+            </a>
+          </li>
+        )}
+        {readTime && (
+          <li>
+            <i class="fa-regular fa-clock"></i> {readTime}
+          </li>
+        )}
+      </ul>
+    </div>
+
+    <h3 class="blog_post_title">
+      <a href={`/blog/${slug}`}>{title}</a>
+    </h3>
+
+    <p class="mb-0">{excerpt}</p>
+
+    <a class="blog_read_more" href={`/blog/${slug}`}>
+      Baca Selengkapnya
+      <i class="fa-solid fa-arrow-up-right ms-2"></i>
+    </a>
+  </div>
+
+</div>
+
+<style>
+  /* Read more link — tanpa btn_label animation */
+  .blog_read_more {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 16px;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: 'Axiforma SemiBold';
+    color: var(--bs-primary);
+    text-decoration: none;
+    transition: gap 0.2s ease, color 0.2s ease;
+  }
+
+  .blog_read_more:hover {
+    gap: 10px;
+    color: var(--bs-dark);
+  }
+
+  .blog_read_more i {
+    font-size: 12px;
+    transition: transform 0.2s ease;
+  }
+
+  .blog_read_more:hover i {
+    transform: translate(2px, -2px);
+  }
+</style>

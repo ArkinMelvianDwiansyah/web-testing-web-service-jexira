@@ -1,0 +1,36 @@
+---
+// src/pages/pricing.astro
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Preloader from "../components/Preloader.astro";
+import BackToTop from "../components/BackToTop.astro";
+import PageBanner from "../components/PageBanner.astro";
+import PolicyHighlights from "../components/PolicyHighlights.astro";
+import Pricing from "../components/Pricing.astro";
+import ClientLogos from "../components/ClientLogos.astro";
+import CTA from "../components/CTA.astro";
+---
+
+<BaseLayout title="Harga & Paket - JalaninWeb.com" description="Lihat paket harga pembuatan website JalaninWeb. Mulai dari landing page, website bisnis, hingga enterprise dengan harga terjangkau dan kualitas profesional." >
+    <Preloader />
+    <BackToTop />
+
+    <main class="page_content">
+        <PageBanner
+          title="Harga & Paket Layanan"
+          subtitle="Paket"
+          badge="Harga 😍"
+        />
+
+        <!-- 3 Keunggulan -->
+        <PolicyHighlights />
+
+        <!-- Pricing Cards + Toggle -->
+        <Pricing />
+
+        <!-- Client Logos Carousel -->
+        <ClientLogos />
+
+        <!-- CTA -->
+        <CTA />
+    </main>
+</BaseLayout>

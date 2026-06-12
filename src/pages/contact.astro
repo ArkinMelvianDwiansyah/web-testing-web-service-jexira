@@ -1,0 +1,57 @@
+---
+// src/pages/contact.astro
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Preloader from '../components/Preloader.astro';
+import BackToTop from '../components/BackToTop.astro';
+import PageBanner from '../components/PageBanner.astro';
+import ContactInfo from '../components/ContactInfo.astro';
+import ContactForm from '../components/ContactForm.astro';
+import ContactMap from '../components/ContactMap.astro';
+import CTA from '../components/CTA.astro';
+---
+
+<BaseLayout
+  title="Hubungi Kami — JalaninWeb.com"
+  description="Konsultasi gratis pembuatan website profesional untuk bisnis kamu. Hubungi JalaninWeb via WhatsApp, email, atau isi form kontak kami."
+>
+  <Preloader />
+  <BackToTop />
+
+  <main class="page_content">
+
+    <!-- Banner -->
+    <PageBanner
+      title="Hubungi Kami"
+      subtitle="Kontak"
+      badge="Konsultasi Gratis 👋"
+    />
+
+    <!-- Contact Section -->
+    <section class="contact_section section_space bg-light">
+      <div class="container">
+
+        <!-- Info boxes -->
+        <ContactInfo />
+
+        <!-- Form + Map -->
+        <div class="section_space pb-0">
+          <div class="row justify-content-lg-between align-items-start g-5">
+
+            <div class="col-lg-7">
+              <ContactForm />
+            </div>
+
+            <div class="col-lg-5">
+              <ContactMap />
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <CTA />
+
+  </main>
+</BaseLayout>

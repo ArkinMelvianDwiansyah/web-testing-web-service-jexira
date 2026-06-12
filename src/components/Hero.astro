@@ -1,0 +1,726 @@
+---
+interface Props {
+  badgeText?: string;
+  title?: string;
+  description?: string;
+  buttonText?: string;
+  buttonLink?: string;
+  trustpilotRating?: string;
+  reviewCount?: string;
+}
+
+const {
+  badgeText = "JalaninWeb",
+  title = "Jasa Pembuatan Website Profesional untuk Bisnis Modern",
+  description = "Membantu UMKM, perusahaan kecil–menengah, dan individu memiliki website modern, cepat, dan terpercaya.",
+  buttonText = "Hubungi Kami",
+  buttonLink = "/pricing",
+  trustpilotRating = "4.5",
+  reviewCount = "99+"
+} = Astro.props;
+---
+
+<section class="it_solution_hero_section">
+  <div class="container">
+    <div class="row">
+
+      <!-- ===================== BAGIAN KIRI (ORIGINAL — TIDAK DIUBAH) ===================== -->
+      <div class="col-lg-7">
+        <div class="it_solution_hero_content" style="background-image: url('/assets/images/shapes/it_solution_hero_bg_1.svg');">
+          <div class="heading_focus_text mb-0 d-inline-flex align-items-center">
+            👋 Hi We <span class="badge bg-secondary text-white">{badgeText}</span>
+          </div>
+
+          <!-- H1 dengan animated word -->
+          <h1>
+            Jasa Pembuatan Website Profesional<br>
+            <span class="jw-h1-static">untuk </span><span class="jw-typeword-wrap"><span class="jw-typeword" id="jwTypeWord"></span><span class="jw-cursor">|</span></span>
+          </h1>
+
+          <p>{description}</p>
+          <ul class="btns_group unordered_list p-0 justify-content-start">
+            <li>
+              <a class="btn" href={buttonLink}>
+                <span class="btn_label" data-text={buttonText}>{buttonText}</span>
+                <span class="btn_icon">
+                  <i class="fa-solid fa-arrow-up-right"></i>
+                </span>
+              </a>
+            </li>
+            <li>
+              <div class="review_short_info">
+                <div class="d-flex">
+                  <img src="/assets/images/icons/icon_stars_trustpilot.svg" alt="Trustpilot Review Stars - JalaninWeb" loading="lazy">
+                  <span>{trustpilotRating}</span>
+                </div>
+                <div class="review_counter">From <b>{reviewCount}</b> reviews</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- END BAGIAN KIRI -->
+
+      <!-- ===================== BAGIAN KANAN — BROWSER FULL ===================== -->
+      <div class="col-lg-5">
+        <div class="jw-hero__right">
+
+          <div class="jw-browser" id="jwBrowser">
+
+            <!-- TOP BAR -->
+            <div class="jw-browser__bar">
+              <div class="jw-dots">
+                <span class="jw-dot" style="background:#ff5f57"></span>
+                <span class="jw-dot" style="background:#febc2e"></span>
+                <span class="jw-dot" style="background:#28c840"></span>
+              </div>
+              <div class="jw-browser__url">
+                <span class="jw-url-dot"></span>
+                jalaninweb.com/preview
+              </div>
+              <div class="jw-browser__acts">
+                <span></span><span></span><span></span>
+              </div>
+            </div>
+
+            <!-- BODY -->
+            <div class="jw-browser__body">
+
+              <!-- Fake navbar -->
+              <div class="jw-fnav">
+                <div class="jw-flogo">
+                  <div class="jw-flogo__icon"></div>
+                  <span>ClientBrand</span>
+                </div>
+                <div class="jw-flinks">
+                  <div class="jw-flink"></div>
+                  <div class="jw-flink" style="width:22px"></div>
+                  <div class="jw-flink" style="width:18px"></div>
+                </div>
+                <div class="jw-fbtn">Daftar</div>
+              </div>
+
+              <!-- Hero skeleton lines -->
+              <div class="jw-fheadline">
+                <div class="jw-fline jw-fline--lg"><div class="jw-fline__fill" style="--w:78%;--d:0s"></div></div>
+                <div class="jw-fline jw-fline--lg"><div class="jw-fline__fill" style="--w:60%;--d:.2s"></div></div>
+                <div class="jw-fline jw-fline--sm"><div class="jw-fline__fill" style="--w:88%;--d:.4s"></div></div>
+                <div class="jw-fline jw-fline--sm"><div class="jw-fline__fill" style="--w:50%;--d:.6s"></div></div>
+              </div>
+
+              <!-- CTA row -->
+              <div class="jw-fctarow">
+                <div class="jw-fcta-primary">Mulai Sekarang →</div>
+                <div class="jw-fcta-sec"></div>
+              </div>
+
+              <!-- SECTION TENGAH -->
+              <div class="jw-fsection">
+                <div class="jw-fsec-lines">
+                  <div class="jw-fline jw-fline--full"><div class="jw-fline__fill jw-fline__fill--grey" style="--w:100%;--d:.1s"></div></div>
+                  <div class="jw-fline jw-fline--full"><div class="jw-fline__fill jw-fline__fill--grey" style="--w:90%;--d:.2s"></div></div>
+                  <div class="jw-fline jw-fline--full"><div class="jw-fline__fill jw-fline__fill--grey" style="--w:95%;--d:.3s"></div></div>
+                  <div class="jw-fline jw-fline--full"><div class="jw-fline__fill jw-fline__fill--grey" style="--w:85%;--d:.4s"></div></div>
+                </div>
+
+                <div class="jw-fsec-row2">
+                  <div class="jw-fsec-btn jw-fsec-btn--filled"></div>
+                  <div class="jw-fsec-btn jw-fsec-btn--outline"></div>
+                  <div style="flex:1"></div>
+                  <div class="jw-fsec-dot"></div>
+                </div>
+
+                <div class="jw-fline jw-fline--full jw-fline--xl">
+                  <div class="jw-fline__fill jw-fline__fill--grey" style="--w:100%;--d:.5s"></div>
+                </div>
+
+                <div class="jw-fcards">
+                  <div class="jw-fcard">
+                    <div class="jw-fcard__img"></div>
+                    <div class="jw-fcard__lines">
+                      <div class="jw-fcard__line jw-fcard__line--w80"></div>
+                      <div class="jw-fcard__line jw-fcard__line--w60"></div>
+                      <div class="jw-fcard__line jw-fcard__line--w70"></div>
+                    </div>
+                  </div>
+                  <div class="jw-fcard">
+                    <div class="jw-fcard__img"></div>
+                    <div class="jw-fcard__lines">
+                      <div class="jw-fcard__line jw-fcard__line--w80"></div>
+                      <div class="jw-fcard__line jw-fcard__line--w60"></div>
+                      <div class="jw-fcard__line jw-fcard__line--w70"></div>
+                    </div>
+                  </div>
+                  <div class="jw-fcard">
+                    <div class="jw-fcard__img"></div>
+                    <div class="jw-fcard__lines">
+                      <div class="jw-fcard__line jw-fcard__line--w80"></div>
+                      <div class="jw-fcard__line jw-fcard__line--w60"></div>
+                      <div class="jw-fcard__line jw-fcard__line--w70"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- METRICS -->
+            <div class="jw-fmetrics-bar">
+              <div class="jw-fmetric">
+                <div class="jw-fmetric__num" id="jwVis">0</div>
+                <div class="jw-fmetric__lbl">Visitors</div>
+              </div>
+              <div class="jw-fmetric">
+                <div class="jw-fmetric__num" id="jwConv">0%</div>
+                <div class="jw-fmetric__lbl">Conversion</div>
+              </div>
+              <div class="jw-fmetric">
+                <div class="jw-fmetric__num" id="jwSpeed">0</div>
+                <div class="jw-fmetric__lbl">Speed Score</div>
+              </div>
+            </div>
+
+            <!-- BUILD BAR -->
+            <div class="jw-buildbar">
+              <div class="jw-buildbar__info">
+                <span>Building your website…</span>
+                <span class="jw-buildbar__pct" id="jwPct">0%</span>
+              </div>
+              <div class="jw-buildbar__track">
+                <div class="jw-buildbar__fill"></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  /* ── Typewriter heading ── */
+  .jw-h1-static {
+    display: inline;
+  }
+
+  .jw-typeword-wrap {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 2px;
+  }
+
+  .jw-typeword {
+    display: inline-block;
+    color: var(--bs-primary);
+    min-width: 4px;
+    transition: color .2s;
+  }
+
+  .jw-cursor {
+    display: inline-block;
+    color: var(--bs-primary);
+    font-weight: 300;
+    animation: jwBlink .75s step-end infinite;
+    line-height: 1;
+  }
+
+  @keyframes jwBlink {
+    0%,100% { opacity: 1; }
+    50%      { opacity: 0; }
+  }
+
+  /* ============================================================
+     BAGIAN KANAN SAJA
+  ============================================================ */
+
+  .jw-hero__right {
+    position: relative;
+    height: 100%;
+    min-height: 460px;
+    display: flex;
+    align-items: stretch;
+  }
+
+  .jw-browser {
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #0d1117;
+    border: 1px solid rgba(255,255,255,.1);
+    box-shadow: 0 40px 80px rgba(0,0,0,.3), 0 0 0 1px rgba(255,255,255,.04);
+    display: flex;
+    flex-direction: column;
+    animation: jwFloatBrowser 6s ease-in-out infinite;
+    will-change: transform;
+    transition: transform .5s ease;
+  }
+
+  @keyframes jwFloatBrowser {
+    0%,100% { transform: translateY(0); }
+    50%      { transform: translateY(-10px); }
+  }
+
+  .jw-browser__bar {
+    background: #161b27;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    border-bottom: 1px solid rgba(255,255,255,.07);
+    flex-shrink: 0;
+  }
+
+  .jw-dots { display: flex; gap: 7px; flex-shrink: 0; }
+
+  .jw-dot {
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .jw-browser__url {
+    flex: 1;
+    background: rgba(255,255,255,.07);
+    border-radius: 8px;
+    padding: 6px 14px;
+    font-size: 12px;
+    color: rgba(255,255,255,.4);
+    font-family: monospace;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .jw-url-dot {
+    width: 8px; height: 8px;
+    background: #22c55e;
+    border-radius: 50%;
+    flex-shrink: 0;
+    animation: jwUrlBlink 2s ease-in-out infinite;
+  }
+
+  @keyframes jwUrlBlink { 0%,100%{opacity:1} 50%{opacity:.3} }
+
+  .jw-browser__acts { display: flex; gap: 6px; }
+  .jw-browser__acts span {
+    width: 22px; height: 5px;
+    background: rgba(255,255,255,.1);
+    border-radius: 3px;
+    display: block;
+  }
+
+  .jw-browser__body {
+    background: #0d1117;
+    padding: 20px 24px 16px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .jw-fnav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 18px;
+  }
+
+  .jw-flogo {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 12px; font-weight: 700; color: #fff;
+  }
+
+  .jw-flogo__icon {
+    width: 24px; height: 24px;
+    background: linear-gradient(135deg,#6366f1,#22d3ee);
+    border-radius: 7px; flex-shrink: 0;
+  }
+
+  .jw-flinks { display: flex; gap: 10px; align-items: center; }
+
+  .jw-flink {
+    width: 32px; height: 4px;
+    background: rgba(255,255,255,.13);
+    border-radius: 3px;
+  }
+
+  .jw-fbtn {
+    background: #6366f1; color: #fff;
+    font-size: 10px; font-weight: 700;
+    padding: 6px 13px; border-radius: 7px;
+  }
+
+  .jw-fheadline {
+    display: flex; flex-direction: column;
+    gap: 8px; margin-bottom: 14px;
+  }
+
+  .jw-fline {
+    background: rgba(255,255,255,.07);
+    border-radius: 5px; overflow: hidden;
+  }
+
+  .jw-fline--lg   { height: 22px; }
+  .jw-fline--sm   { height: 12px; }
+  .jw-fline--full { width: 100%; height: 12px; }
+  .jw-fline--xl   { height: 18px; }
+
+  .jw-fline__fill {
+    height: 100%;
+    width: var(--w);
+    background: linear-gradient(90deg,#6366f1,#22d3ee);
+    border-radius: 5px;
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: jwTypeLine 4s ease-in-out infinite var(--d);
+  }
+
+  .jw-fline__fill--grey {
+    background: rgba(255,255,255,.15);
+    animation: jwTypeLineGrey 5s ease-in-out infinite var(--d);
+  }
+
+  @keyframes jwTypeLine {
+    0%   { transform: scaleX(0); transform-origin: left;  }
+    40%  { transform: scaleX(1); transform-origin: left;  }
+    60%  { transform: scaleX(1); transform-origin: right; }
+    90%  { transform: scaleX(0); transform-origin: right; }
+    100% { transform: scaleX(0); transform-origin: left;  }
+  }
+
+  @keyframes jwTypeLineGrey {
+    0%   { transform: scaleX(0); transform-origin: left;  }
+    45%  { transform: scaleX(1); transform-origin: left;  }
+    65%  { transform: scaleX(1); transform-origin: right; }
+    92%  { transform: scaleX(0); transform-origin: right; }
+    100% { transform: scaleX(0); transform-origin: left;  }
+  }
+
+  .jw-fctarow {
+    display: flex; gap: 10px; align-items: center;
+    margin-bottom: 16px;
+  }
+
+  .jw-fcta-primary {
+    background: #6366f1; color: #fff;
+    font-size: 10px; font-weight: 700;
+    padding: 8px 16px; border-radius: 8px;
+    white-space: nowrap;
+    animation: jwCtaGlow 3s ease-in-out infinite;
+  }
+
+  @keyframes jwCtaGlow {
+    0%,100% { box-shadow: 0 0 8px rgba(99,102,241,.4); }
+    50%      { box-shadow: 0 0 22px rgba(99,102,241,.85); }
+  }
+
+  .jw-fcta-sec {
+    width: 80px; height: 32px;
+    border: 1px solid rgba(255,255,255,.13);
+    border-radius: 8px;
+  }
+
+  .jw-fsection {
+    flex: 1;
+    border-top: 1px solid rgba(255,255,255,.06);
+    padding-top: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .jw-fsec-lines {
+    display: flex; flex-direction: column; gap: 7px;
+  }
+
+  .jw-fsec-row2 {
+    display: flex; align-items: center; gap: 8px;
+  }
+
+  .jw-fsec-btn {
+    height: 22px; border-radius: 6px;
+  }
+
+  .jw-fsec-btn--filled {
+    width: 70px;
+    background: rgba(99,102,241,.35);
+    animation: jwBtnPulse 3s ease-in-out infinite;
+  }
+
+  .jw-fsec-btn--outline {
+    width: 55px;
+    border: 1px solid rgba(255,255,255,.15);
+  }
+
+  @keyframes jwBtnPulse {
+    0%,100% { background: rgba(99,102,241,.35); }
+    50%      { background: rgba(99,102,241,.6); }
+  }
+
+  .jw-fsec-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #22d3ee;
+    animation: jwDotBlink 1.5s ease-in-out infinite;
+  }
+
+  @keyframes jwDotBlink { 0%,100%{opacity:1} 50%{opacity:.2} }
+
+  .jw-fcards {
+    display: flex; gap: 8px;
+    flex: 1;
+    min-height: 80px;
+  }
+
+  .jw-fcard {
+    flex: 1;
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .jw-fcard__img {
+    height: 52px;
+    background: linear-gradient(135deg, rgba(99,102,241,.2), rgba(34,211,238,.15));
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .jw-fcard__img::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,.06) 50%, transparent 100%);
+    animation: jwShimmer 2.5s ease-in-out infinite;
+  }
+
+  .jw-fcard:nth-child(2) .jw-fcard__img {
+    background: linear-gradient(135deg, rgba(34,211,238,.2), rgba(99,102,241,.15));
+  }
+
+  .jw-fcard:nth-child(3) .jw-fcard__img {
+    background: linear-gradient(135deg, rgba(139,92,246,.2), rgba(34,211,238,.15));
+  }
+
+  @keyframes jwShimmer {
+    0%   { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+
+  .jw-fcard__lines {
+    padding: 8px;
+    display: flex; flex-direction: column; gap: 5px;
+  }
+
+  .jw-fcard__line {
+    height: 5px;
+    background: rgba(255,255,255,.12);
+    border-radius: 3px;
+  }
+
+  .jw-fcard__line--w80 { width: 80%; }
+  .jw-fcard__line--w60 { width: 60%; }
+  .jw-fcard__line--w70 { width: 70%; }
+
+  .jw-fmetrics-bar {
+    display: flex;
+    padding: 16px 24px;
+    border-top: 1px solid rgba(255,255,255,.06);
+    background: #0d1117;
+    flex-shrink: 0;
+  }
+
+  .jw-fmetric { flex: 1; text-align: center; }
+
+  .jw-fmetric__num {
+    font-size: 20px; font-weight: 800;
+    color: #fff; letter-spacing: -.5px; line-height: 1.2;
+  }
+
+  .jw-fmetric__lbl {
+    font-size: 8px; color: rgba(255,255,255,.3);
+    text-transform: uppercase; letter-spacing: .8px; margin-top: 3px;
+  }
+
+  .jw-buildbar {
+    background: #0d1117;
+    padding: 10px 24px 16px;
+    border-top: 1px solid rgba(255,255,255,.06);
+    flex-shrink: 0;
+  }
+
+  .jw-buildbar__info {
+    display: flex; justify-content: space-between;
+    font-size: 9px; color: rgba(255,255,255,.3);
+    margin-bottom: 7px;
+  }
+
+  .jw-buildbar__pct { color: #22d3ee; font-weight: 600; }
+
+  .jw-buildbar__track {
+    height: 4px;
+    background: rgba(255,255,255,.07);
+    border-radius: 4px; overflow: hidden;
+  }
+
+  .jw-buildbar__fill {
+    height: 100%;
+    background: linear-gradient(90deg,#6366f1,#22d3ee);
+    border-radius: 4px;
+    animation: jwBuildLoop 4.5s ease-in-out infinite;
+  }
+
+  @keyframes jwBuildLoop {
+    0%   { width:0%;   opacity:1; }
+    55%  { width:100%; opacity:1; }
+    65%  { width:100%; opacity:0; }
+    66%  { width:0%;   opacity:0; }
+    75%  { width:0%;   opacity:1; }
+    100% { width:100%; opacity:1; }
+  }
+
+  @media (max-width: 991px) {
+    .jw-hero__right { min-height: 380px; margin-top: 32px; }
+    .jw-browser { border-radius: 14px; }
+    .jw-fmetric__num { font-size: 16px; }
+    .jw-fcards { min-height: 60px; }
+    .jw-fcard__img { height: 38px; }
+  }
+
+  /* Mobile: sembunyikan browser mockup, biarkan konten kiri full width */
+  @media (max-width: 991px) {
+    .jw-hero__right {
+      display: none !important;
+    }
+  }
+
+  @media (max-width: 991px) {
+    .jw-hero__right {
+      min-height: 0;
+      height: auto;
+      margin-top: 28px;
+    }
+
+    .jw-browser {
+      border-radius: 14px;
+      /* Nonaktifkan float animation di mobile biar tidak makan space */
+      animation: none !important;
+      transform: none !important;
+    }
+
+    /* Sembunyikan section tengah & cards di mobile, biar lebih compact */
+    .jw-fsection {
+      display: none;
+    }
+
+    /* Sembunyikan build bar di mobile */
+    .jw-buildbar {
+      display: none;
+    }
+
+    .jw-fmetric__num { font-size: 16px; }
+
+    /* Kurangi padding body browser */
+    .jw-browser__body {
+      padding: 14px 16px 12px;
+    }
+
+    .jw-fmetrics-bar {
+      padding: 12px 16px;
+    }
+  }
+</style>
+
+<script>
+  /* ── Typewriter untuk heading ── */
+  const JW_WORDS = [
+    'Bisnis Modern',
+    'UMKM',
+    'Portofolio',
+    'Landing Page',
+  ];
+
+  function jwTypeWriter() {
+    const el = document.getElementById('jwTypeWord');
+    if (!el) return;
+
+    let wordIdx  = 0;
+    let charIdx  = 0;
+    let deleting = false;
+
+    const PAUSE_AFTER_TYPE   = 1800;
+    const PAUSE_AFTER_DELETE = 300;
+    const TYPE_SPEED         = 80;
+    const DELETE_SPEED       = 45;
+
+    function tick() {
+      const word    = JW_WORDS[wordIdx];
+      const current = word.substring(0, charIdx);
+      el.textContent = current;
+
+      if (!deleting) {
+        if (charIdx < word.length) {
+          charIdx++;
+          setTimeout(tick, TYPE_SPEED);
+        } else {
+          deleting = true;
+          setTimeout(tick, PAUSE_AFTER_TYPE);
+        }
+      } else {
+        if (charIdx > 0) {
+          charIdx--;
+          setTimeout(tick, DELETE_SPEED);
+        } else {
+          deleting = false;
+          wordIdx  = (wordIdx + 1) % JW_WORDS.length;
+          setTimeout(tick, PAUSE_AFTER_DELETE);
+        }
+      }
+    }
+
+    tick();
+  }
+
+  /* ── Counter & build bar ── */
+  function jwCountUp(el: HTMLElement, target: number, suffix: string, ms: number) {
+    let v = 0;
+    const step = target / (ms / 16);
+    const t = setInterval(() => {
+      v += step;
+      if (v >= target) { v = target; clearInterval(t); }
+      el.textContent = Math.floor(v).toLocaleString('id-ID') + suffix;
+    }, 16);
+  }
+
+  function jwLoopBuildPct() {
+    const el = document.getElementById('jwPct') as HTMLElement;
+    if (!el) return;
+    let v = 0;
+    const tick = setInterval(() => {
+      v += 1.5;
+      if (v >= 100) { v = 100; clearInterval(tick); setTimeout(jwLoopBuildPct, 900); }
+      el.textContent = Math.floor(v) + '%';
+    }, 67);
+  }
+
+  window.addEventListener('DOMContentLoaded', () => {
+    jwTypeWriter();
+
+    const vis   = document.getElementById('jwVis')   as HTMLElement;
+    const conv  = document.getElementById('jwConv')  as HTMLElement;
+    const speed = document.getElementById('jwSpeed') as HTMLElement;
+
+    setTimeout(() => {
+      if (vis)   jwCountUp(vis,   2847, '',  2200);
+      if (conv)  jwCountUp(conv,     8, '%', 1800);
+      if (speed) jwCountUp(speed,   96, '',  1600);
+    }, 700);
+
+    jwLoopBuildPct();
+  });
+</script>

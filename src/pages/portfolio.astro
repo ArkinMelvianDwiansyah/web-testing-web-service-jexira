@@ -1,0 +1,22 @@
+---
+// src/pages/portfolio.astro
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTA from '../components/CTA.astro';
+import Preloader from '../components/Preloader.astro';
+import BackToTop from '../components/BackToTop.astro';
+import PageBanner from '../components/PageBanner.astro';
+import PortfolioGrid from '../components/PortfolioGrid.astro';
+---
+<BaseLayout 
+  title="Portfolio Hasil Karya - JalaninWeb" 
+  description="Lihat kumpulan website profesional yang telah kami bangun untuk UMKM dan bisnis di Indonesia."
+>
+  <Preloader />
+  <BackToTop />
+
+  <main class="page_content">
+    <PageBanner title="Portfolio JalaninWeb" subtitle="Hasil Karya" badge="Terbaik ✨" />
+    <PortfolioGrid />
+    <CTA />
+  </main>
+</BaseLayout>

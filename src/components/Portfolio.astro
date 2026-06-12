@@ -1,0 +1,97 @@
+---
+// src/components/Portfolio.astro
+import { portfolios } from '../data/portfolio';
+
+interface Props {
+  badgeText?: string;
+  title?: string;
+  description?: string;
+  buttonText?: string;
+  buttonLink?: string;
+  limit?: number;
+}
+
+const {
+  badgeText = "Portfolio Kami",
+  title = "Beberapa Project Kami",
+  description = "Berikut beberapa website yang telah kami kerjakan untuk berbagai kebutuhan, mulai dari UMKM hingga personal branding.",
+  buttonText = "Lihat Semua Project",
+  buttonLink = "/portfolio",
+  limit = 6,
+} = Astro.props;
+
+const items = portfolios.slice(0, limit);
+const slides = [...items, ...items]; // duplikat untuk infinite loop swiper
+---
+
+<section class="portfolio_section xb-hidden section_space pb-0">
+  <div class="container">
+    <div class="heading_block">
+      <div class="row align-items-end">
+        <div class="col-lg-7">
+          <div class="heading_focus_text">
+            <span class="badge bg-secondary text-white">{badgeText}</span>
+            Beberapa Project Kami 🔥
+          </div>
+          <h2 class="heading_text">{title}</h2>
+          <p class="heading_description mb-0">{description}</p>
+        </div>
+        <div class="col-lg-5 d-none d-lg-flex justify-content-end">
+          <a class="btn btn-primary" href={buttonLink}>
+            <span class="btn_label" data-text={buttonText}>{buttonText}</span>
+            <span class="btn_icon"><i class="fa-solid fa-arrow-up-right"></i></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="portfolio_carousel swiper">
+    <div class="swiper-wrapper">
+      {slides.map((item) => (
+        <div class="swiper-slide">
+          <div class="portfolio_block">
+            <div class="portfolio_image">
+              <a class="portfolio_image_wrap bg-light" href={`/portfolio/${item.slug}`}>
+                <!-- carouselImage: gambar landscape khusus carousel index -->
+                <img src={item.carouselImage} alt={item.title} loading="lazy" />
+              </a>
+            </div>
+            <div class="portfolio_content">
+              <h3 class="portfolio_title">
+                <a href={`/portfolio/${item.slug}`}>{item.title}</a>
+              </h3>
+              <ul class="category_list unordered_list">
+                <li>
+                  <a href="/portfolio">
+                    <i class={item.categoryIcon}></i> {item.service}
+                  </a>
+                </li>
+                <li>
+                  <a href="/portfolio">
+                    <i class="fa-solid fa-building"></i> {item.client}
+                  </a>
+                </li>
+              </ul>
+              <a class="btn btn-outline-light" href={`/portfolio/${item.slug}`}>
+                <span class="btn_label" data-text="Explore">Explore</span>
+                <span class="btn_icon"><i class="fa-solid fa-arrow-up-right"></i></span>
+              </a>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+    <div class="portfolio-swiper-pagination"></div>
+  </div>
+
+  <!-- Tombol mobile -->
+  <div class="container text-center d-block d-lg-none">
+    <div class="btns_group pb-0">
+      <a class="btn btn-primary" href={buttonLink}>
+        <span class="btn_label" data-text={buttonText}>{buttonText}</span>
+        <span class="btn_icon"><i class="fa-solid fa-arrow-up-right"></i></span>
+      </a>
+    </div>
+  </div>
+</section>

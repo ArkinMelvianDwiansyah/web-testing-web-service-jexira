@@ -1,0 +1,10 @@
+# robots.txt — JalaninWeb.com
+User-agent: *
+Allow: /
+
+# Blokir halaman yang tidak perlu diindex
+Disallow: /404
+Disallow: /thank-you
+
+# Sitemap
+Sitemap: https://jalaninweb.com/sitemap-index.xml

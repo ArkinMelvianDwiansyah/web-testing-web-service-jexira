@@ -1,0 +1,497 @@
+---
+interface Props {
+  title?: string;
+  subTitle?: string;
+}
+
+const {
+  title = "Pilihan Paket Website",
+  subTitle = "Pilih dari paket terbaik yang kami siapkan. Butuh lebih atau kurang? Sesuaikan dengan kebutuhan bisnis Anda."
+} = Astro.props;
+---
+
+<section class="pricing_section section_space">
+  <div class="container">
+
+    <!-- Heading -->
+    <div class="heading_block text-center wow fadeInUp" data-wow-delay="0.1s">
+      <h2 class="heading_text">{title}</h2>
+      <p class="heading_description text-muted mx-auto" style="max-width: 480px; font-size: 16px;">
+        {subTitle}
+      </p>
+    </div>
+
+    <!-- Toggle -->
+    <div class="pricing_toggle_btn text-center wow fadeInUp" data-wow-delay="0.2s">
+      <button id="pricingToggleBtn" class="active" data-active="basic">
+        <span data-type="basic">Basic</span>
+        <span data-type="advance">
+          Advance
+          <small>Fitur Lengkap</small>
+        </span>
+      </button>
+    </div>
+
+    <!-- Cards Grid -->
+    <div class="row justify-content-center align-items-stretch g-4">
+
+      <!-- ── Card 1: UMKM ── -->
+      <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+        <div class="prc_card h-100">
+
+          <span class="prc_badge">UMKM</span>
+          <p class="prc_tagline">Ideal untuk bisnis lokal yang baru memulai perjalanan digital mereka.</p>
+
+          <div class="prc_price_wrap">
+            <p class="prc_price">
+              <span class="prc_currency">Rp</span>
+              <span class="prc_num pricing_annually">1,5jt</span>
+              <span class="prc_num pricing_monthly" style="display:none;">2,5jt</span>
+            </p>
+            <span class="prc_period">per proyek</span>
+          </div>
+
+          <hr class="prc_divider" />
+
+          <ul class="prc_features icon_list unordered_list_block flex-grow-1">
+            <li class="pricing_annually">
+              <span class="icon_list_icon"><i class="fa-solid fa-check prc_check"></i></span>
+              <span>Landing Page Responsive</span>
+            </li>
+            <li class="pricing_annually">
+              <span class="icon_list_icon"><i class="fa-solid fa-check prc_check"></i></span>
+              <span>Integrasi WhatsApp Business</span>
+            </li>
+            <li class="pricing_annually">
+              <span class="icon_list_icon"><i class="fa-solid fa-check prc_check"></i></span>
+              <span>Standard SEO Setup</span>
+            </li>
+            <li class="pricing_annually">
+              <span class="icon_list_icon"><i class="fa-solid fa-check prc_check"></i></span>
+              <span>Sertifikat SSL (Keamanan)</span>
+            </li>
+            <li class="pricing_monthly" style="display:none;">
+              <span class="icon_list_icon"><i class="fa-solid fa-check prc_check"></i></span>
+              <span>Landing Page Responsive</span>
+            </li>
+            <li class="pricing_monthly" style="display:none;">
+              <span class="icon_list_icon"><i class="fa-solid fa-check prc_check"></i></span>
+              <span>Integrasi WhatsApp Business</span>
+            </li>
+            <li class="pricing_monthly" style="display:none;">
+              <span class="icon_list_icon"><i class="fa-solid fa-check prc_check"></i></span>
+              <span>Advanced SEO Setup</span>
+            </li>
+            <li class="pricing_monthly" style="display:none;">
+              <span class="icon_list_icon"><i class="fa-solid fa-check prc_check"></i></span>
+              <span>Sertifikat SSL (Keamanan)</span>
+            </li>
+            <li class="pricing_monthly" style="display:none;">
+              <span class="icon_list_icon"><i class="fa-solid fa-check prc_check"></i></span>
+              <span>Google My Business Setup</span>
+            </li>
+            <li class="pricing_monthly" style="display:none;">
+              <span class="icon_list_icon"><i class="fa-solid fa-check prc_check"></i></span>
+              <span>3 Halaman Konten Tambahan</span>
+            </li>
+          </ul>
+
+          <a href="/contact" class="btn prc_btn prc_btn--primary mt-auto">
+            <span class="btn_label" data-text="Mulai Sekarang">Mulai Sekarang</span>
+          </a>
+
+        </div>
+      </div>
+
+      <!-- ── Card 2: Proyek Bisnis ── -->
+      <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
+        <div class="prc_card prc_card--popular h-100">
+
+          <span class="prc_badge prc_badge--primary">Proyek Bisnis</span>
+          <p class="prc_tagline">Solusi lengkap untuk bisnis yang ingin tampil profesional dan terukur.</p>
+
+          <div class="prc_price_wrap">
+            <p class="prc_price">
+              <span class="prc_currency">Rp</span>
+              <span class="prc_num pricing_annually">3,5jt</span>
+              <span class="prc_num pricing_monthly" style="display:none;">5,5jt</span>
+            </p>
+            <span class="prc_period">per proyek</span>
+          </div>
+
+          <hr class="prc_divider" />
+
+          <ul class="prc_features icon_list unordered_list_block flex-grow-1">
+            <li class="pricing_annually">
+              <span class="icon_list_icon"><i class="fa-solid fa-check prc_check prc_check--primary"></i></span>
+              <span>Multi-page Corporate Website</span>
+            </li>
+            <li class="pricing_annually">
+              <span class="icon_list_icon"><i class="fa-solid fa-check prc_check prc_check--primary"></i></span>
+              <span>CMS (Management Konten)</span>
+            </li>
+            <li class="pricing_annually">
+              <span class="icon_list_icon"><i class="fa-solid fa-check prc_check prc_check--primary"></i></span>
+              <span>Advanced SEO Optimization</span>
+            </li>
+            <li class="pricing_annually">
+              <span class="icon_list_icon"><i class="fa-solid fa-check prc_check prc_check--primary"></i></span>
+              <span>Analytics & Tracking Integration</span>
+            </li>
+            <li class="pricing_annually">
+              <span class="icon_list_icon"><i class="fa-solid fa-check prc_check prc_check--primary"></i></span>
+              <span>Premium Speed Optimization</span>
+            </li>
+            <li class="pricing_monthly" style="display:none;">
+              <span class="icon_list_icon"><i class="fa-solid fa-check prc_check prc_check--primary"></i></span>
+              <span>Multi-page Corporate Website</span>
+            </li>
+            <li class="pricing_monthly" style="display:none;">
+              <span class="icon_list_icon"><i class="fa-solid fa-check prc_check prc_check--primary"></i></span>
+              <span>CMS (Management Konten)</span>
+            </li>
+            <li class="pricing_monthly" style="display:none;">
+              <span class="icon_list_icon"><i class="fa-solid fa-check prc_check prc_check--primary"></i></span>
+              <span>Advanced SEO Optimization</span>
+            </li>
+            <li class="pricing_monthly" style="display:none;">
+              <span class="icon_list_icon"><i class="fa-solid fa-check prc_check prc_check--primary"></i></span>
+              <span>Analytics & Tracking Integration</span>
+            </li>
+            <li class="pricing_monthly" style="display:none;">
+              <span class="icon_list_icon"><i class="fa-solid fa-check prc_check prc_check--primary"></i></span>
+              <span>Premium Speed Optimization</span>
+            </li>
+            <li class="pricing_monthly" style="display:none;">
+              <span class="icon_list_icon"><i class="fa-solid fa-check prc_check prc_check--primary"></i></span>
+              <span>Custom Form & Lead Capture</span>
+            </li>
+            <li class="pricing_monthly" style="display:none;">
+              <span class="icon_list_icon"><i class="fa-solid fa-check prc_check prc_check--primary"></i></span>
+              <span>Email Marketing Integration</span>
+            </li>
+            <li class="pricing_monthly" style="display:none;">
+              <span class="icon_list_icon"><i class="fa-solid fa-check prc_check prc_check--primary"></i></span>
+              <span>Social Media Feed Embed</span>
+            </li>
+          </ul>
+
+          <a href="/contact" class="btn prc_btn prc_btn--primary mt-auto">
+            <span class="btn_label" data-text="Mulai Kerjasama">Mulai Kerjasama</span>
+          </a>
+    
+        </div>
+      </div>
+
+      <!-- ── Card 3: Enterprise ── -->
+      <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+        <div class="prc_card prc_card--dark h-100">
+
+          <span class="prc_badge prc_badge--light">Enterprise</span>
+          <p class="prc_tagline" style="color: rgba(255,255,255,0.6);">Jika paket lain tidak cukup, mari buat solusi yang benar-benar pas untuk Anda.</p>
+
+          <div class="prc_price_wrap">
+            <p class="prc_price">
+              <span class="prc_num" style="font-size: 52px; letter-spacing: -2px; color: #ffffff;">Let's Talk!</span>
+            </p>
+          </div>
+
+          <hr class="prc_divider" style="border-color: rgba(255,255,255,0.12);" />
+
+          <ul class="prc_features icon_list unordered_list_block flex-grow-1">
+            <li>
+              <span class="icon_list_icon"><i class="fa-solid fa-check prc_check" style="color: rgba(255,255,255,0.9);"></i></span>
+              <span style="color: rgba(255,255,255,0.75);">Full Custom Application</span>
+            </li>
+            <li>
+              <span class="icon_list_icon"><i class="fa-solid fa-check prc_check" style="color: rgba(255,255,255,0.9);"></i></span>
+              <span style="color: rgba(255,255,255,0.75);">Integrasi API & Database</span>
+            </li>
+            <li>
+              <span class="icon_list_icon"><i class="fa-solid fa-check prc_check" style="color: rgba(255,255,255,0.9);"></i></span>
+              <span style="color: rgba(255,255,255,0.75);">High-Level Cybersecurity</span>
+            </li>
+            <li>
+              <span class="icon_list_icon"><i class="fa-solid fa-check prc_check" style="color: rgba(255,255,255,0.9);"></i></span>
+              <span style="color: rgba(255,255,255,0.75);">Dedicated Tech Support</span>
+            </li>
+            <li>
+              <span class="icon_list_icon"><i class="fa-solid fa-check prc_check" style="color: rgba(255,255,255,0.9);"></i></span>
+              <span style="color: rgba(255,255,255,0.75);">SLA & Uptime Guarantee</span>
+            </li>
+            <li>
+              <span class="icon_list_icon"><i class="fa-solid fa-check prc_check" style="color: rgba(255,255,255,0.9);"></i></span>
+              <span style="color: rgba(255,255,255,0.75);">Onboarding & Training Tim</span>
+            </li>
+          </ul>
+
+          <a href="/contact" class="btn prc_btn--light prc_btn mt-auto" > 
+            <span class="btn_label" data-text="Konsultasi Khusus">Konsultasi Khusus</span>
+          </a>
+
+        </div>
+      </div>
+
+    </div><!-- .row -->
+
+    <!-- Footnote -->
+    <p class="text-center mt-5 wow fadeInUp" data-wow-delay="0.6s" style="font-size: 14px; color: var(--bs-body-color);">
+      Semua paket sudah termasuk domain <strong>.com</strong> atau <strong>.id</strong> untuk 1 tahun pertama. &nbsp;
+      <a href="/contact" class="text-primary">Ada pertanyaan? Hubungi kami →</a>
+    </p>
+
+  </div>
+</section>
+
+<style>
+  /* ════════════════════════════════════════
+     PRICING CARDS — mengikuti design system
+     Techco template (Axiforma, BS vars)
+  ════════════════════════════════════════ */
+
+  /* ── Base Card ── */
+  .prc_card {
+    display: flex;
+    flex-direction: column;
+    padding: 40px 36px;
+    background-color: var(--bs-white);
+    border-radius: var(--bs-border-radius-sm); /* 20px — sama dengan pricing_block */
+    border: 1.5px solid var(--bs-border-color);
+    box-shadow: 0 1px 2px 0 rgba(174, 191, 210, 0.25);
+    transition: transform 300ms ease, box-shadow 300ms ease;
+  }
+
+  .prc_card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 48px 0 rgba(174, 191, 210, 0.32);
+  }
+
+  /* Popular card */
+  .prc_card--popular {
+    border-color: var(--bs-primary);
+    border-width: 2px;
+  }
+
+  /* Dark card (Enterprise) */
+  .prc_card--dark {
+    background-color: var(--bs-dark);
+    border-color: var(--bs-dark);
+  }
+
+  /* ── Badge (nama paket, pill style) ── */
+  .prc_badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 7px 16px 6px;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: 'Axiforma SemiBold';
+    letter-spacing: 0.2px;
+    border-radius: var(--bs-border-radius-pill);
+    border: 1.5px solid var(--bs-border-color);
+    color: var(--bs-dark);
+    background-color: var(--bs-white);
+    margin-bottom: 16px;
+    width: fit-content;
+  }
+
+  .prc_badge--primary {
+    background-color: var(--bs-primary);
+    border-color: var(--bs-primary);
+    color: #fff;
+  }
+
+  .prc_badge--light {
+    background-color: rgba(255,255,255,0.10);
+    border-color: rgba(255,255,255,0.20);
+    color: #fff;
+    margin-bottom: 16px;
+  }
+
+  /* ── Popular tag ── */
+  .prc_popular_tag {
+    font-size: 12px;
+    font-weight: 600;
+    font-family: 'Axiforma SemiBold';
+    color: var(--bs-danger);
+    background-color: var(--bs-danger-bg-subtle);
+    padding: 5px 12px 4px;
+    border-radius: var(--bs-border-radius-pill);
+  }
+
+  /* ── Tagline ── */
+  .prc_tagline {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--bs-body-color);
+    margin-bottom: 28px;
+    font-family: 'Axiforma Regular';
+  }
+
+  /* ── Price block ── */
+  .prc_price_wrap {
+    margin-bottom: 24px;
+  }
+
+  .prc_price {
+    margin: 0 0 4px;
+    line-height: 1;
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    color: var(--bs-dark);
+  }
+
+  .prc_currency {
+    font-size: 22px;
+    font-weight: 600;
+    font-family: 'Axiforma SemiBold';
+    color: var(--bs-dark);
+  }
+
+  .prc_num {
+    font-size: 56px;
+    font-weight: 700;
+    font-family: 'Axiforma Bold';
+    letter-spacing: -3px;
+    line-height: 1;
+    color: var(--bs-dark);
+    transition: opacity 0.22s ease, transform 0.22s ease;
+  }
+
+  .prc_period {
+    font-size: 13px;
+    color: var(--bs-body-color);
+    font-family: 'Axiforma Regular';
+    opacity: 0.6;
+  }
+
+  /* ── Divider ── */
+  .prc_divider {
+    border: none;
+    border-top: 1.5px solid var(--bs-border-color);
+    margin: 0 0 24px;
+    opacity: 1;
+  }
+
+  /* ── Features list ── */
+  .prc_features {
+    padding: 0;
+    margin: 0 0 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .prc_features > li {
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--bs-body-color);
+    font-family: 'Axiforma Regular';
+  }
+
+  .prc_check {
+    font-size: 12px;
+    color: var(--bs-dark);
+    opacity: 0.5;
+  }
+
+  .prc_check--primary {
+    color: var(--bs-primary);
+    opacity: 1;
+  }
+
+  /* ── CTA Button override ── */
+  .prc_btn {
+    width: 100%;
+    justify-content: center;
+    background-color: transparent !important;
+    color: var(--bs-dark) !important;
+    border: 1.5px solid var(--bs-border-color) !important;
+    box-shadow: none !important;
+  }
+
+  .prc_btn:hover {
+    background-color: var(--bs-light) !important;
+    border-color: var(--bs-light) !important;
+    color: var(--bs-dark) !important;
+    box-shadow: none !important;
+    transform: translateY(-2px);
+  }
+
+  .prc_btn--primary {
+    background-color: var(--bs-primary) !important;
+    color: #fff !important;
+    border-color: var(--bs-primary) !important;
+  }
+
+  .prc_btn--primary:hover {
+    background-color: var(--bs-dark) !important;
+    border-color: var(--bs-dark) !important;
+    color: #fff !important;
+    box-shadow: 0 10px 30px 0 rgba(0, 68, 235, 0.26) !important;
+  }
+
+  .prc_btn--light {
+    background-color: rgba(255,255,255,0.08) !important;
+    color: #fff !important;
+    border-color: rgba(255,255,255,0.20) !important;
+  }
+
+  .prc_btn--light:hover {
+    background-color: rgba(255,255,255,0.18) !important;
+    border-color: rgba(255,255,255,0.30) !important;
+    color: #fff !important;
+    box-shadow: none !important;
+  }
+
+  /* ── Heading tweaks in this section ── */
+  .pricing_section .heading_block {
+    margin-bottom: 48px;
+  }
+
+  .pricing_section .heading_text {
+    font-size: 48px;
+    letter-spacing: -1.5px;
+  }
+</style>
+
+<script>
+  (() => {
+    const btn = document.getElementById('pricingToggleBtn');
+    if (!btn) return;
+
+    btn.addEventListener('click', () => {
+      const current = btn.dataset.active as string;
+      const next    = current === 'basic' ? 'advance' : 'basic';
+      btn.dataset.active = next;
+
+      // Toggle active class pada toggle button (gunakan class asli template)
+      btn.classList.toggle('active', next === 'basic');
+
+      const showBasic = next === 'basic';
+
+      // Fade out
+      document.querySelectorAll<HTMLElement>('.prc_num').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(6px)';
+      });
+
+      setTimeout(() => {
+        // Swap konten
+        document.querySelectorAll<HTMLElement>('.pricing_annually').forEach(el => {
+          el.style.display = showBasic ? '' : 'none';
+        });
+        document.querySelectorAll<HTMLElement>('.pricing_monthly').forEach(el => {
+          el.style.display = showBasic ? 'none' : '';
+        });
+
+        // Fade in
+        document.querySelectorAll<HTMLElement>('.prc_num').forEach(el => {
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0)';
+        });
+      }, 200);
+    });
+  })();
+</script>

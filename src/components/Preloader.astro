@@ -1,0 +1,322 @@
+---
+// src/components/Preloader.astro
+---
+
+<!-- Preloader - Start -->
+<div id="preloader" class="jw-preloader">
+
+  <div class="jw-bg-grid"></div>
+  <div class="jw-orb jw-orb-1"></div>
+  <div class="jw-orb jw-orb-2"></div>
+
+  <div class="jw-center">
+
+    <div class="jw-terminal">
+      <div class="jw-terminal-bar">
+        <span class="jw-dot"></span>
+        <span class="jw-dot"></span>
+        <span class="jw-dot"></span>
+        <span class="jw-terminal-title">jalaninweb.id</span>
+      </div>
+      <div class="jw-terminal-body">
+        <div class="jw-line jw-line-1">
+          <span class="jw-prompt">$</span>
+          <span class="jw-cmd" data-text="building your website..."></span>
+          <span class="jw-cursor"></span>
+        </div>
+        <div class="jw-line jw-line-2">
+          <span class="jw-prompt">›</span>
+          <span class="jw-status">Mengaktifkan solusi digital</span>
+        </div>
+        <div class="jw-line jw-line-3">
+          <span class="jw-prompt">›</span>
+          <span class="jw-status">Menyiapkan tampilan terbaik</span>
+        </div>
+        <div class="jw-line jw-line-4">
+          <span class="jw-check">✓</span>
+          <span class="jw-done">Siap! Selamat datang</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="jw-progress-wrap">
+      <div class="jw-progress-bar"></div>
+    </div>
+
+    <div class="jw-brand">JalaninWeb</div>
+
+  </div>
+</div>
+<!-- Preloader - End -->
+
+<style>
+  :root {
+    --jw-dark:   #0a3d3b;
+    --jw-mid:    #0d5f5c;
+    --jw-teal:   #1a8a82;
+    --jw-mint:   #3ecfad;
+    --jw-light:  #7fe8cf;
+    --jw-white:  #e8faf6;
+  }
+
+  .jw-preloader {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    background: var(--jw-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+  }
+
+  .jw-preloader.jw-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  /* Grid background */
+  .jw-bg-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(62,207,173,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(62,207,173,0.06) 1px, transparent 1px);
+    background-size: 48px 48px;
+    animation: jw-grid-drift 12s linear infinite;
+  }
+
+  @keyframes jw-grid-drift {
+    0%   { transform: translateY(0); }
+    100% { transform: translateY(48px); }
+  }
+
+  /* Ambient orbs */
+  .jw-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(72px);
+    opacity: 0.18;
+    animation: jw-orb-pulse 6s ease-in-out infinite alternate;
+  }
+  .jw-orb-1 {
+    width: 420px; height: 420px;
+    background: var(--jw-mint);
+    top: -120px; left: -80px;
+    animation-delay: 0s;
+  }
+  .jw-orb-2 {
+    width: 320px; height: 320px;
+    background: var(--jw-teal);
+    bottom: -80px; right: -60px;
+    animation-delay: -3s;
+  }
+  @keyframes jw-orb-pulse {
+    from { opacity: 0.12; transform: scale(1); }
+    to   { opacity: 0.22; transform: scale(1.1); }
+  }
+
+  /* Center container */
+  .jw-center {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    animation: jw-fade-up 0.5s ease both;
+  }
+  @keyframes jw-fade-up {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Terminal window */
+  .jw-terminal {
+    width: 340px;
+    background: rgba(10, 40, 38, 0.85);
+    border: 1px solid rgba(62, 207, 173, 0.2);
+    border-radius: 12px;
+    overflow: hidden;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 0 0 1px rgba(62,207,173,0.08), 0 24px 64px rgba(0,0,0,0.5);
+  }
+
+  .jw-terminal-bar {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 10px 14px;
+    background: rgba(255,255,255,0.04);
+    border-bottom: 1px solid rgba(62,207,173,0.1);
+  }
+
+  .jw-dot {
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    background: rgba(62,207,173,0.25);
+  }
+  .jw-dot:nth-child(1) { background: #ff5f57; }
+  .jw-dot:nth-child(2) { background: #febc2e; }
+  .jw-dot:nth-child(3) { background: var(--jw-mint); }
+
+  .jw-terminal-title {
+    font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+    font-size: 11px;
+    color: rgba(127, 232, 207, 0.5);
+    margin-left: auto;
+    letter-spacing: 0.04em;
+  }
+
+  .jw-terminal-body {
+    padding: 16px 18px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+    font-size: 13px;
+  }
+
+  .jw-line {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    opacity: 0;
+  }
+
+  .jw-prompt {
+    color: var(--jw-mint);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  /* Typewriter line */
+  .jw-cmd {
+    color: var(--jw-white);
+    letter-spacing: 0.02em;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 0;
+  }
+
+  .jw-cursor {
+    display: inline-block;
+    width: 2px;
+    height: 14px;
+    background: var(--jw-mint);
+    border-radius: 1px;
+    animation: jw-blink 0.8s step-end infinite;
+  }
+
+  @keyframes jw-blink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
+  }
+
+  .jw-status {
+    color: rgba(127, 232, 207, 0.55);
+    font-size: 12px;
+  }
+
+  .jw-check {
+    color: var(--jw-mint);
+    font-size: 14px;
+  }
+
+  .jw-done {
+    color: var(--jw-mint);
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.02em;
+  }
+
+  /* Line animations */
+  .jw-line-1 { animation: jw-show 0.01s 0.3s forwards; }
+  .jw-line-2 { animation: jw-show 0.01s 1.6s forwards; }
+  .jw-line-3 { animation: jw-show 0.01s 2.2s forwards; }
+  .jw-line-4 { animation: jw-show 0.01s 3.1s forwards; }
+
+  @keyframes jw-show {
+    to { opacity: 1; }
+  }
+
+  /* Typewriter for .jw-cmd */
+  .jw-cmd { animation: jw-type 1.1s steps(26, end) 0.35s both; }
+  @keyframes jw-type {
+    from { width: 0; }
+    to   { width: 210px; }
+  }
+
+  /* Progress bar */
+  .jw-progress-wrap {
+    width: 340px;
+    height: 3px;
+    background: rgba(62, 207, 173, 0.12);
+    border-radius: 99px;
+    overflow: hidden;
+  }
+
+  .jw-progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--jw-teal), var(--jw-mint), var(--jw-light));
+    border-radius: 99px;
+    animation: jw-progress 3.4s cubic-bezier(0.4, 0, 0.2, 1) 0.3s forwards;
+  }
+
+  @keyframes jw-progress {
+    0%   { width: 0%; }
+    30%  { width: 35%; }
+    55%  { width: 62%; }
+    80%  { width: 85%; }
+    100% { width: 100%; }
+  }
+
+  /* Brand name */
+  .jw-brand {
+    font-family: 'Outfit', 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(127, 232, 207, 0.4);
+    animation: jw-fade-in 0.6s ease 0.5s both;
+  }
+
+  @keyframes jw-fade-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  /* Typewriter content injection */
+  .jw-cmd::after {
+    content: attr(data-text);
+  }
+</style>
+
+<script>
+  (function () {
+    const preloader = document.getElementById('preloader');
+    if (!preloader) return;
+
+    // Total durasi animasi ~3.8s, lalu fade out
+    const hideDelay = 4000;
+
+    function hidePreloader() {
+      preloader.classList.add('jw-hidden');
+      setTimeout(() => {
+        preloader.style.display = 'none';
+      }, 650);
+    }
+
+    if (document.readyState === 'complete') {
+      setTimeout(hidePreloader, hideDelay);
+    } else {
+      window.addEventListener('load', () => {
+        setTimeout(hidePreloader, hideDelay);
+      });
+    }
+  })();
+</script>

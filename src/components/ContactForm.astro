@@ -1,0 +1,303 @@
+---
+// src/components/ContactForm.astro
+---
+
+<div class="contact_form mb-0">
+  <h3 class="details_item_info_title mb-1">Kirim Pesan ke Kami</h3>
+  <p class="mb-5">
+    Ceritakan kebutuhan bisnis kamu — kami siap bantu wujudkan website impianmu.
+  </p>
+
+  <form id="contactForm" novalidate>
+    <div class="row">
+
+      <!-- Nama -->
+      <div class="col-md-6">
+        <div class="form-group">
+          <label class="input_title" for="input_name">
+            Nama Lengkap <sup class="text-primary">*</sup>
+          </label>
+          <input
+            id="input_name"
+            class="form-control"
+            type="text"
+            name="name"
+            placeholder="Contoh: Budi Santoso"
+            required
+            autocomplete="name"
+          />
+        </div>
+      </div>
+
+      <!-- Email -->
+      <div class="col-md-6">
+        <div class="form-group">
+          <label class="input_title" for="input_email">
+            Email Kamu <sup class="text-primary">*</sup>
+          </label>
+          <input
+            id="input_email"
+            class="form-control"
+            type="email"
+            name="email"
+            placeholder="email@bisniskamu.com"
+            required
+            autocomplete="email"
+          />
+        </div>
+      </div>
+
+      <!-- WhatsApp -->
+      <div class="col-md-6">
+        <div class="form-group">
+          <label class="input_title" for="input_phone">
+            Nomor WhatsApp
+          </label>
+          <input
+            id="input_phone"
+            class="form-control"
+            type="tel"
+            name="phone"
+            placeholder="+62 812-xxxx-xxxx"
+            autocomplete="tel"
+          />
+        </div>
+      </div>
+
+      <!-- Layanan — pakai form-select sesuai template Techco -->
+      <div class="col-md-6">
+        <div class="form-group">
+          <label class="input_title" for="input_service">
+            Layanan yang Dibutuhkan
+          </label>
+          <select id="input_service" class="form-select" name="service">
+            <option value="" disabled selected>Pilih layanan...</option>
+            <option value="landing-page">Landing Page</option>
+            <option value="company-profile">Company Profile</option>
+            <option value="website-umkm">Website UMKM</option>
+            <option value="toko-online">Toko Online</option>
+            <option value="portofolio">Portofolio Online</option>
+            <option value="maintenance">Maintenance &amp; Support</option>
+            <option value="lainnya">Lainnya / Belum Tahu</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Pesan -->
+      <div class="col-12">
+        <div class="form-group">
+          <label class="input_title" for="input_textarea">
+            Pesan / Kebutuhan Kamu <sup class="text-primary">*</sup>
+          </label>
+          <textarea
+            id="input_textarea"
+            class="form-control"
+            name="message"
+            placeholder="Ceritakan singkat tentang bisnis dan website yang kamu bayangkan..."
+            required
+          ></textarea>
+        </div>
+      </div>
+
+      <!-- Buttons -->
+      <div class="col-12">
+        <div class="cf_btns_group d-flex align-items-center flex-wrap gap-3">
+
+          <!-- Submit → kirim ke email -->
+          <div class="cf_btn_wrap">
+            <button type="submit" class="btn btn-primary" id="submitBtn">
+              <span class="btn_label" data-text="Kirim Pesan">Kirim Pesan</span>
+              <span class="btn_icon">
+                <i class="fa-solid fa-arrow-up-right"></i>
+              </span>
+            </button>
+            <span class="cf_btn_note">
+              <i class="fa-regular fa-envelope"></i>
+              Pesan dikirim ke <strong>halo@jalaninweb.com</strong>
+            </span>
+          </div>
+
+          <!-- WhatsApp → hijau WA -->
+          <div class="cf_btn_wrap">
+            <a
+              href="https://wa.me/6289680551957?text=Halo%20JalaninWeb%2C%20saya%20ingin%20konsultasi%20pembuatan%20website."
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn cf_btn_wa"
+            >
+              <span class="btn_label" data-text="Chat WhatsApp">
+                <i class="fa-brands fa-whatsapp"></i> Chat WhatsApp
+              </span>
+              <span class="btn_icon">
+                <i class="fa-solid fa-arrow-up-right"></i>
+              </span>
+            </a>
+            <span class="cf_btn_note">
+              <i class="fa-regular fa-clock"></i>
+              Respon cepat, biasanya &lt; 1 jam
+            </span>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Status message -->
+      <div class="col-12 mt-3" id="formStatus" style="display:none;"></div>
+
+    </div>
+  </form>
+</div>
+
+<style>
+  /* ── Button group notes ── */
+  .cf_btn_wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .cf_btn_note {
+    font-size: 12px;
+    color: var(--bs-body-color);
+    opacity: 0.6;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding-left: 4px;
+  }
+
+  .cf_btn_note strong {
+    color: var(--bs-dark);
+    opacity: 1;
+  }
+
+  /* ── WhatsApp button — warna hijau WA ── */
+  .cf_btn_wa {
+    background-color: #25D366 !important;
+    border-color: #25D366 !important;
+    color: #fff !important;
+  }
+
+  .cf_btn_wa:hover {
+    background-color: #1ebe57 !important;
+    border-color: #1ebe57 !important;
+    color: #fff !important;
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35) !important;
+  }
+
+  /* Paksa warna teks btn_label di WA button tetap putih */
+  .cf_btn_wa .btn_label,
+  .cf_btn_wa .btn_label::before {
+    color: #fff !important;
+  }
+
+  /* ── Status message ── */
+  #formStatus.success {
+    color: #15803d;
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-radius: 10px;
+    padding: 12px 16px;
+    font-size: 14px;
+  }
+
+  #formStatus.error {
+    color: #b91c1c;
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    border-radius: 10px;
+    padding: 12px 16px;
+    font-size: 14px;
+  }
+</style>
+
+<script>
+  const form = document.getElementById('contactForm') as HTMLFormElement;
+  const submitBtn = document.getElementById('submitBtn') as HTMLButtonElement;
+  const statusEl = document.getElementById('formStatus') as HTMLDivElement;
+
+  // ── WhatsApp button: isi pesan dari form secara dinamis ──
+  const waBtn = document.querySelector('.cf_btn_wa') as HTMLAnchorElement | null;
+  const waBaseNumber = '6289680551957';
+
+  function buildWaMessage(): string {
+    const name    = (document.getElementById('input_name')     as HTMLInputElement)?.value.trim()  || '-';
+    const email   = (document.getElementById('input_email')    as HTMLInputElement)?.value.trim()  || '-';
+    const phone   = (document.getElementById('input_phone')    as HTMLInputElement)?.value.trim()  || '-';
+    const service = (document.getElementById('input_service')  as HTMLSelectElement)?.selectedOptions[0]?.text || '-';
+    const message = (document.getElementById('input_textarea') as HTMLTextAreaElement)?.value.trim() || '-';
+
+    return [
+      `Halo JalaninWeb, saya ingin konsultasi pembuatan website.`,
+      ``,
+      `Nama    : ${name}`,
+      `Email   : ${email}`,
+      `WA      : ${phone}`,
+      `Layanan : ${service}`,
+      ``,
+      `Pesan:`,
+      message,
+    ].join('\n');
+  }
+
+  if (waBtn) {
+    // Update href setiap kali ada input berubah
+    const formFields = form?.querySelectorAll('input, select, textarea');
+    formFields?.forEach(el => {
+      el.addEventListener('input', () => {
+        waBtn.href = `https://wa.me/${waBaseNumber}?text=${encodeURIComponent(buildWaMessage())}`;
+      });
+      el.addEventListener('change', () => {
+        waBtn.href = `https://wa.me/${waBaseNumber}?text=${encodeURIComponent(buildWaMessage())}`;
+      });
+    });
+
+    // Update juga saat klik (jaga-jaga)
+    waBtn.addEventListener('click', () => {
+      waBtn.href = `https://wa.me/${waBaseNumber}?text=${encodeURIComponent(buildWaMessage())}`;
+    });
+  }
+
+  if (form) {
+    const btnLabel = submitBtn?.querySelector('.btn_label') as HTMLElement | null;
+    const originalText = btnLabel?.textContent?.trim() ?? 'Kirim Pesan';
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      // Loading state — hanya ubah teks btn_label, struktur tetap
+      submitBtn.disabled = true;
+      if (btnLabel) {
+        btnLabel.textContent = 'Mengirim...';
+        btnLabel.setAttribute('data-text', 'Mengirim...');
+      }
+
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+
+      // TODO: ganti dengan fetch ke endpoint email aktual
+      // await fetch('/api/contact', { method: 'POST', body: JSON.stringify(data) })
+      await new Promise(r => setTimeout(r, 1200));
+
+      // Success
+      statusEl.className = 'success';
+      statusEl.textContent = '✅ Pesan berhasil dikirim ke halo@jalaninweb.com — kami akan membalas dalam 1×24 jam!';
+      statusEl.style.display = 'block';
+      form.reset();
+
+      // Reset button
+      submitBtn.disabled = false;
+      if (btnLabel) {
+        btnLabel.textContent = originalText;
+        btnLabel.setAttribute('data-text', originalText);
+      }
+
+      statusEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+  }
+</script>

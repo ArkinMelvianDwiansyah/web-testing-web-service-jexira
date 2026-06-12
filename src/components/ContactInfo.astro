@@ -1,0 +1,68 @@
+---
+// src/components/ContactInfo.astro
+interface InfoItem {
+  icon: string;
+  iconAlt: string;
+  title: string;
+  lines: { text: string; href?: string }[];
+}
+
+const infoItems: InfoItem[] = [
+  {
+    icon: "/assets/images/icons/icon_map_mark_2.svg",
+    iconAlt: "Lokasi Icon",
+    title: "Lokasi Kami",
+    lines: [
+      { text: "Jl. Rodah Sekolahan No. 21" },
+      { text: "Sukolilo, Surabaya, Indonesia" },
+    ],
+  },
+  {
+    icon: "/assets/images/icons/icon_calling_2.svg",
+    iconAlt: "WhatsApp Icon",
+    title: "WhatsApp",
+    lines: [
+      { text: "+62 896-8055-1957", href: "https://wa.me/6289680551957" },
+      { text: "+62 896-8055-1957", href: "https://wa.me/6289680551957" },
+    ],
+  },
+  {
+    icon: "/assets/images/icons/icon_mail_3.svg",
+    iconAlt: "Email Icon",
+    title: "Email",
+    lines: [
+      { text: "Jalaninweb@gmail.com", href: "mailto:Jalaninweb@gmail.com" },
+      { text: "Jalanundangan@gmail.com", href: "mailto:Jalanundangan@gmail.com" },
+    ],
+  },
+  {
+    icon: "/assets/images/icons/icon_calendar_2.svg",
+    iconAlt: "Jam Kerja Icon",
+    title: "Jam Kerja",
+    lines: [
+      { text: "Sen – Sab: 08.00 – 21.00" },
+      { text: "Minggu: On-call" },
+    ],
+  },
+];
+---
+
+<div class="contact_info_box row g-4">
+  {infoItems.map(item => (
+    <div class="col-lg-3 col-md-6 col-sm-6">
+      <div class="iconbox_block text-center">
+        <div class="iconbox_icon">
+          <img src={item.icon} alt={item.iconAlt} loading="lazy" />
+        </div>
+        <div class="iconbox_content">
+          <h3 class="iconbox_title">{item.title}</h3>
+          {item.lines.map(line =>
+            line.href
+              ? <p class="mb-0"><a href={line.href} class="text-reset">{line.text}</a></p>
+              : <p class="mb-0">{line.text}</p>
+          )}
+        </div>
+      </div>
+    </div>
+  ))}
+</div>

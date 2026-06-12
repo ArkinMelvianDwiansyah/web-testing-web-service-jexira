@@ -1,0 +1,96 @@
+---
+interface Props {
+  title?: string;
+  badgeHighlight?: string;
+}
+
+const {
+  title = "Apa Kata Klien Tentang Kami",
+  badgeHighlight = "Klien"
+} = Astro.props;
+
+const reviews = [
+  {
+    comment: "Website yang dibuat sangat profesional dan mudah digunakan. Setelah website live, pelanggan jadi lebih percaya dan mudah menghubungi kami.",
+    name: "Andi Simatupang",
+    role: "Owner Coffee Shop",
+    image: "/assets/images/avatar/avatar_4.webp"
+  },
+  {
+    comment: "Portofolio online saya jadi terlihat lebih profesional. Sangat membantu untuk melamar pekerjaan dan mendapatkan klien baru.",
+    name: "Raden Wahyu",
+    role: "UI/UX Designer",
+    image: "/assets/images/avatar/avatar_5.webp"
+  },
+  {
+    comment: "Prosesnya cepat, komunikatif, dan hasilnya sesuai ekspektasi. Tim sangat membantu dari awal sampai launching.",
+    name: "Rina Putri",
+    role: "Manager CV Semoga Rezeki",
+    image: "/assets/images/avatar/avatar_6.webp"
+  },
+  {
+    comment: "Sebelumnya kami hanya mengandalkan pemasaran offline. Setelah memiliki website, calon pelanggan jadi lebih mudah melihat produk dan menghubungi kami.",
+    name: "Budi Santoso",
+    role: "Owner Pabrik Furniture",
+    image: "/assets/images/avatar/avatar_7.webp"
+  },
+  {
+    comment: "Hasil desainnya melebihi ekspektasi kami. Tampilan modern dan responsif di semua perangkat. Klien kami pun banyak yang memuji tampilan website-nya.",
+    name: "Sari Dewi",
+    role: "Direktur PT Maju Bersama",
+    image: "/assets/images/avatar/avatar_8.webp"
+  },
+  {
+    comment: "Pengerjaan tepat waktu dan sesuai brief yang kami berikan. Komunikasi sangat lancar dan revisi ditangani dengan cepat. Sangat rekomendasikan!",
+    name: "Hendra Kusuma",
+    role: "Founder Startup Teknologi",
+    image: "/assets/images/avatar/avatar_9.webp"
+  }
+];
+---
+
+<section class="review_section section_space bg-light">
+  <div class="container">
+    <div class="heading_block text-center">
+      <div class="heading_focus_text">
+        Testimoni
+        <span class="badge bg-secondary text-white">{badgeHighlight}</span>
+      </div>
+      <h2 class="heading_text mb-0">
+        {title}
+      </h2>
+    </div>
+
+    <div class="row g-4">
+      {reviews.map((review) => (
+        <div class="col-lg-4 col-md-6">
+          <div class="review_block_3 h-100 d-flex flex-column">
+            <div class="mb-auto">
+              <i class="fa-solid fa-quote-left fa-2x mb-3 text-primary opacity-25"></i>
+              <p class="review_commtent">{review.comment}</p>
+            </div>
+            <div class="review_admin mt-3">
+              <div class="review_admin_image">
+                <img src={review.image} alt={review.name} loading="lazy" />
+              </div>
+              <div class="review_admin_info">
+                <h4 class="review_admin_name">{review.name}</h4>
+                <span class="review_admin_designation">{review.role}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .review_block_3 {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .review_block_3:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  }
+</style>

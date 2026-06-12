@@ -1,0 +1,121 @@
+---
+// src/components/BlogFeaturedSlider.astro
+interface FeaturedPost {
+  title: string;
+  categories: string[];
+  date: string;
+  image: string;
+  description: string;
+  comments: number;
+  slug: string;
+}
+
+const featuredPosts: FeaturedPost[] = [
+  {
+    slug: "cara-membuat-website-umkm",
+    title: "Cara Membuat Website untuk UMKM yang Menarik dan Profesional",
+    categories: ["Tips Website", "Edukasi"],
+    date: "12 Mei 2026",
+    image: "/assets/images/blog/blog_post_image_4.webp",
+    description: "Website bukan lagi kebutuhan bisnis besar saja. Pelajari langkah mudah membangun website UMKM yang modern dan efektif untuk meningkatkan kepercayaan pelanggan.",
+    comments: 24,
+  },
+  {
+    slug: "tips-website-cepat",
+    title: "7 Tips Biar Website Kamu Cepat dan Tidak Lemot",
+    categories: ["Tips Website", "Teknis"],
+    date: "20 Apr 2026",
+    image: "/assets/images/blog/blog_post_image_4.webp",
+    description: "Website lemot bikin pengunjung kabur. Ini dia 7 cara mudah meningkatkan kecepatan website kamu agar muncul di halaman pertama Google.",
+    comments: 15,
+  },
+  {
+    slug: "kenapa-bisnis-butuh-website",
+    title: "5 Alasan Kenapa Bisnis Kamu Wajib Punya Website di 2026",
+    categories: ["Bisnis", "Edukasi"],
+    date: "5 Mei 2026",
+    image: "/assets/images/blog/blog_post_image_4.webp",
+    description: "Di era digital ini, tidak punya website sama saja kehilangan ratusan calon pelanggan setiap harinya. Simak 5 alasan penting kenapa bisnis kamu harus online.",
+    comments: 18,
+  },
+  {
+    slug: "harga-jasa-pembuatan-website",
+    title: "Berapa Harga Jasa Pembuatan Website di 2026? Ini Rinciannya",
+    categories: ["Info Harga"],
+    date: "15 Apr 2026",
+    image: "/assets/images/blog/blog_post_image_4.webp",
+    description: "Harga jasa website bervariasi tergantung fitur dan kompleksitas. Pelajari kisaran harga yang wajar agar tidak salah pilih vendor.",
+    comments: 9,
+  },
+];
+---
+
+<!-- Struktur 1:1 dengan blog.html template asli -->
+<div class="blog_onecol_carousel overflow-hidden">
+  <div class="swiper-wrapper">
+    {featuredPosts.map((post) => (
+      <div class="swiper-slide">
+        <div class="blog_post_block content_over_layout">
+
+          <div class="blog_post_image">
+            <a class="image_wrap" href={`/blog/${post.slug}`} aria-label={post.title}>
+              <img src={post.image} alt={post.title} loading="lazy" style="width: 100%; height: 100%; object-fit: cover;" />
+            </a>
+          </div>
+
+          <div class="blog_post_content">
+            <div class="post_meta_wrap">
+              <ul class="category_btns_group unordered_list">
+                {post.categories.map(cat => (
+                  <li>
+                    <a href={`/blog/category/${cat.toLowerCase().replace(/\s+/g, '-')}`}>
+                      {cat}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+              <ul class="post_meta unordered_list">
+                <li>
+                  <a href="#!">
+                    <i class="fa-regular fa-calendar-days"></i> {post.date}
+                  </a>
+                </li>
+                <li>
+                  <a href="#!">
+                    <i class="fa-regular fa-comment-lines"></i> {post.comments}
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <h3 class="blog_post_title">
+              <a href={`/blog/${post.slug}`}>{post.title}</a>
+            </h3>
+            <p class="mb-0" style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">{post.description}</p>
+          </div>
+
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <!-- Nav buttons — WAJIB ada agar main.js bisa init Swiper navigasi -->
+  <button
+    class="b1cc-swiper-button-prev"
+    type="button"
+    style="background-image: url('/assets/images/shapes/shape_arrow_right.svg');"
+    aria-label="Sebelumnya"
+  >
+    <i class="fa-solid fa-angles-left"></i>
+  </button>
+  <button
+    class="b1cc-swiper-button-next"
+    type="button"
+    style="background-image: url('/assets/images/shapes/shape_arrow_left.svg');"
+    aria-label="Berikutnya"
+  >
+    <i class="fa-solid fa-angles-right"></i>
+  </button>
+
+  <div class="b1cc-swiper-pagination p-0"></div>
+</div>

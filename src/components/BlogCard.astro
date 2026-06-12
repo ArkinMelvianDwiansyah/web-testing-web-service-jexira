@@ -1,0 +1,83 @@
+---
+// src/components/BlogCard.astro
+interface Props {
+  title: string;
+  category: string;
+  date: string;
+  image: string;
+  excerpt: string;
+  slug: string;
+  readTime: string;
+}
+
+const { title, category, date, image, excerpt, slug, readTime } = Astro.props;
+const categorySlug = category.toLowerCase().replace(/\s+/g, '-');
+---
+
+<div class="blog_post_block">
+
+  <div class="blog_post_image">
+    <a class="image_wrap" href={`/blog/${slug}`} aria-label={title}>
+      <img src={image} alt={title} loading="lazy" />
+    </a>
+  </div>
+
+  <div class="blog_post_content">
+    <ul class="post_meta unordered_list mb-2">
+      <li>
+        <a href={`/blog/category/${categorySlug}`}>
+          <i class="fa-solid fa-tag"></i> {category}
+        </a>
+      </li>
+      <li>
+        <a href="#!">
+          <i class="fa-solid fa-calendar-days"></i> {date}
+        </a>
+      </li>
+      <li>
+        <i class="fa-regular fa-clock"></i> {readTime}
+      </li>
+    </ul>
+
+    <h3 class="blog_post_title">
+      <a href={`/blog/${slug}`}>{title}</a>
+    </h3>
+
+    <p>{excerpt}</p>
+
+    <a class="blog_read_more" href={`/blog/${slug}`}>
+      Baca Selengkapnya
+      <i class="fa-solid fa-arrow-up-right ms-1"></i>
+    </a>
+  </div>
+
+</div>
+
+<style>
+  .blog_read_more {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: 'Axiforma SemiBold';
+    color: var(--bs-primary);
+    text-decoration: none;
+    transition: gap 0.2s ease, color 0.2s ease;
+  }
+
+  .blog_read_more:hover {
+    gap: 10px;
+    color: var(--bs-dark);
+  }
+
+  .blog_read_more i {
+    font-size: 12px;
+    transition: transform 0.2s ease;
+  }
+
+  .blog_read_more:hover i {
+    transform: translate(2px, -2px);
+  }
+</style>

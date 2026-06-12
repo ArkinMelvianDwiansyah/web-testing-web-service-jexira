@@ -1,0 +1,90 @@
+---
+// src/components/BlogSidebar.astro
+// Sidebar dinamis: data diambil dari blog.ts (bukan hardcode)
+import { blogs, getBlogCategories, getAllTags } from '../data/blog';
+
+const recentPosts = blogs.slice(0, 3);
+const categories = getBlogCategories();
+const tags = getAllTags();
+---
+
+<aside class="sidebar ps-lg-4">
+
+  <!-- Search -->
+  <div class="search_form">
+    <h3 class="sidebar_widget_title">Cari Artikel</h3>
+    <form action="/blog" method="get">
+      <div class="form-group">
+        <input
+          class="form-control"
+          type="search"
+          name="q"
+          placeholder="Ketik keyword..."
+          aria-label="Cari artikel"
+        />
+        <button type="submit" aria-label="Cari">
+          <img src="/assets/images/icons/icon_search.svg" alt="Cari" loading="lazy" />
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Recent Posts -->
+  <div class="post_list_block">
+    <h3 class="sidebar_widget_title">Artikel Terbaru</h3>
+    <ul class="unordered_list_block">
+      {recentPosts.map(post => (
+        <li>
+          <h3 class="post_title">
+            <a href={`/blog/${post.slug}`}>{post.title}</a>
+          </h3>
+          <ul class="post_meta unordered_list">
+            <li>
+              <a href="#!">
+                <img
+                  src="/assets/images/icons/icon_calendar.svg"
+                  alt="Calendar"
+                  loading="lazy"
+                /> {post.date}
+              </a>
+            </li>
+            <li>
+              <a href="#!">
+                <i class="fa-regular fa-comment-lines"></i> {post.comments}
+              </a>
+            </li>
+          </ul>
+        </li>
+      ))}
+    </ul>
+  </div>
+
+  <!-- Kategori -->
+  <div class="post_category_wrap">
+    <h3 class="sidebar_widget_title">Kategori</h3>
+    <ul class="post_category_list unordered_list_block">
+      {categories.map(cat => (
+        <li>
+          <a href={`/blog/category/${cat.slug}`}>
+            <i class="fa-solid fa-arrow-up-right"></i>
+            <span>{cat.name}</span>
+            <span>({cat.count.toString().padStart(2, '0')})</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+
+  <!-- Tag Populer -->
+  <div class="popular_tags">
+    <h3 class="sidebar_widget_title">Tag Populer</h3>
+    <ul class="tags_list unordered_list">
+      {tags.map(tag => (
+        <li>
+          <a href={`/blog/tag/${tag.toLowerCase().replace(/\s+/g, '-')}`}>{tag}</a>
+        </li>
+      ))}
+    </ul>
+  </div>
+
+</aside>

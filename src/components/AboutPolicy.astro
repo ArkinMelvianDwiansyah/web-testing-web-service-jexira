@@ -1,0 +1,52 @@
+---
+// src/components/AboutPolicy.astro
+
+const policies = [
+  {
+    icon: "/assets/images/icons/icon_clock.svg",
+    iconAlt: "Clock Icon",
+    iconBg: "",
+    title: "Sejarah Kami",
+    description:
+      "Berawal dari keresahan melihat UMKM yang kesulitan hadir secara digital, JalaninWeb didirikan dengan satu misi sederhana: buat website bagus itu mudah dan terjangkau untuk semua orang.",
+  },
+  {
+    icon: "/assets/images/icons/icon_dart_board_2.svg",
+    iconAlt: "Target Icon",
+    iconBg: "bg-warning-subtle",
+    title: "Misi Kami",
+    description:
+      "Memberdayakan bisnis lokal Indonesia dengan solusi digital yang modern, terjangkau, dan berdampak nyata — sehingga setiap UMKM bisa bersaing di era digital tanpa hambatan teknis.",
+  },
+  {
+    icon: "/assets/images/icons/icon_target.svg",
+    iconAlt: "Vision Icon",
+    iconBg: "bg-secondary-subtle",
+    title: "Visi Kami",
+    description:
+      "Menjadi mitra teknologi terpercaya nomor satu bagi UMKM dan bisnis lokal Indonesia — menghadirkan website berkualitas tinggi yang menjadi fondasi pertumbuhan bisnis jangka panjang.",
+  },
+];
+---
+
+<section class="policy_section bg-light">
+  <div class="container">
+    <div class="row">
+      {
+        policies.map((item) => (
+          <div class="col-lg-4">
+            <div class="iconbox_block">
+              <div class={`iconbox_icon ${item.iconBg}`}>
+                <img src={item.icon} alt={item.iconAlt} loading="lazy" />
+              </div>
+              <div class="iconbox_content">
+                <h3 class="iconbox_title">{item.title}</h3>
+                <p class="mb-0">{item.description}</p>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

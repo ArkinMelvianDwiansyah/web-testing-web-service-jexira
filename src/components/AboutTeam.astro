@@ -1,0 +1,131 @@
+---
+// src/components/AboutTeam.astro
+
+const members = [
+  {
+    name: "Arkin Melvian",
+    role: "Founder & Web Developer",
+    image: "/assets/images/team/team_member_image_1.webp",
+    socials: { instagram: "#!", linkedin: "#!", whatsapp: "https://wa.me/6289680551957" },
+  },
+  {
+    name: "Tim Desainer",
+    role: "UI/UX Designer",
+    image: "/assets/images/team/team_member_image_2.webp",
+    socials: { instagram: "#!", linkedin: "#!", whatsapp: "#!" },
+  },
+  {
+    name: "Tim Backend",
+    role: "Backend Developer",
+    image: "/assets/images/team/team_member_image_3.webp",
+    socials: { instagram: "#!", linkedin: "#!", whatsapp: "#!" },
+  },
+  {
+    name: "Tim Marketing",
+    role: "Digital Marketing",
+    image: "/assets/images/team/team_member_image_4.webp",
+    socials: { instagram: "#!", linkedin: "#!", whatsapp: "#!" },
+  },
+  {
+    name: "Tim SEO",
+    role: "SEO Specialist",
+    image: "/assets/images/team/team_member_image_5.webp",
+    socials: { instagram: "#!", linkedin: "#!", whatsapp: "#!" },
+  },
+  {
+    name: "Tim Support",
+    role: "Client Support",
+    image: "/assets/images/team/team_member_image_1.webp",
+    socials: { instagram: "#!", linkedin: "#!", whatsapp: "#!" },
+  },
+];
+
+// Duplikat untuk Swiper loop — cegah blinking/snap balik
+const slides = [...members, ...members];
+---
+
+<section class="team_section section_space xb-hidden">
+  <div class="container">
+    <div class="heading_block text-center">
+      <div class="heading_focus_text">
+        <span class="badge bg-secondary text-white">Tim Kami</span>
+        Orang-orang di Balik JalaninWeb 😍
+      </div>
+      <h2 class="heading_text mb-0">
+        Ahli yang Siap Membantu Bisnis Kamu
+      </h2>
+    </div>
+
+    <div class="team_carousel">
+      <div class="swiper-wrapper">
+        {slides.map(member => (
+          <div class="swiper-slide">
+            <div class="team_block">
+
+              <div class="team_member_image">
+                <a class="image_wrap" aria-label={member.name} href="#!">
+                  <img src={member.image} alt={member.name} loading="lazy" />
+                  <i class="fa-solid fa-arrow-up-right"></i>
+                </a>
+              </div>
+
+              <div class="team_member_info">
+                <h3 class="team_member_name">
+                  <a href="#!">{member.name}</a>
+                </h3>
+                <h4 class="team_member_designation">{member.role}</h4>
+                <ul class="social_icons_block unordered_list justify-content-center">
+                  <li>
+                    <a href={member.socials.instagram} aria-label="Instagram">
+                      <img src="/assets/images/icons/icon_instagram.svg" alt="Instagram" loading="lazy" />
+                    </a>
+                  </li>
+                  <li>
+                    <a href={member.socials.linkedin} aria-label="LinkedIn">
+                      <img src="/assets/images/icons/icon_linkedin.svg" alt="LinkedIn" loading="lazy" />
+                    </a>
+                  </li>
+                  <li>
+                    <a href={member.socials.whatsapp} aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
+                      <i class="fa-brands fa-whatsapp" style="font-size: 18px; color: #25D366;"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Gambar fill penuh dari atas — sesuai referensi template */
+  .team_section .team_block .image_wrap {
+    padding: 0 !important;
+    align-items: stretch !important;
+    overflow: hidden !important;
+  }
+
+  .team_section .team_block .image_wrap img {
+    width: 100% !important;
+    height: 100% !important;
+    max-height: 100% !important;
+    object-fit: cover !important;
+    object-position: center top !important;
+  }
+
+  /* WhatsApp icon alignment */
+  .team_block .social_icons_block a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .team_block .social_icons_block .fa-whatsapp {
+    font-size: 18px;
+    color: #25D366;
+  }
+</style>
